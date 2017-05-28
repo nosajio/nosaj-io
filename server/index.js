@@ -5,6 +5,7 @@ const express = require('express');
 const app = express();
 
 const { PORT } = process.env;
+const viewsDir = 'views';
 
 module.exports = {boot};
 
@@ -16,7 +17,7 @@ function boot() {
 
 
 function middleware() {
-  app.set('views', path.resolve(__dirname, '../templates'));
+  app.set('views', path.resolve(__dirname, '../', viewsDir));
   app.set('view engine', 'pug');
 }
 
