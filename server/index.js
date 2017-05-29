@@ -19,6 +19,8 @@ function boot() {
 function middleware() {
   app.set('views', path.resolve(__dirname, '../', viewsDir));
   app.set('view engine', 'pug');
+  // To tell pug where to look for includes
+  app.locals.basedir = path.resolve(__dirname, '../', viewsDir);
 }
 
 function routes() {

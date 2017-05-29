@@ -1,14 +1,10 @@
+doctype html
 html
-  head
-    title Jason makes the internet
-    style= stylesheet
-    script(src='https://use.typekit.net/nha0neq.js')
-    script.
-      try{Typekit.load({ async: true });}catch(e){}
+  include /includes/head
   body
-    main(class='main-frame landing-view')
-      section(class='landing-top')
-        header(class='landing-top__header')
+    main.main-frame.landing-view
+      section.landing-top
+        header.landing-top__header
           h1 Design & Build
-        div(class='landing-top__intro')
+        div.landing-top__intro
           p= introText
