@@ -10,7 +10,7 @@ function landingHandler(req, res) {
       const template = Object.assign(
         {}, 
         content, 
-        { stylesheet }
+        { head: { stylesheet } }
       );
       res.render('landing', template);
     })

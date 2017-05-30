@@ -1,3 +1,14 @@
+@import 'globals';
+@import 'fonts';
+
 .error-404 {
-  
+  width: 100%;
+  margin: 0 auto;
+  max-width: 500px;
+  text-align: center;
+}
+
+
+.error-404__heading {
+  font: 400 11.30rem/1.4 #{$ff-headings};
 }
