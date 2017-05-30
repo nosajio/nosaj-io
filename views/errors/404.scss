@@ -1,3 +1,4 @@
+@import 'ms';
 @import 'globals';
 @import 'fonts';
 
@@ -8,7 +9,6 @@
   text-align: center;
 }
 
-
 .error-404__heading {
-  font: 400 11.30rem/1.4 #{$ff-headings};
+  font: 400 #{msRem(7)}/1.4 #{$ff-headings};
 }
