@@ -1,5 +1,37 @@
+@import 'ms';
+@import 'fonts';
 @import 'globals';
 
 .landing-view {
+  background: rgb(17, 32, 83);
+  color: white;
+}
+
+.landing-top {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 88vh;
   
+  &__header {
+    width: 100%;
+    text-align: center;
+  }
+  
+  &__intro {
+    width: 100%;
+    max-width: 500px;
+    
+    p {
+      margin: msRem(3) 0 0;
+    }
+  }
+}
+
+// The DESIGN & BUILD header piece
+.design-and-build {
+  font: 700 msRem(5) $ff-headings;
+  text-transform: uppercase;
 }
