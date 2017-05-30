@@ -14,7 +14,5 @@ function landingHandler(req, res) {
       );
       res.render('landing', template);
     })
-    .catch(err => {
-      renderError(res, '500', err);
-    });
+    .catch(err => renderError(res, '500', err));
 }

@@ -6,6 +6,7 @@ const app = express();
 
 const { PORT } = process.env;
 const viewsDir = 'views';
+const publicDir = 'public';
 
 module.exports = {boot};
 
@@ -17,6 +18,9 @@ function boot() {
 
 
 function middleware() {
+  // Setup public (assets) directory
+  app.use( express.static(path.resolve(__dirname, '../', publicDir)) )
+  // Setup templating
   app.set('views', path.resolve(__dirname, '../', viewsDir));
   app.set('view engine', 'pug');
   // To tell pug where to look for includes
@@ -24,5 +28,7 @@ function middleware() {
 }
 
 function routes() {
-  app.use('/', require('./landing'));
+  app.get('/', require('./landing'));
+  // 404 catch all
+  app.use(require('./error404'));
 }
