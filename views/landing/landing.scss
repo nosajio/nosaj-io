@@ -2,8 +2,10 @@
 @import 'fonts';
 @import 'globals';
 
+$clr-landing-bg: rgb(17, 32, 83);
+
 .landing-view {
-  background: rgb(17, 32, 83);
+  background: $clr-landing-bg;
   color: white;
 }
 
@@ -22,9 +24,11 @@
   
   &__intro {
     width: 100%;
-    max-width: 500px;
+    max-width: 400px;
     
     p {
+      font-size: msRem(1);
+      text-align: justify;
       margin: msRem(3) 0 0;
     }
   }
@@ -32,6 +36,22 @@
 
 // The DESIGN & BUILD header piece
 .design-and-build {
-  font: 700 msRem(5) $ff-headings;
+  $clr-design-and-build: lighten($clr-landing-bg, 10%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: 700 msRem(6) $ff-headings;
   text-transform: uppercase;
+  color: $clr-design-and-build;
+  
+  &__arrow {
+    $arrow-h-w-ratio: 1;
+    // $arrow-h-w-ratio: .45902442;
+    $arrow-w: ms(4);
+    display: inline-block;
+    width: #{$arrow-w}rem;
+    height: #{$arrow-h-w-ratio * $arrow-w}rem;
+    margin: 0 msRem(2);
+    background: url('/img/white-plus.svg') no-repeat center / 100% auto;
+  }
 }

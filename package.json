@@ -5,6 +5,9 @@
   "repository": "https://github.com/nosajio/nosaj.io",
   "author": "Jason Howmans <jason@nosaj.io>",
   "license": "MIT",
+  "scripts": {
+    "dev": "DEBUG=nosaj:* node boot"
+  },
   "dependencies": {
     "debug": "^2.6.8",
     "dotenv": "^4.0.0",
