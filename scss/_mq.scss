@@ -1,0 +1,19 @@
+$bp-small: 320px;
+$bp-medium: 720px;
+$bp-large: 1024px;
+$bp-hd: 1200px;
+
+@function mq($query) {
+  @if $query == s {
+    @return 'only screen and (min-width: #{$bp-small + 1px})';
+  } 
+  @if $query == m {
+    @return 'only screen and (min-width: #{$bp-medium + 1px})';
+  } 
+  @if $query == l {
+    @return 'only screen and (min-width: #{$bp-large + 1px})';
+  } 
+  @if $query == hd {
+    @return 'only screen and (min-width: #{$bp-hd + 1px})';
+  } 
+}
