@@ -28,7 +28,8 @@ function middleware() {
 }
 
 function routes() {
-  app.get('/', require('./landing'));
+  app.get('/', require('./pages/landing'));
+  app.get('/work', require('./pages/work'));
   // 404 catch all
-  app.use(require('./error404'));
+  app.use(require('./pages/error404'));
 }
