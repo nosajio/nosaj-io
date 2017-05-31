@@ -6,11 +6,13 @@ html
     main.main-frame
       section.landing-top
         header.landing-top__header
-          h1.design-and-build Design #[span.design-and-build__arrow] Build
+          h1.design-and-build 
+            | Design 
+            span.design-and-build__arrow 
+              include /../public/img/white-plus.svg
+            | Build
         div.landing-top__intro
-          p= introText
+          each line in introText
+            p= line
       section.landing-kindness
-        ul.quotes-horiz
-          li.quotes-horiz__quote
-            p Something nice
-            cite Someone Nicer
+        include quotes
