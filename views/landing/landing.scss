@@ -16,7 +16,10 @@
 }
 
 $clr-landing-bg: rgb(88, 91, 101);
-$clr-secondary: lighten( adjust-hue($clr-landing-bg, 180deg), 6%);
+$clr-secondary: saturate(
+  lighten( adjust-hue($clr-landing-bg, 180deg), 4%),
+  14%
+);
 
 .landing-view {
   background: $clr-landing-bg;
