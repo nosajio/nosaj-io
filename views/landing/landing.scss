@@ -168,7 +168,13 @@ $clr-secondary: lighten( adjust-hue($clr-landing-bg, 180deg), 6%);
     cite {
       display: block;
       font-size: .9rem;
+      margin-top: 5px;
       color: lighten($clr-landing-bg, 30%);
+    }
+    cite::before {
+      content: '—';
+      display: inline-block;
+      margin-right: 10px;
     }
   }
 }
