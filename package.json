@@ -6,7 +6,7 @@
   "author": "Jason Howmans <jason@nosaj.io>",
   "license": "MIT",
   "scripts": {
-    "dev": "DEBUG=nosaj:* node boot"
+    "dev": "DEBUG=nosaj:* nodemon boot"
   },
   "dependencies": {
     "debug": "^2.6.8",
@@ -14,5 +14,8 @@
     "express": "^4.15.3",
     "node-sass": "^4.5.3",
     "pug": "^2.0.0-rc.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
   }
 }
