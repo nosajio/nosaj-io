@@ -1,15 +1,30 @@
 @import 'ms';
 @import 'fonts';
+@import 'easing';
 @import 'globals';
 
+@keyframes zoom-enter {
+  from {
+    transform: scale(.9);
+    opacity: 0;
+  }
+}
+
 $clr-landing-bg: rgb(88, 91, 101);
+$clr-secondary: lighten( adjust-hue($clr-landing-bg, 180deg), 6%);
 
 .landing-view {
   background: $clr-landing-bg;
   color: white;
+  
+  a {
+    color: lighten($clr-landing-bg, 40%);
+  }
 }
 
 .landing-top {
+  position: relative;
+  overflow-y: hidden;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -25,6 +40,7 @@ $clr-landing-bg: rgb(88, 91, 101);
   &__intro {
     width: 100%;
     max-width: 50%;
+    animation: zoom-enter 500ms 1 both $easeOutCubic;
     
     p {
       font-size: msRem(2);
@@ -32,29 +48,48 @@ $clr-landing-bg: rgb(88, 91, 101);
       margin: msRem(2) 0 0;
     }
   }
+  
+  &__availability {
+    width: 100%;
+    max-width: 50%;
+    text-align: left;
+    margin-top: msRem(2);
+    color: lighten($clr-secondary, 10%);
+    animation: zoom-enter 500ms 2s 1 both $easeOutCubic;
+  }
+  
+  // The DESIGN & BUILD header piece
+  .design-and-build {
+    user-select: none;
+    position: absolute;
+    bottom: -55px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: 700 msRem(7) $ff-headings;
+    text-transform: uppercase;
+    color: $clr-secondary;
+    
+    &__arrow {
+      $arrow-h-w-ratio: 1;
+      // $arrow-h-w-ratio: .45902442;
+      $arrow-w: ms(4);
+      display: inline-block;
+      width: #{$arrow-w}rem;
+      height: #{$arrow-h-w-ratio * $arrow-w}rem;
+      margin: 0 msRem(2);
+      
+      svg { display: block; width: 100%; height: 100%; }
+      // Make the svg the same color as the text
+      svg polygon { fill: $clr-secondary; }
+    }
+  }
 }
 
-// The DESIGN & BUILD header piece
-.design-and-build {
-  $clr-design-and-build: lighten( adjust-hue($clr-landing-bg, 180deg), 6%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font: 700 msRem(6) $ff-headings;
-  text-transform: uppercase;
-  color: $clr-design-and-build;
-  
-  &__arrow {
-    $arrow-h-w-ratio: 1;
-    // $arrow-h-w-ratio: .45902442;
-    $arrow-w: ms(4);
-    display: inline-block;
-    width: #{$arrow-w}rem;
-    height: #{$arrow-h-w-ratio * $arrow-w}rem;
-    margin: 0 msRem(2);
+.quotes-horiz {
+  &__quote {
     
-    svg { display: block; width: 100%; height: 100%; }
-    // Make the svg the same color as the text
-    svg polygon { fill: $clr-design-and-build; }
   }
 }

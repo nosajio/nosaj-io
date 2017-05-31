@@ -5,5 +5,14 @@ module.exports = () => ({
     'I\'m currently working to help people build ambitious websites & apps to tight deadlines.'
   ],
   available: true,
-  quotes: [],
+  quotes: [
+    {
+      from: 'Nuno Vega',
+      quote: 'Jason get\'s my five stars'
+    },
+    {
+      from: 'Alex DeFazio',
+      quote: 'I simply cannot speak highly enough of Jason'
+    },
+  ],
 });

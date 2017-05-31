@@ -1,4 +1,6 @@
 ul.quotes-horiz
-  li.quotes-horiz__quote
-    p Something nice
-    cite Someone Nicer
+  each quote in quotes
+    li.quotes-horiz__quote
+      p= quote.quote
+      cite= quote.from
+    

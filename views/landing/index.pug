@@ -14,5 +14,9 @@ html
         div.landing-top__intro
           each line in introText
             p= line
+        if available
+          div.landing-top__availability 
+            div.landing-top__availability-text For work enquiries
+            a(href='mailto: hi@nosaj.io?subject=Hi').landing-top__availability-email hi@nosaj.io
       section.landing-kindness
         include quotes
