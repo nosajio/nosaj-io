@@ -1,3 +1,4 @@
+@import 'mq';
 @import 'ms';
 @import 'fonts';
 @import 'easing';
@@ -10,6 +11,10 @@
   }
 }
 
+@keyframes fade-enter {
+  from { opacity: 0; }
+}
+
 $clr-landing-bg: rgb(88, 91, 101);
 $clr-secondary: lighten( adjust-hue($clr-landing-bg, 180deg), 6%);
 
@@ -17,8 +22,13 @@ $clr-secondary: lighten( adjust-hue($clr-landing-bg, 180deg), 6%);
   background: $clr-landing-bg;
   color: white;
   
-  a {
-    color: lighten($clr-landing-bg, 40%);
+  a { 
+    color: white; 
+    background: darken($clr-landing-bg, 4%);
+    padding: 1px 3px;
+  }
+  a:hover {
+    background: darken($clr-landing-bg, 10%);
   }
 }
 
@@ -28,9 +38,12 @@ $clr-secondary: lighten( adjust-hue($clr-landing-bg, 180deg), 6%);
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
-  align-items: center;
   width: 100%;
-  min-height: 88vh;
+  min-height: 100vh;
+  
+  @media #{mq(m)} {
+    align-items: center;
+  }
   
   &__header {
     width: 100%;
@@ -39,30 +52,68 @@ $clr-secondary: lighten( adjust-hue($clr-landing-bg, 180deg), 6%);
   
   &__intro {
     width: 100%;
-    max-width: 50%;
-    animation: zoom-enter 500ms 1 both $easeOutCubic;
+    animation: zoom-enter 500ms 300ms 1 both $easeOutCubic;
+    
+    @media #{mq(m)} {
+      max-width: 50%;
+    }
     
     p {
-      font-size: msRem(2);
       font-weight: 500;
-      margin: msRem(2) 0 0;
+      @media #{mq(m)} {
+        font-size: msRem(2);
+        margin: msRem(2) 0 0;
+      }
     }
+  }
+  
+  &__actions {
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+    
+    @media #{mq(m)} {
+      max-width: 50%;
+      margin-top: msRem(1);
+    }
+    
+    a { color: lighten($clr-secondary, 15%); }
+    
+    li:nth-child(1n+1) { animation: fade-enter 500ms 1s 1 both $easeOutCubic; }
+    li:nth-child(1n+2) { animation: fade-enter 500ms 1.4s 1 both $easeOutCubic; }
+    li:nth-child(1n+3) { animation: fade-enter 500ms 1.8s 1 both $easeOutCubic; }
+    
+    li {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+    }
+    
+    li + li::before {
+      content: '';
+      margin: 0 20px;
+      display: inline-block;     
+      width: 5px;
+      height: 5px;
+      border-radius: 10px;
+      background: $clr-secondary;
+    }    
   }
   
   &__availability {
     width: 100%;
     max-width: 50%;
     text-align: left;
-    margin-top: msRem(2);
-    color: lighten($clr-secondary, 10%);
-    animation: zoom-enter 500ms 2s 1 both $easeOutCubic;
+    color: lighten($clr-secondary, 8%);
+    
+    &-text { display: inline-block; }
   }
   
   // The DESIGN & BUILD header piece
   .design-and-build {
     user-select: none;
     position: absolute;
-    bottom: -55px;
+    bottom: -70px;
     left: 0;
     width: 100%;
     display: flex;
@@ -71,6 +122,9 @@ $clr-secondary: lighten( adjust-hue($clr-landing-bg, 180deg), 6%);
     font: 700 msRem(7) $ff-headings;
     text-transform: uppercase;
     color: $clr-secondary;
+    
+    // Nice and slow
+    animation: fade-enter 9s 500ms 1 both $easeOutCubic; 
     
     &__arrow {
       $arrow-h-w-ratio: 1;
@@ -89,7 +143,32 @@ $clr-secondary: lighten( adjust-hue($clr-landing-bg, 180deg), 6%);
 }
 
 .quotes-horiz {
+  display: flex;
+  flex-flow: column nowrap;
+  margin: msRem(6) 0;
+  
+  @media #{mq(m)} {
+    flex-flow: row nowrap;
+    justify-content: space-around; 
+  }
+  
   &__quote {
+    width: 100%;
     
+    @media #{mq(m)} {
+      width: 30%;
+    }
+    
+    // The quote
+    p {
+      font-size: msRem(1);
+      margin: 0;
+    }
+    // The human
+    cite {
+      display: block;
+      font-size: .9rem;
+      color: lighten($clr-landing-bg, 30%);
+    }
   }
 }
