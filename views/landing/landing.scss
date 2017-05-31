@@ -26,9 +26,7 @@ $clr-secondary: saturate(
   color: white;
   
   a { 
-    color: white; 
-    background: darken($clr-landing-bg, 4%);
-    padding: 1px 3px;
+    color: white;
   }
   a:hover {
     background: darken($clr-landing-bg, 10%);
@@ -81,6 +79,17 @@ $clr-secondary: saturate(
     }
     
     a { color: lighten($clr-secondary, 15%); }
+    
+    .action-cta { 
+      color: lighten($clr-secondary, 15%);
+      background: darken($clr-landing-bg, 10%);
+      padding: 8px 15px;
+      border-radius: 3px;
+      text-decoration: none;
+    }
+    a:hover {
+      background: darken($clr-landing-bg, 20%);
+    }
     
     li:nth-child(1n+1) { animation: fade-enter 500ms 1s 1 both $easeOutCubic; }
     li:nth-child(1n+2) { animation: fade-enter 500ms 1.4s 1 both $easeOutCubic; }
