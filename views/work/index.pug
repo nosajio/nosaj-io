@@ -4,5 +4,15 @@ html
   body.work-view
     include /includes/logo
     main.main-frame
-      section.work-top
-        
+      section.work-main
+        each project in projects
+          div.work-block
+            div.work-block__preview
+              img(src=project.imgURL alt='')
+            div.work-block__body
+              header.work-block__title
+                h1= project.product
+              p= project.description
+              if project.webURL
+                a(href=project.webURL).project-url Live site
+    include /includes/footer

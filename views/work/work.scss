@@ -1,1 +1,80 @@
 @import 'globals';
+@import 'ms';
+@import 'mq';
+@import 'fonts';
+
+$clr-work-bg: rgb(28, 25, 33);
+
+.work-view {
+  background: $clr-work-bg;
+  color: rgb(247, 249, 239);
+  
+  // Make the logo white
+  .logo svg path {
+    fill: white;
+  }
+}
+
+.work-main {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.work-block {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  margin-top: msRem(3);
+  
+  @media #{mq(m)} {
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin-top: msRem(9);
+  }
+  
+  &__title {
+    width: 100%;
+    margin-bottom: msRem(2);
+    
+    h1 {
+      font: 700 msRem(2) $ff-headings;
+    }
+  }
+  
+  &__preview,
+  &__body {
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  &__preview {
+    background: lighten($clr-work-bg, 10%);
+    min-height: 900px;
+  }
+  
+  &__body {
+    max-width: 450px;
+    
+    p {
+      margin: 0;
+      font-size: msRem(1);
+      line-height: 1.6;
+    }
+  }
+  
+  .project-url {
+    display: block;
+    margin-top: msRem(2);
+    color: white;
+    font-size: msRem(1);
+  }
+}
+
+.work-block:nth-of-type(even) {
+  @media #{mq(m)} {
+    flex-direction: row-reverse;
+  }
+}
