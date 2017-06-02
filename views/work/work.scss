@@ -37,22 +37,36 @@ $clr-work-bg: rgb(28, 25, 33);
   
   &__title {
     width: 100%;
-    margin-bottom: msRem(2);
+    margin-bottom: msRem(3);
+    text-align: center;
+    
+    @media #{mq(m)} {
+      text-align: left;
+    }
     
     h1 {
-      font: 700 msRem(2) $ff-headings;
+      font: 700 msRem(3) $ff-headings;
     }
   }
   
   &__preview,
   &__body {
     width: 100%;
-    max-width: 600px;
+    max-width: 100%;
+    @media #{mq(m)} {
+      max-width: 600px;
+    }
   }
   
   &__preview {
-    background: lighten($clr-work-bg, 10%);
+    background: lighten($clr-work-bg, 2%);
     min-height: 900px;
+    // margin-top: 80px;
+    margin-bottom: msRem(3);
+    
+    @media #{mq(m)} {
+      margin-bottom: 0;
+    }
   }
   
   &__body {
@@ -66,10 +80,12 @@ $clr-work-bg: rgb(28, 25, 33);
   }
   
   .project-url {
-    display: block;
+    display: inline-block;
     margin-top: msRem(2);
-    color: white;
+    color: lighten($clr-work-bg, 50%);
     font-size: msRem(1);
+    text-decoration: none;
+    border-bottom: 1px solid lighten($clr-work-bg, 28%);
   }
 }
 
