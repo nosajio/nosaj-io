@@ -6,9 +6,11 @@ html
     main.main-frame
       section.work-main
         each project in projects
-          div.work-block
+          div.work-block(class=project.id)
             div.work-block__preview
-              img(src=project.imgURL alt='')
+              each img in project.images
+                div.preview(class=`preview--${img.type}`)
+                  img(src=img.url alt='')
             div.work-block__body
               header.work-block__title
                 h1= project.product

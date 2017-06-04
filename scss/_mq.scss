@@ -1,7 +1,7 @@
 $bp-small: 320px;
 $bp-medium: 720px;
 $bp-large: 1024px;
-$bp-hd: 1200px;
+$bp-hd: 1900px;
 
 @function mq($query) {
   @if $query == s {
