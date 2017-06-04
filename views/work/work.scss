@@ -38,11 +38,13 @@ $height-of-preview-img-mobile: 700px;
     content: '';
     display: block;
     width: 100%;
-    height: 10px;
+    min-width: 100px;
+    max-width: 330px;
+    height: 8px;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: msRem(5);
-    background: 
-        url('/img/triangles-repeat.svg') repeat-x -1px center / auto 12px, 
-        linear-gradient(to right, #a0ee20, #81ffa4, #45d2ff, #fc4cf0) no-repeat center 0 / 33% 10px;
+    background: url('/img/triangle-repeat.svg') space center / auto 8px;
     
     @media #{mq(l)} {
       // column-reverse puts the ::after pseudo element at the top
@@ -52,7 +54,7 @@ $height-of-preview-img-mobile: 700px;
   }
     
   @media #{mq(l)} {
-    flex-flow: row wrap;
+    flex-flow: row-reverse wrap;
     justify-content: space-around;
     padding-top: $pad-work-block;
     text-align: left;
@@ -137,6 +139,11 @@ $height-of-preview-img-mobile: 700px;
       line-height: 1.6;
     }
     
+    h2 {
+      margin: msRem(1) 0 1rem;
+      font-weight: 600;
+    }
+    
     @media #{mq(l)} {
       padding-left: msRem(2);
       width: 30%;
@@ -145,12 +152,24 @@ $height-of-preview-img-mobile: 700px;
     }
   }
   
+  &__stack-child {
+    display: inline;
+    color: lighten($clr-work-bg, 40%);
+    
+    & + &::before {
+      content: '/';
+      display: inline;
+      margin: 0 5px;
+      color: lighten($clr-work-bg, 10%);
+    }
+  }
+  
   .project-url {
     display: inline-block;
-    margin-top: msRem(2);
-    color: lighten($clr-work-bg, 50%);
+    margin-top: msRem(3);
+    color: white;
     text-decoration: none;
-    // border-bottom: 1px solid rgba(50 , 50, 50, .7);
+    border-bottom: 2px solid rgba(255 , 255, 255, .7);
   }
 }
 
@@ -166,25 +185,19 @@ $height-of-preview-img-mobile: 700px;
 // Flip the direction for every other project
 .work-block:nth-of-type(even) {
   @media #{mq(l)} {
-    flex-direction: row-reverse;
-  }
-  
-  .work-block__body {
-    @media #{mq(l)} {
-      padding: 0 msRem(2);
-    }
+    flex-direction: row;
   }
   
   .preview--desktop {
     @media #{mq(l)} {
-      padding-left: msRem(3);
-      padding-right: 0;
+      padding-right: msRem(3);
+      padding-left: 0;
     }
   }
   
   .preview--mobile {
     @media #{mq(l)} {
-      left: 0; right: auto;
+      right: 0; left: auto;
     }
   }
 }

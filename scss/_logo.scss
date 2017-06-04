@@ -2,9 +2,6 @@ $logo-wh-ratio: .810734463;
 $logo-width: 70px;
 
 .logo {
-  position: fixed;
-  top: 30px;
-  right: 30px;
   width: $logo-width;
   height: $logo-width * $logo-wh-ratio;
 }

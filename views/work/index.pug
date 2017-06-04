@@ -2,7 +2,7 @@ doctype html
 html
   include /includes/head
   body.work-view
-    include /includes/logo
+    include /includes/navigation
     main.main-frame
       section.work-main
         each project in projects
@@ -15,6 +15,11 @@ html
               header.work-block__title
                 h1= project.product
               p= project.description
+              if project.stack
+                h2 Stack
+                ul.work-block__stack
+                  each s in project.stack
+                    li.work-block__stack-child= s
               if project.webURL
-                a(href=project.webURL target='_blank').project-url Live site
+                a(href=project.webURL target='_blank').project-url See it live
     include /includes/footer
