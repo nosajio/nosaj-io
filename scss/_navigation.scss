@@ -1,7 +1,39 @@
+@import 'ms';
+@import 'mq';
+
+$nav-spacing: msRem(1);
+
 .main-navigation {
   position: fixed;
+  z-index: 9000;
   top: 30px; right: 30px;
   left: 30px;
   display: flex;
   flex-flow: row-reverse;
+  
+  .logo {
+    margin-left: $nav-spacing;
+  }
+  
+  .nav-links {
+    display: flex;
+    align-items: center;
+    flex-flow: row nowrap;
+    text-transform: uppercase;
+    font-size: .9rem;
+    font-weight: 500;
+    
+    a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 0 $nav-spacing;
+      opacity: .7;
+    }
+    
+    a:hover {
+      opacity: 1;
+    }
+  }
+  
 }

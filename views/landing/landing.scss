@@ -28,9 +28,6 @@ $clr-secondary: saturate(
   a { 
     color: white;
   }
-  a:hover {
-    background: darken($clr-landing-bg, 10%);
-  }
 }
 
 .landing-top {
