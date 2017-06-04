@@ -1,6 +1,7 @@
 module.exports = () => ({
+  scripts: ['work.js'],
   title: 'Work',
-  content: 'Below are a selection of projects that I have worked on recently',
+  subtitle: 'Below are a selection of projects that I have worked on recently',
   projects: [
     {
       id: 'justalevel',

@@ -1,6 +1,7 @@
 // const debug = require('debug')('nosaj:work');
 const content = require('../../content/work')();
 const renderStylesheet = require('../../lib/renderStylesheet');
+const injectScripts = require('../../lib/injectScripts');
 const renderError = require('../../lib/renderError');
 
 module.exports = workHandler;
@@ -8,11 +9,11 @@ module.exports = workHandler;
 function workHandler(req, res) {
   renderStylesheet('views/work/work.scss')
     .then((stylesheet) => {
-      // Generate styles for each project
+      const scripts = injectScripts(['work.js']);
       const template = Object.assign(
         {}, 
         content, 
-        { head: { stylesheet } }
+        { head: { stylesheet, scripts } }
       );
       res.render('work', template);
     })
