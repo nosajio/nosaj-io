@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="48" viewBox="0 0 96 48">
+  <g fill-rule="evenodd" fill="#4a4a4a">
+    <polygon points="24 0 48 48 0 48"/>
+    <polygon points="72 0 96 48 48 48" transform="matrix(1 0 0 -1 0 48)"/>
+  </g>
+</svg>
