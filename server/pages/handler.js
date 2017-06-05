@@ -14,7 +14,10 @@ function pageHandler(req, res, page) {
       const template = Object.assign(
         {}, 
         page,
-        { head: { stylesheet: styles, scripts: javascript || '' } }
+        { 
+          head: { stylesheet: styles }, 
+          footer: { scripts: javascript || '' } 
+        }
       );
       res.render(view, template);
     })
