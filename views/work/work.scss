@@ -2,6 +2,7 @@
 @import 'ms';
 @import 'mq';
 @import 'fonts';
+@import 'easing';
 
 $clr-work-bg: #4a4a4a;
 $pad-work-block: msRem(6);
@@ -61,13 +62,17 @@ $height-of-preview-img-mobile: 700px;
   }
   
   &__title {
+    display: block;
     width: 100%;
     margin-bottom: msRem(1);
     
     h1 {
+      display: inline-block;
       font: 600 msRem(1) $ff-headings;
       letter-spacing: 5px;
       text-transform: uppercase;
+      padding-bottom: msRem(-3);
+      border-bottom: solid 2px white;
     }
   }
   
@@ -174,6 +179,56 @@ $height-of-preview-img-mobile: 700px;
     color: white;
     text-decoration: none;
     border-bottom: 2px solid rgba(255 , 255, 255, .7);
+  }
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+}
+
+@keyframes psst {
+  from {
+    opacity: 0;
+    transform: translateY(200px);
+  }  
+}
+
+// The PSST bar will be shown as the user scrolls down the page
+.psst-bar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: lighten($clr-work-bg, 20%);
+  color: white;
+  text-align: center;
+  padding: msRem(1) 0;
+  
+  p { 
+    margin: 0; 
+    font-size: msRem(1);
+    text-shadow: 0 1px 2px darken($clr-work-bg, 10%);
+  }
+  
+  strong {
+    font-weight: 700;
+  }
+  
+  &--showing {
+    display: block;
+    animation: psst 300ms 200ms 1 both $easeOutCubic;
+  }
+  
+  &--showing p {
+    animation: fadein 300ms 600ms 1 both $easeOutCubic;
+  }
+  
+  .psst-action {
+    // It's too cool to not do it...
+    &s { margin-top: msRem(-1); }
+    
+
   }
 }
 

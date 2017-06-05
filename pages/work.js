@@ -2,7 +2,7 @@ module.exports = () => ({
   view: 'work',
   path: '/work',
   stylesheet: 'views/work/work.scss',
-  scripts: ['work.js'],
+  scripts: ['$.js', 'work.js'],
   
   title: 'Work',
   subtitle: 'Below are a selection of projects that I have worked on recently',

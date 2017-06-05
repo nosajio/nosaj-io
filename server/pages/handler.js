@@ -6,7 +6,6 @@ const renderError = require('../../lib/renderError');
 module.exports = pageHandler;
 
 function pageHandler(req, res, page) {
-  debug('Register route: %s', page.path);
   const { stylesheet, scripts, view } = page;
   renderStylesheet(stylesheet)
     .then((styles) => {
