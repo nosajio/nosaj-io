@@ -10,14 +10,11 @@ function pageHandler(req, res, page) {
   renderStylesheet(stylesheet)
     .then((styles) => {
       const javascript = scripts && injectScripts(scripts);
-      const template = Object.assign(
-        {}, 
-        page,
-        { 
-          head: { stylesheet: styles }, 
-          footer: { scripts: javascript || '' } 
-        }
-      );
+      const headerFooter = { 
+        head: { stylesheet: styles }, 
+        footer: { scripts: javascript || '' } 
+      };
+      const template = Object.assign({}, page, headerFooter);
       res.render(view, template);
     })
     .catch(err => renderError(res, '500', err));
