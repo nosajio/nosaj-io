@@ -1,6 +1,10 @@
 require('dotenv').config();
-const path = require('path');
 const debug = require('debug')('nosaj:boot');
+const error = require('debug')('nosaj:error');
+
+const path = require('path');
+const readPages = require('../lib/dynamicRoutes');
+const pageHandler = require('./pages/handler');
 const express = require('express');
 const app = express();
 
@@ -28,8 +32,20 @@ function middleware() {
 }
 
 function routes() {
-  app.get('/', require('./pages/landing'));
-  app.get('/work', require('./pages/work'));
-  // 404 catch all
-  app.use(require('./pages/error404'));
+  // Configure routes
+  readPages()
+    .then(handleDynamicRoutes)
+    .then(() => {
+      // 404 catch all
+      app.use(require('./pages/error404'));
+    })
+    .catch(err => error(err.message));
+}
+
+function handleDynamicRoutes(pages) {
+  pages.forEach(p => {
+    debug('register %s', p.path)
+    app.get(p.path, (req, res) => pageHandler(req, res, p));
+  });
+  return pages;
 }

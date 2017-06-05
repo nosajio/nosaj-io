@@ -1,4 +1,7 @@
 module.exports = () => ({
+  view: 'landing',
+  path: '/',
+  stylesheet: 'views/landing/landing.scss',
   title: 'Jason makes the internet',
   introText: [
     'I\'m Jason, nice to meet you. I design & make measurable products using modern web technologies.',
