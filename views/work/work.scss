@@ -84,7 +84,6 @@ $height-of-preview-img-mobile: 700px;
   &__preview {
     position: relative;
     margin-top: msRem(3);
-    overflow: hidden;
     
     @media #{mq(l)} {
       margin-top: 0;
@@ -94,16 +93,17 @@ $height-of-preview-img-mobile: 700px;
   
   .preview {
     display: block;
-    max-height: $height-of-preview-img-mobile;
     height: auto;
+    max-height: $height-of-preview-img-mobile;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 0 50px rgba(0,0,0,.2);
     
     @media #{mq(l)} {
       max-height: $height-of-preview-img-desktop;
     }
     
     img {
-      box-shadow: 0 0 50px rgba(0,0,0,.08);
-      border-radius: 5px 5px 0 0;
       display: block;
       height: auto;
       width: 100%;
@@ -112,18 +112,22 @@ $height-of-preview-img-mobile: 700px;
   
   .preview--desktop {
     @media #{mq(l)} {
-      padding-right: msRem(3);
+      margin-left: msRem(3);
     }
   }
   
   .preview--mobile {
     position: absolute;
-    right: msRem(2);
-    top: $height-of-preview-img-desktop / 3; // 1/2 of the height of the main preview
+    left: msRem(2);
+    top: $height-of-preview-img-mobile / 3; // 1/2 of the height of the main preview
     max-width: 30%;
+    max-height: $height-of-preview-img-mobile / 3 * 2;
+    // Calculate max-height based off height variable
     
     @media #{mq(l)} {
-      right: 0;
+      top: $height-of-preview-img-desktop / 3; // 1/2 of the height of the main preview
+      left: 0;
+      max-height: $height-of-preview-img-desktop / 3 * 2;
     }
   }
   
@@ -190,8 +194,8 @@ $height-of-preview-img-mobile: 700px;
   
   .preview--desktop {
     @media #{mq(l)} {
-      padding-right: msRem(3);
-      padding-left: 0;
+      margin-right: msRem(3);
+      margin-left: 0;
     }
   }
   
