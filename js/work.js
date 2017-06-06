@@ -6,10 +6,10 @@ function showPsstBanner() {
   var psstIsShowing = false;
   
   window.addEventListener('scroll', handleScroll);
-  function handleScroll(event) {
-    // When the bar is already showing, there's no need to run this handler
+  function handleScroll() {
+    // When the bar is already showing there's no need to continue
     if (psstIsShowing) return;
-
+    
     var yPos = window.scrollY;
     if (yPos > scrollTrigger) {
       psstIsShowing = true;
