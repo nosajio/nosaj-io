@@ -1,3 +1,4 @@
+@import 'easing';
 @import 'ms';
 @import 'mq';
 
@@ -29,11 +30,15 @@ $nav-spacing: msRem(1);
       text-decoration: none;
       padding: 0 $nav-spacing;
       opacity: .7;
+      transition: all 200ms $easeOutCubic;
     }
     
     a:hover {
       opacity: 1;
     }
+    
+    .light-bg & a {
+      color: black;
+    }
   }
-  
 }

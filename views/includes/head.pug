@@ -6,7 +6,10 @@ head
     want to geek out about web tech, feel free to email me or join my slack 
     group @ slack.nosaj.io.
   
-  title Jason makes the internet #{head.title}
+  if head.title
+    title #{head.title} // Jason makes the internet
+  else
+    title Jason makes the internet
   meta(name="viewport" content="width=device-width, initial-scale=1")
   meta(name="og:url" property="og:url" content="https://nosaj.io/")
   meta(name="og:type" property="og:type" content="website")

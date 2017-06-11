@@ -23,7 +23,7 @@ $height-of-preview-img-mobile: 700px;
   display: flex;
   flex-flow: column nowrap;
   width: 100%;
-  max-width: $bp-hd;
+  max-width: 1300px;
   margin: 0 auto;
 }
 
@@ -31,7 +31,7 @@ $height-of-preview-img-mobile: 700px;
   display: flex;
   flex-flow: column-reverse nowrap;
   width: 100%;
-  padding: msRem(3) 0;
+  padding: msRem(3) 0 0;
   text-align: center;
   
   // Divider
@@ -39,13 +39,11 @@ $height-of-preview-img-mobile: 700px;
     content: '';
     display: block;
     width: 100%;
-    min-width: 100px;
-    max-width: 330px;
-    height: 8px;
+    height: 2px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: msRem(5);
-    background: url('/img/triangle-repeat.svg') space center / auto 8px;
+    background: rgba(255,255,255,.4);
     
     @media #{mq(l)} {
       // column-reverse puts the ::after pseudo element at the top

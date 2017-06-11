@@ -4,7 +4,7 @@ module.exports = () => ({
   stylesheet: 'views/work/work.scss',
   scripts: ['$.js', 'work.js'],
   
-  title: 'Work',
+  title: '💻 Work',
   subtitle: 'Below are a selection of projects that I have worked on recently',
   projects: [
     {
@@ -23,10 +23,9 @@ module.exports = () => ({
       ],
       description: 'Just A-level is an education platform funded by the UK government as an initiative to teach computer science to more students. I was involved with the project from a very early stage, and was involved in the full process from planning and design to development. We were able to design and build the first version of the product in under two months, and successfully launched the site on time.',
       stack: [
-        'NodeJS',
-        'Postgres',
         'React',
-        'GraphQL'
+        'GraphQL',
+        'NodeJS'
       ]
     },
     {
@@ -57,6 +56,27 @@ module.exports = () => ({
       stack: [
         'Vanilla'
       ]
+    }
+  ],
+  
+  employers: [
+    {
+      name: 'MetaBroadcast',
+      where: 'London',
+      position: 'Creative Technologist',
+      image: ''
+    },
+    {
+      name: 'MrSite',
+      where: 'London',
+      position: 'Lead Design',
+      image: ''
+    },
+    {
+      name: 'William Hill Online',
+      where: 'Gibraltar',
+      position: 'Engineer',
+      image: ''
     }
   ]
 });

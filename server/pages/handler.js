@@ -6,12 +6,12 @@ const renderError = require('../../lib/renderError');
 module.exports = pageHandler;
 
 function pageHandler(req, res, page) {
-  const { stylesheet, scripts, view } = page;
+  const { stylesheet, scripts, view, title } = page;
   renderStylesheet(stylesheet)
     .then((styles) => {
       const javascript = scripts && injectScripts(scripts);
       const headerFooter = { 
-        head: { stylesheet: styles }, 
+        head: { stylesheet: styles, title }, 
         footer: { scripts: javascript || '' } 
       };
       const template = Object.assign({}, page, headerFooter);

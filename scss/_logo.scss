@@ -1,3 +1,5 @@
+@import 'easing';
+
 $logo-wh-ratio: .810734463;
 $logo-width: 70px;
 
@@ -11,5 +13,19 @@ $logo-width: 70px;
   width: 100%;
   height: 100%;
   
-  path { fill: black; opacity: .2;}
+  path { 
+    fill: white; 
+    opacity: .2;
+    transition: all 300ms $easeOutCubic;
+  }
+  
+  .light-bg & path {
+    fill: black;
+  }
+}
+
+.logo:hover {
+  path {
+    opacity: .5;
+  }
 }

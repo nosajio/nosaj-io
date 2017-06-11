@@ -1,0 +1,122 @@
+@import 'globals';
+@import 'fonts';
+@import 'cf';
+@import 'ms';
+@import 'mq';
+
+.about-view {
+  background: white;
+  color: black;
+}
+
+.nav-links a {
+  color: black;
+}
+
+.main-frame {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  max-width: 1200px;
+  margin: msRem(7) auto;
+  padding: 0 msRem(2);
+  
+  @media #{mq(m)} {
+    padding: 0;
+    flex-flow: row nowrap;
+  }
+}
+
+// Aside links and stuff
+.bio-aside {
+  @media #{mq(m)} {
+    width: 25%;
+  }
+  
+  &__block {
+  }
+  
+  &__block + &__block {
+    margin-top: msRem(2);
+  }
+  
+  .sidebar-title {
+    display: block;
+    margin-bottom: msRem(-1);
+    letter-spacing: msRem(-4);
+    font-weight: 700; 
+    text-transform: uppercase;
+  }
+}
+
+.repos-list {
+  &__repo {
+    display: block;
+    
+    strong {
+      font-weight: 500;
+    }
+    
+    p {
+      margin: msRem(-2) 0 0 0;
+      color: lighten(black, 30%);
+    }
+  }
+  
+  &__repo + &__repo {
+    margin-top: msRem(-1);
+  }
+  
+  a {
+    color: black;
+    text-decoration: none;
+  }
+}
+
+.bio-image {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  background: rgb(250, 250, 250);
+  border: 1px solid rgb(224, 224, 224);
+  border-radius: 100%;
+  overflow: hidden;
+  
+  @media #{mq(m)} {
+    float: left;
+    margin: 0 msRem(3) msRem(3) 0;
+  }
+  
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.bio-intro {
+  display: block;
+  width: auto;
+  font-size: msRem(2);
+  font-weight: 500;
+  margin-bottom: msRem(3);
+  
+  p {
+    margin: 0;
+  }
+}
+
+.bio-main {
+  width: 75%;
+  padding-top: msRem(2);
+  font: msRem(1) $ff-minion;
+  
+  @media #{mq(m)} {
+    padding-top: 0;
+    padding-left: msRem(5);
+  }
+}
+
+.bio-body {
+  max-width: 700px;
+}
