@@ -5,12 +5,10 @@
 $nav-spacing: msRem(1);
 
 .main-navigation {
-  position: fixed;
-  z-index: 9000;
-  top: 30px; right: 30px;
-  left: 30px;
   display: flex;
   flex-flow: row-reverse;
+  padding: msRem(1);
+  padding-bottom: msRem(3);
   
   .logo {
     margin-left: $nav-spacing;

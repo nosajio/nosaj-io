@@ -19,11 +19,20 @@ $clr-landing-bg: rgb(0, 0, 0);
 $clr-secondary: lighten( $clr-landing-bg, 24%);
 
 .landing-view {
+  position: relative;
   background: $clr-landing-bg;
   color: white;
   
   a { 
     color: white;
+  }
+  
+  // Snap the nav to the top so that the content of the page can be easily aligned
+  // to the center of the screen
+  .main-navigation {
+    position: absolute;
+    top: 0; right: 0;
+    z-index: 1000;
   }
 }
 
@@ -115,37 +124,6 @@ $clr-secondary: lighten( $clr-landing-bg, 24%);
     &-text { display: inline-block; }
   }
   
-  // The DESIGN & BUILD header piece
-  .design-and-build {
-    user-select: none;
-    position: absolute;
-    bottom: -70px;
-    left: 0;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font: 700 msRem(7) $ff-headings;
-    text-transform: uppercase;
-    color: $clr-secondary;
-    
-    // Nice and slow
-    animation: fade-enter 9s 500ms 1 both $easeOutCubic; 
-    
-    &__arrow {
-      $arrow-h-w-ratio: 1;
-      // $arrow-h-w-ratio: .45902442;
-      $arrow-w: ms(4);
-      display: inline-block;
-      width: #{$arrow-w}rem;
-      height: #{$arrow-h-w-ratio * $arrow-w}rem;
-      margin: 0 msRem(2);
-      
-      svg { display: block; width: 100%; height: 100%; }
-      // Make the svg the same color as the text
-      svg polygon { fill: $clr-secondary; }
-    }
-  }
 }
 
 .quotes-horiz {
