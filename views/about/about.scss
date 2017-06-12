@@ -18,10 +18,11 @@
   flex-flow: column nowrap;
   width: 100%;
   max-width: 1200px;
-  margin: msRem(5) auto;
+  margin: msRem(2) auto;
   padding: 0 msRem(2);
   
   @media #{mq(m)} {
+    margin: msRem(5) auto;
     padding: 0;
     flex-flow: row nowrap;
   }
@@ -34,9 +35,6 @@
   }
   
   &__block {
-  }
-  
-  &__block + &__block {
     margin-top: msRem(2);
   }
   
@@ -107,11 +105,12 @@
 }
 
 .bio-main {
-  width: 75%;
+  width: 100%;
   padding-top: msRem(2);
   font: msRem(1) $ff-minion;
   
   @media #{mq(m)} {
+    width: 75%;
     padding-top: 0;
     padding-left: msRem(5);
   }
@@ -119,4 +118,20 @@
 
 .bio-body {
   max-width: 700px;
+  
+  a {
+    color: #000fd6;
+    text-decoration: none;
+    border-bottom: 1px solid #000fd6;
+  }
+}
+
+.bio-cta {
+  font: 300 msRem(1) $ff-body;
+  text-align: center;
+  letter-spacing: msRem(-5);
+  
+  &__title {
+    margin-top: msRem(4);
+  }
 }
