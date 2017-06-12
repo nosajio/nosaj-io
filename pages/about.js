@@ -1,6 +1,6 @@
 module.exports = () => ({
   view: 'about',
-  path: '/about',
+  path: '/bio',
   stylesheet: 'views/about/about.scss',
   scripts: ['$.js'],
   

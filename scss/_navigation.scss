@@ -6,12 +6,25 @@ $nav-spacing: msRem(1);
 
 .main-navigation {
   display: flex;
-  flex-flow: row-reverse;
+  flex-flow: row-reverse wrap;
+  justify-content: center;
   padding: msRem(1);
   padding-bottom: msRem(3);
+  width: 100%;
+  
+  @media #{mq(m)} {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+  }
   
   .logo {
-    margin-left: $nav-spacing;
+    margin-bottom: msRem(1);
+    min-width: 100%;
+    
+    @media #{mq(m)} {
+      min-width: 0;
+      margin: 0 0 0 $nav-spacing;
+    }
   }
   
   .nav-links {
@@ -29,6 +42,8 @@ $nav-spacing: msRem(1);
       padding: 0 $nav-spacing;
       opacity: .7;
       transition: all 200ms $easeOutCubic;
+      padding-top: msRem(-1);
+      padding-bottom: msRem(-1);
     }
     
     a:hover {
