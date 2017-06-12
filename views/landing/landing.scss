@@ -50,7 +50,7 @@ $clr-secondary: lighten( $clr-landing-bg, 24%);
   flex-flow: column nowrap;
   justify-content: center;
   width: 100%;
-  min-height: 100vh;
+  min-height: 95vh;
   
   @media #{mq(m)} {
     align-items: center;
@@ -108,7 +108,7 @@ $clr-secondary: lighten( $clr-landing-bg, 24%);
     li:nth-child(1n+2) { animation: fade-enter 500ms 1.4s 1 both $easeOutCubic; }
     li:nth-child(1n+3) { animation: fade-enter 500ms 1.8s 1 both $easeOutCubic; }
     
-    li {
+    li { // Action item
       display: flex;
       margin-top: msRem(1);
       flex-flow: row nowrap;
@@ -129,10 +129,13 @@ $clr-secondary: lighten( $clr-landing-bg, 24%);
   }
   
   &__availability {
-    width: 100%;
-    // max-width: 50%;
+    min-width: 100%;
     text-align: left;
     color: lighten($clr-secondary, 8%);
+    
+    @media #{mq(m)} {
+      min-width: 0;
+    }
     
     &-text { display: inline-block; }
   }
@@ -142,7 +145,9 @@ $clr-secondary: lighten( $clr-landing-bg, 24%);
 .quotes-horiz {
   display: flex;
   flex-flow: column nowrap;
-  margin: msRem(6) 0;
+  padding: msRem(6) 0;
+  background: white;
+  color: $clr-landing-bg;
   
   @media #{mq(m)} {
     flex-flow: row nowrap;
