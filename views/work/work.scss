@@ -29,24 +29,24 @@ $height-of-preview-img-mobile: 700px;
 
 .work-block {
   display: flex;
-  flex-flow: column-reverse nowrap;
+  flex-flow: column nowrap;
   width: 100%;
-  padding: msRem(3) 0 0;
+  padding: msRem(5) 0 0;
   text-align: center;
   
   // Divider
   &::after {
     content: '';
-    display: block;
+    display: none;
     width: 100%;
     height: 2px;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: msRem(5);
+    margin-top: msRem(5);
     background: rgba(255,255,255,.4);
     
     @media #{mq(l)} {
-      // column-reverse puts the ::after pseudo element at the top
+      display: none;
       margin-top: $pad-work-block;
       margin-bottom: 0;
     }
@@ -86,7 +86,7 @@ $height-of-preview-img-mobile: 700px;
   
   &__preview {
     position: relative;
-    margin-top: msRem(3);
+    margin-bottom: msRem(3);
     
     @media #{mq(l)} {
       margin-top: 0;
@@ -120,12 +120,17 @@ $height-of-preview-img-mobile: 700px;
   }
   
   .preview--mobile {
+    display: none;
     position: absolute;
     left: msRem(2);
     top: $height-of-preview-img-mobile / 3; // 1/2 of the height of the main preview
     max-width: 30%;
     max-height: $height-of-preview-img-mobile / 3 * 2;
     // Calculate max-height based off height variable
+    
+    @media #{mq(m)} {
+      display: block;
+    }
     
     @media #{mq(l)} {
       top: $height-of-preview-img-desktop / 3; // 1/2 of the height of the main preview

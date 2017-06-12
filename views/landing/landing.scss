@@ -18,6 +18,13 @@
 $clr-landing-bg: rgb(0, 0, 0);
 $clr-secondary: lighten( $clr-landing-bg, 24%);
 
+.main-frame {
+  padding: 0 msRem(2);
+  @media #{mq(m)} { 
+    padding: 0;
+  }
+}
+
 .landing-view {
   position: relative;
   background: $clr-landing-bg;
@@ -64,6 +71,7 @@ $clr-secondary: lighten( $clr-landing-bg, 24%);
     
     p {
       font-weight: 500;
+      font-size: msRem(1);
       @media #{mq(m)} {
         font-size: msRem(2);
         margin: msRem(2) 0 0;
@@ -73,23 +81,25 @@ $clr-secondary: lighten( $clr-landing-bg, 24%);
   
   &__actions {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: column nowrap;
     width: 100%;
     
     @media #{mq(m)} {
       max-width: 50%;
       margin-top: msRem(1);
+      flex-flow: row nowrap;
     }
     
     a { color: lighten($clr-secondary, 15%); }
     
     .action-cta { 
-      color: lighten($clr-secondary, 15%);
-      background: darken($clr-landing-bg, 10%);
+      color: white;
+      background: lighten($clr-landing-bg, 9%);
       padding: 8px 15px;
       border-radius: 3px;
       text-decoration: none;
     }
+    
     a:hover {
       background: darken($clr-landing-bg, 20%);
     }
@@ -100,24 +110,27 @@ $clr-secondary: lighten( $clr-landing-bg, 24%);
     
     li {
       display: flex;
+      margin-top: msRem(1);
       flex-flow: row nowrap;
       align-items: center;
     }
     
-    li + li::before {
-      content: '';
-      margin: 0 20px;
-      display: inline-block;     
-      width: 5px;
-      height: 5px;
-      border-radius: 10px;
-      background: $clr-secondary;
-    }    
+    @media #{mq(m)} {
+      li + li::before {
+        content: '';
+        margin: 0 20px;
+        display: inline-block;
+        width: 5px;
+        height: 5px;
+        border-radius: 10px;
+        background: $clr-secondary;
+      }    
+    }
   }
   
   &__availability {
     width: 100%;
-    max-width: 50%;
+    // max-width: 50%;
     text-align: left;
     color: lighten($clr-secondary, 8%);
     
