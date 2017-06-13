@@ -20,7 +20,6 @@ function boot() {
   app.listen(PORT, () => debug('Listening on http://localhost:%s', PORT));
 }
 
-
 function middleware() {
   // Setup public (assets) directory
   app.use( express.static(path.resolve(__dirname, '../', publicDir)) )

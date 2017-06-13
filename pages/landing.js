@@ -18,4 +18,17 @@ module.exports = () => ({
       quote: 'I simply cannot speak highly enough of Jason'
     },
   ],
+  // Load in the posts and parse with the blog helpers
+  posts: (() => new Promise((resolve) => {
+    const fileopener = require('../server/blog/file-opener');
+    const markdown = require('../server/blog/markdown-parser');
+    fileopener
+      .openAll()
+      .then((files) => {
+        const posts = files.map(f => markdown.parseFile(f.body));
+        resolve(posts);
+      }).catch(err => {
+        throw new Error(err.message)
+      });
+  }))()
 });

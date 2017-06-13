@@ -6,16 +6,73 @@ const renderError = require('../../lib/renderError');
 module.exports = pageHandler;
 
 function pageHandler(req, res, page) {
-  const { stylesheet, scripts, view, title } = page;
-  renderStylesheet(stylesheet)
-    .then((styles) => {
+  // 1. First resolve any dynamic content in the page
+  resolveDynamicContent(page)
+    // 2. Once resolved, finish building content
+    .then(handleResolveContent)
+    // 3. Handle errors
+    .catch(err => renderError(res, '500', err));
+  
+  function handleResolveContent(resolvedContent) {
+    const { stylesheet, scripts, view, title } = resolvedContent;
+    renderStylesheet(stylesheet)
+      .then(s => resolvePage(s))
+      .catch(err => renderError(res, '500', err));
+    
+    function resolvePage(styles) {
       const javascript = scripts && injectScripts(scripts);
       const headerFooter = { 
         head: { stylesheet: styles, title }, 
         footer: { scripts: javascript || '' } 
       };
-      const template = Object.assign({}, page, headerFooter);
+      const template = Object.assign({}, resolvedContent, headerFooter);
       res.render(view, template);
-    })
-    .catch(err => renderError(res, '500', err));
+    }
+  }
+}
+
+/**
+ * Resolve Dynamic Content
+ * This enables the use of properties that return promises in the page config files
+ * 
+ * @param {Object} page - the page object loaded from pages dir
+ * @returns {Object} page - same object with resolved content
+ */
+function resolveDynamicContent(page) {
+  const props = Object.keys(page);
+  const resolvedContent = {};
+  let resolvedCount = 0;
+  const promisesCount = props.filter(k => isPromise(page[k])).length;
+  return new Promise(resolve => {
+    // First deal with ordinary content, then deal with promises to avoid race conditions
+    props.forEach(k => {
+      if (! isPromise(page[k])) {
+        resolvedContent[k] = page[k];
+      }
+    });
+    // If there are no unresolved promises, resolve here
+    if (! promisesCount) {
+      return resolve(resolvedContent);
+    }
+    // Finally handle dynamic content, and don't resolve until everything has been handled
+    props.forEach(k => {
+      if (isPromise(page[k])) {
+        page[k].then(content => {
+          resolvedContent[k] = content;
+          resolvedCount ++;
+          // Only resolve once all dynamic content has been resolved
+          if (resolvedCount === promisesCount) {
+            resolve(resolvedContent);
+          }
+        });
+      }
+    });
+  });
+}
+
+/**
+ * Is the obj a promise?
+ */
+function isPromise(obj) {
+  return typeof obj === 'object' && 'then' in obj;
 }

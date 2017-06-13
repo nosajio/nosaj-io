@@ -183,5 +183,8 @@ $clr-secondary: lighten( $clr-landing-bg, 24%);
   
   &__quote + &__quote {
     margin-top: msRem(4);
+    @media #{mq(m)} {
+      margin-top: 0;
+    }
   }
 }
