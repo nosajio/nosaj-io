@@ -51,7 +51,16 @@ module.exports = () => ({
     {
       product: 'TopHat Films',
       webURL: 'http://thetophatfilmswebsite.com',
-      images: [],
+      images: [
+        {
+          type: 'desktop',
+          url: 'http://a.nosaj.io/work/tophat-home-desktop.jpg'
+        },
+        {
+          type: 'mobile',
+          url: 'http://a.nosaj.io/work/tophat-home-mobile.jpg'
+        },
+      ],
       description: 'The TopHat Films website is a fun site for filmmaker Rob Trott. I worked with him to embody the not-taking-ourselves-too-seriously image that TopHat are known for, while still maintaining usability and quality. The site is mostly vanilla HTML, CSS & JS, with some eastereggs thrown in for good measure.',
       stack: [
         'Vanilla'
