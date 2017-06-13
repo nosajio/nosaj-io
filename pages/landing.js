@@ -1,3 +1,5 @@
+const debug = require('debug')('nosaj:pages:landing');
+
 module.exports = () => ({
   view: 'landing',
   path: '/',
@@ -25,7 +27,13 @@ module.exports = () => ({
     fileopener
       .openAll()
       .then((files) => {
-        const posts = files.map(f => markdown.parseFile(f.body));
+        const posts = files.map(f => 
+          Object.assign(
+            {}, 
+            markdown.parseFilename(f.name), 
+            markdown.parseFile(f.body)
+          ) 
+        );
         resolve(posts);
       }).catch(err => {
         throw new Error(err.message)

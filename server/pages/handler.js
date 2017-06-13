@@ -29,45 +29,48 @@ function pageHandler(req, res, page) {
       res.render(view, template);
     }
   }
-}
-
-/**
- * Resolve Dynamic Content
- * This enables the use of properties that return promises in the page config files
- * 
- * @param {Object} page - the page object loaded from pages dir
- * @returns {Object} page - same object with resolved content
- */
-function resolveDynamicContent(page) {
-  const props = Object.keys(page);
-  const resolvedContent = {};
-  let resolvedCount = 0;
-  const promisesCount = props.filter(k => isPromise(page[k])).length;
-  return new Promise(resolve => {
-    // First deal with ordinary content, then deal with promises to avoid race conditions
-    props.forEach(k => {
-      if (! isPromise(page[k])) {
-        resolvedContent[k] = page[k];
+  
+  
+  /**
+  * Resolve Dynamic Content
+  * This enables the use of properties that return promises in the page config files
+  * 
+  * @param {Object} page - the page object loaded from pages dir
+  * @returns {Object} page - same object with resolved content
+  */
+  function resolveDynamicContent(page) {
+    const props = Object.keys(page);
+    const resolvedContent = {};
+    let resolvedCount = 0;
+    const promisesCount = props.filter(k => isPromise(page[k])).length;
+    return new Promise(resolve => {
+      // First deal with ordinary content, then deal with promises to avoid race conditions
+      props.forEach(k => {
+        if (! isPromise(page[k])) {
+          resolvedContent[k] = page[k];
+        }
+      });
+      // If there are no unresolved promises, resolve here
+      if (! promisesCount) {
+        return resolve(resolvedContent);
       }
+      // Finally handle dynamic content, and don't resolve until everything has been handled
+      props.forEach(k => {
+        if (isPromise(page[k])) {
+          page[k].then(content => {
+            resolvedContent[k] = content;
+            resolvedCount ++;
+            // Only resolve once all dynamic content has been resolved
+            if (resolvedCount === promisesCount) {
+              resolve(resolvedContent);
+            }
+          })
+          // Catch errors & return 500
+          .catch(err => renderError(res, '500', err));
+        }
+      });
     });
-    // If there are no unresolved promises, resolve here
-    if (! promisesCount) {
-      return resolve(resolvedContent);
-    }
-    // Finally handle dynamic content, and don't resolve until everything has been handled
-    props.forEach(k => {
-      if (isPromise(page[k])) {
-        page[k].then(content => {
-          resolvedContent[k] = content;
-          resolvedCount ++;
-          // Only resolve once all dynamic content has been resolved
-          if (resolvedCount === promisesCount) {
-            resolve(resolvedContent);
-          }
-        });
-      }
-    });
-  });
+  }
 }
 
 /**
