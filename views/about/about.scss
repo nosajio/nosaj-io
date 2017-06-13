@@ -134,4 +134,11 @@
   &__title {
     margin-top: msRem(4);
   }
+  
+  &__link {
+    color: #000fd6;
+    text-decoration: none;
+    border-bottom: 1px solid #000fd6;
+    font-size: 1rem;
+  }
 }
