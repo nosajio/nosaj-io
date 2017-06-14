@@ -1,1 +1,55 @@
 @import 'globals';
+@import 'ms';
+@import 'fonts';
+@import 'keyframes';
+@import 'easing';
+
+$animationDelay: 300ms;
+
+@keyframes box-in {
+  from { opacity: 0; bottom: 100%; right: 100%; }
+}
+
+.main-frame {
+  display: flex;
+  flex-flow: column nowrap;
+  max-width: 860px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.blog-post__title {
+  position: relative;
+  margin-bottom: msRem(4);
+  
+  h1 {
+    font: 700 msRem(4)/1.2 $ff-minion;
+    animation: fade-in 500ms #{$animationDelay + 200ms} 1 both $easeOutCubic;
+  }
+  
+  .box {
+    position: absolute;
+    top: -#{msRem(4)}; right: 70%; 
+    bottom: 0; left: -#{msRem(4)};
+    display: block;
+    border-top: 5px solid black;
+    border-left: 5px solid black;
+    animation: box-in 600ms $animationDelay 1 both $easeOutCubic;
+  }
+}
+
+// Main body of the post
+.blog-post__body {
+  animation: fade-in 700ms #{$animationDelay + 300ms} 1 both $easeOutCubic;
+  
+  p {
+    margin: msRem(2) 0;
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }
+  
+  img {
+    display: block;
+    max-width: 100%;
+  }
+}

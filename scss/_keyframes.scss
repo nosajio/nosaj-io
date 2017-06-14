@@ -1,0 +1,14 @@
+// -
+// Here be some useful @keyframe animations for use with various parts of the site
+// -
+
+@keyframes fade-in {
+  from { opacity: 0; }
+}
+
+@keyframes flash-in {
+  0% { opacity: 0; }
+  20% { opacity: 1; }
+  30% { opacity: 0; }
+  100% { opacity: 1; }
+}

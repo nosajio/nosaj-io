@@ -9,7 +9,6 @@ module.exports = (args) => {
     stylesheet: 'views/blog/blog.scss',
     scripts: [],
     title: '',
-    subtitle: '',
   };
   
   // Return a stripped out version of the template before args are available

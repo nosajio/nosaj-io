@@ -1,18 +1,15 @@
+@import 'globals';
 @import 'mq';
 @import 'ms';
 @import 'fonts';
 @import 'easing';
-@import 'globals';
+@import 'keyframes';
 
 @keyframes zoom-enter {
   from {
     transform: scale(.9);
     opacity: 0;
   }
-}
-
-@keyframes fade-enter {
-  from { opacity: 0; }
 }
 
 $clr-landing-bg: rgb(0, 0, 0);
@@ -104,9 +101,9 @@ $clr-secondary: lighten( $clr-landing-bg, 24%);
       background: darken($clr-landing-bg, 20%);
     }
     
-    li:nth-child(1n+1) { animation: fade-enter 500ms 1s 1 both $easeOutCubic; }
-    li:nth-child(1n+2) { animation: fade-enter 500ms 1.4s 1 both $easeOutCubic; }
-    li:nth-child(1n+3) { animation: fade-enter 500ms 1.8s 1 both $easeOutCubic; }
+    li:nth-child(1n+1) { animation: fade-in 500ms 1s 1 both $easeOutCubic; }
+    li:nth-child(1n+2) { animation: fade-in 500ms 1.4s 1 both $easeOutCubic; }
+    li:nth-child(1n+3) { animation: fade-in 500ms 1.8s 1 both $easeOutCubic; }
     
     li { // Action item
       display: flex;

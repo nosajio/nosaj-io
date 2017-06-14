@@ -1,11 +1,13 @@
 doctype html
 html
   include /includes/head
-  body.blog-view
+  body.blog-view.light-bg
     include /includes/navigation
     main.main-frame
       article.blog-post
         header.blog-post__title
+          span.box(style=`border-color: ${post.coverColor}`)
           h1= post.title
+        div.blog-post__body !{post.body}
         
   include /includes/footer
