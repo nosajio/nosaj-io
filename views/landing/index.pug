@@ -9,6 +9,11 @@ html
           each line in introText
             p= line
         include actions
+      section.posts
+        each post in posts
+          article.posts__post
+            a(href=`/r/${post.slug}`)
+              h1.post__posts-title= post.title 
       section.landing-kindness
         include quotes
   include /includes/footer
