@@ -5,19 +5,25 @@ const renderError = require('../../lib/renderError');
 
 module.exports = pageHandler;
 
-function pageHandler(req, res, page) {
+function pageHandler(req, res, { _page }) {
   // 0. Store request params in args variable
   const args = req.params;
   // Call the original page factory, this time with args
-  const pageWithArgs = page._page(args);
+  const pageWithArgs = _page(args);
+  if (isPromise(pageWithArgs)) {
+    pageWithArgs.then(renderPage);
+  } else {
+    renderPage(pageWithArgs);
+  }
   
-  // 1. Resolve any dynamic content in the page object
-  resolveDynamicContent(page)
-    // 2. Once resolved, finish processing request
-    .then(handleResolveContent)
-    // 3. Handle errors
-    .catch(err => renderError(res, '500', err));
-  
+  function renderPage(page) {
+    // 1. Resolve any dynamic content in the page object
+    resolveDynamicContent(page)
+      // 2. Once resolved, finish processing request
+      .then(handleResolveContent)
+      // 3. Handle errors
+      .catch(err => renderError(res, '500', err));
+  }
   
   /**
    * Handle Resolve Content
