@@ -86,8 +86,8 @@ function pageHandler(req, res, page) {
 }
 
 /**
- * Is the obj a promise?
+ * Is the prop a promise?
  */
-function isPromise(obj) {
-  return typeof obj === 'object' && 'then' in obj;
+function isPromise(prop) {
+  return null !== prop && typeof prop === 'object' && 'then' in prop;
 }
