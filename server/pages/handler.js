@@ -31,8 +31,8 @@ function pageHandler(req, res, { _page }) {
    * @param {Object} resolvedContent 
    */
   function handleResolveContent(resolvedContent) {
-    const { stylesheet, scripts, view, title } = resolvedContent;
-    renderStylesheet(stylesheet)
+    const { stylesheet, scripts, view, title, scssVariables } = resolvedContent;
+    renderStylesheet(stylesheet, scssVariables)
       .then(s => resolvePage(s))
       .catch(err => renderError(res, '500', err));
     
