@@ -48,6 +48,22 @@ $animationDelay: 300ms;
     line-height: 1.5;
   }
   
+  // Bold opening paragraph
+  p:first-child {
+    font-weight: 500;
+  }
+  
+  // Big first letter
+  p:first-child::first-letter {
+    display: inline-block;
+    padding: 0 10px 0 0;
+    float: left;
+    font-weight: 700;
+    font-size: 65px;
+    line-height: 60px;
+    color: $postColor;
+  }
+  
   img {
     display: block;
     max-width: 100%;

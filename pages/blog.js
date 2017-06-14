@@ -23,6 +23,10 @@ module.exports = (args) => {
         const updatedData = { 
           post,
           title: post.title,
+          // This will be injected into the scss file prior to compilation
+          scssVariables: {
+            'postColor': post.coverColor,
+          }
         };
         const allContent = Object.assign({}, headerData, updatedData);
         resolve(allContent);
@@ -36,11 +40,9 @@ function getPost(slug) {
       .openAll()
       .then((files) => {
         const file = files.filter(f => markdown.parseFilename(f.name).slug === slug)[0];
-        const post = Object.assign(
-          {}, 
-          markdown.parseFilename(file.name), 
-          markdown.parseFile(file.body)
-        );
+        const postParsed = markdown.parseFile(file.body);
+        const filenameParsed = markdown.parseFilename(file.name);
+        const post = Object.assign({}, filenameParsed, postParsed);
         resolve(post);
       }).catch(err => {
         throw new Error(err.message)

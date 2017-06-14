@@ -185,3 +185,21 @@ $clr-secondary: lighten( $clr-landing-bg, 24%);
     }
   }
 }
+
+.posts {
+  background: white;
+  color: black;
+  
+  a { 
+    display: block;
+    padding: msRem(2) msRem(4);
+    color: black; 
+    text-decoration: none;
+    font-size: msRem(2);
+  }
+  
+  &__post {
+    display: block;
+    width: 100%;
+  }
+}

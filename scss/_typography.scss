@@ -3,6 +3,7 @@
 
 html {
   font: 300 17px/1.5 $ff-body;
+  -webkit-font-smoothing: antialiased;
   
   @media #{mq(m)} {
     font-size: 18px;
