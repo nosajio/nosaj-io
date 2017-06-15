@@ -7,7 +7,7 @@ module.exports = () => ({
   scripts: ['ga.js'],
   title: '👋 Hi!',
   introText: [
-    'I\'m Jason, nice to meet you. I design & make measurable products using modern web technologies.',
+    'I\'m Jason, nice to meet you. I design & make measurable products with modern web technologies.',
     'I\'m currently working to help people build ambitious websites & apps quickly.'
   ],
   available: true,
