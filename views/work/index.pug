@@ -23,7 +23,7 @@ html
               if project.webURL
                 a(href=project.webURL target='_blank').project-url See it live
       section.psst-bar 
-        p pssst.... I hate these things too, but just to let you know, I'm available for hire.
+        p(data-text=actionText) 
         div.psst-actions
-          a.psst-action(href='') Email me
+          a.psst-action(href='mailto:hi@nosaj.io') Email me
     include /includes/footer

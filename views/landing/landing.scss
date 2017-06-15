@@ -16,10 +16,11 @@ $clr-landing-bg: rgb(0, 0, 0);
 $clr-secondary: lighten( $clr-landing-bg, 24%);
 
 .main-frame {
-  padding: 0 msRem(2);
-  @media #{mq(m)} { 
-    padding: 0;
-  }
+
+}
+
+.main-navigation .nav-links {
+  animation: fade-in 500ms 2s 1 both $easeOutCubic;
 }
 
 .landing-view {
@@ -41,6 +42,7 @@ $clr-secondary: lighten( $clr-landing-bg, 24%);
 }
 
 .landing-top {
+  @extend %small-pad;
   position: relative;
   overflow-y: hidden;
   display: flex;
@@ -218,6 +220,7 @@ $clr-secondary: lighten( $clr-landing-bg, 24%);
   }
   
   &__post-title {
+    transition: all 7s $easeOutCubic;
     font-weight: 500;
   }
   
@@ -235,10 +238,15 @@ $clr-secondary: lighten( $clr-landing-bg, 24%);
     width: 100%;
     background-size: cover;
     background-position: center;
-    transition: all 10s $easeOutCubic;
     transform: scale(1.5);
+    transition: all 10s $easeOutCubic;
+    filter: blur(5px);
     height: 100%;
     opacity: .2;
+  }
+  
+  &__post:hover &__post-title {
+    transform: scale(1.1);
   }
   
   &__post:hover &__post-bg {

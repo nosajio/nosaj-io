@@ -1,4 +1,5 @@
 @import 'globals';
+@import 'mq';
 @import 'ms';
 @import 'fonts';
 @import 'keyframes';
@@ -11,6 +12,7 @@ $animationDelay: 300ms;
 }
 
 .main-frame {
+  @extend %small-pad;
   display: flex;
   flex-flow: column nowrap;
   max-width: 860px;
@@ -20,7 +22,12 @@ $animationDelay: 300ms;
 
 .blog-post__title {
   position: relative;
+  padding-top: msRem(3);
   margin-bottom: msRem(4);
+  
+  @media #{mq(m)} {
+    padding-top: 0;
+  }
   
   h1 {
     font: 700 msRem(4)/1.2 $ff-minion;
@@ -28,13 +35,18 @@ $animationDelay: 300ms;
   }
   
   .box {
-    position: absolute;
-    top: -#{msRem(4)}; right: 70%; 
-    bottom: 0; left: -#{msRem(4)};
     display: block;
+    position: absolute;
+    top: 0; right: 70%;
+    bottom: 0; left: 0;
     border-top: 5px solid black;
-    border-left: 5px solid black;
     animation: box-in 600ms $animationDelay 1 both $easeOutCubic;
+    
+    @media #{mq(m)} {
+      top: -#{msRem(4)}; 
+      bottom: 0; left: -#{msRem(4)};
+      border-left: 5px solid black;
+    }
   }
 }
 

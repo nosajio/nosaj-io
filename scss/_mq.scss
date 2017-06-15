@@ -17,3 +17,10 @@ $bp-hd: 1900px;
     @return 'only screen and (min-width: #{$bp-hd + 1px})';
   } 
 }
+
+%small-pad {
+  padding: 0 msRem(2);
+  @media #{mq(m)} { 
+    padding: 0;
+  }
+}

@@ -3,6 +3,7 @@
 @import 'mq';
 @import 'fonts';
 @import 'easing';
+@import 'keyframes';
 
 $clr-work-bg: #4a4a4a;
 $pad-work-block: msRem(6);
@@ -33,6 +34,10 @@ $height-of-preview-img-mobile: 700px;
   width: 100%;
   padding: msRem(5) 0 0;
   text-align: center;
+  
+  &:first-child {
+    padding-top: msRem(2);
+  }
   
   // Divider
   &::after {
@@ -114,6 +119,8 @@ $height-of-preview-img-mobile: 700px;
   }
   
   .preview--desktop {
+    animation: fade-in 800ms 500ms 1 both $easeOutCubic;
+    
     @media #{mq(l)} {
       margin-left: msRem(3);
     }
@@ -127,6 +134,7 @@ $height-of-preview-img-mobile: 700px;
     max-width: 30%;
     max-height: $height-of-preview-img-mobile / 3 * 2;
     // Calculate max-height based off height variable
+    animation: fade-in 800ms 650ms 1 both $easeOutCubic;
     
     @media #{mq(m)} {
       display: block;
@@ -144,6 +152,7 @@ $height-of-preview-img-mobile: 700px;
     padding: 0 msRem(2);
     max-width: 500px;
     margin: 0 auto;
+    animation: fade-in 900ms 800ms 1 both $easeOutCubic;
     
     p {
       margin: 0;
@@ -185,8 +194,20 @@ $height-of-preview-img-mobile: 700px;
   }
 }
 
-@keyframes fadein {
-  from { opacity: 0; }
+@keyframes bounce-in {
+  0% { 
+    opacity: 0; 
+    transform: scale(.5) translateY(80px);
+  }
+  
+  60% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+  
+  100% {
+    transform: scale(1) translateY(0);
+  }
 }
 
 @keyframes psst {
@@ -200,18 +221,37 @@ $height-of-preview-img-mobile: 700px;
 .psst-bar {
   display: none;
   position: fixed;
-  bottom: 0;
-  left: 0;
+  bottom: 0; left: 0;
+  flex-flow: column nowrap;
   width: 100%;
-  background: lighten($clr-work-bg, 20%);
-  color: white;
-  text-align: center;
-  padding: msRem(1) 0;
+  padding: msRem(-1);
+  
+  @media #{mq(m)} {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: msRem(1) msRem(1) msRem(1) 0;
+  }
+  
+  p, .psst-action {
+    display: inline-block;
+    width: auto;
+    margin: 0; 
+    font-size: 1rem;
+    line-height: 1.3;
+    border-radius: 100px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .5);
+  }
   
   p { 
-    margin: 0; 
-    font-size: msRem(1);
-    text-shadow: 0 1px 2px darken($clr-work-bg, 10%);
+    color: black;
+    background: white;
+    border-radius: 10px;
+    padding: msRem(-2) msRem(-1);
+
+    @media #{mq(m)} {
+      max-width: 36%;
+    }
   }
   
   strong {
@@ -219,19 +259,79 @@ $height-of-preview-img-mobile: 700px;
   }
   
   &--showing {
-    display: block;
-    animation: psst 300ms 200ms 1 both $easeOutCubic;
+    display: flex;
   }
   
-  &--showing p {
-    animation: fadein 300ms 600ms 1 both $easeOutCubic;
+  &--showing {
+    p {
+      animation: bounce-in 300ms 200ms 1 both $easeOutCubic;
+    }
+    
+    .psst-action {
+      animation: bounce-in 300ms 1.5s 1 both $easeOutCubic;
+    }
+  }
+  
+  // Individual letters, make them 'type' in
+  &__char {
+    @for $i from 0 through 110 {
+      &:nth-child(#{$i}n) {
+        animation: fade-in 50ms #{$i * 20}ms both 1 linear;
+      }
+    }
+  }
+  
+  .psst-actions {
+    display: block;
+    width: 100%;
+    margin-top: msRem(-1);
+    
+    @media #{mq(m)} {
+      display: inline-block;
+      width: auto;
+      margin-left: msRem(-1); 
+      margin-top: 0;
+    }
   }
   
   .psst-action {
-    // It's too cool to not do it...
-    &s { margin-top: msRem(-1); }
-    
-
+    position: relative;
+    width: 100%;
+    padding: msRem(-2) msRem(1);
+    color: white;
+    background: black;
+    text-align: center;
+    font-weight: 500;
+    text-decoration: none;
+  }
+  
+  @keyframes psst-action-hover {
+    from {
+      background-position: 100% 0;
+    }
+    to {
+      background-position: -100% 0;
+    }
+  }
+  
+  .psst-action::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    display: block;
+    top: 0; right: 0;
+    bottom: 0; left: 0;
+    border-radius: 100px;
+    opacity: 0;
+    transition: opacity 100ms linear;
+    background: linear-gradient(to right, #e3d423, #3cd70e, #19e4d3, #4d0bda, #e22244, #e3d423);
+    background-size: 200% auto;
+    background-repeat: repeat-x;
+  }
+  
+  .psst-action:hover::before {
+    opacity: 1;
+    animation: psst-action-hover 400ms infinite linear;
   }
 }
 
