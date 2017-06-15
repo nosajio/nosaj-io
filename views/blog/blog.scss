@@ -56,6 +56,8 @@ $animationDelay: 300ms;
   
   // All headigns look the same for consistency
   h1, h2, h3, h4 {
+    display: block;
+    margin: msRem(2) 0;
     font: 700 1.2rem $ff-body;
     text-transform: uppercase;
   }
@@ -90,5 +92,25 @@ $animationDelay: 300ms;
   img {
     display: block;
     max-width: 100%;
+  }
+  
+  ol, ul {
+    display: block;
+    margin: msRem(4) 0;
+    padding: 0 msRem(4);
+    
+    li {
+      display: list-item;
+      font-size: 1.2rem;
+      line-height: 1.5;
+    }
+    
+    li + li {
+      margin-top: msRem(1);
+    }
+  }
+  
+  ol {
+    list-style-type: upper-roman;
   }
 }
