@@ -7,7 +7,7 @@ module.exports = (args) => {
     view: 'blog',
     path: '/r/:slug',
     stylesheet: 'views/blog/blog.scss',
-    scripts: [],
+    scripts: ['ga.js'],
     title: '',
   };
   

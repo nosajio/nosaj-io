@@ -2,7 +2,7 @@ module.exports = () => ({
   view: 'about',
   path: '/bio',
   stylesheet: 'views/about/about.scss',
-  scripts: ['$.js'],
+  scripts: ['ga.js', '$.js'],
   
   title: 'About Jason',
   
