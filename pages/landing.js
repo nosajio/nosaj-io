@@ -35,7 +35,8 @@ module.exports = () => ({
           ) 
         );
         const sortedPosts = sortPostsByDate(posts);
-        resolve(sortedPosts);
+        const augmentedPosts = augmentPosts(sortedPosts);
+        resolve(augmentedPosts);
       }).catch(err => {
         throw new Error(err.message)
       });
@@ -52,4 +53,35 @@ function sortPostsByDate(posts) {
     }
     return -1;
   });
+}
+
+function augmentPosts(posts) {
+  return posts.map(post => 
+    Object.assign(
+      {},
+      post,
+      {
+        dateString: dateToString(post.date),
+      }
+    )
+  );
+}
+
+function dateToString(rawDate) {
+  const date = new Date(rawDate);
+  const months = [
+    'January',
+    'Feburary',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
+  ];
+  return `${date.getDate()} ${months[date.getMonth()]}`;
 }
