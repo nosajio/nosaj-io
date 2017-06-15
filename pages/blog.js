@@ -43,7 +43,6 @@ function getPost(slug) {
         const postParsed = markdown.parseFile(file.body);
         const filenameParsed = markdown.parseFilename(file.name);
         const post = Object.assign({}, filenameParsed, postParsed);
-        debug('%S', post);
         resolve(post);
       }).catch(err => {
         throw new Error(err.message)
