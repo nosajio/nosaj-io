@@ -12,8 +12,10 @@ html
       section.posts
         each post in posts
           article.posts__post
+            div.posts__post-bg(style={'background-image': post.coverImg ? `url(${post.coverImg})` : '', 'background-color': post.coverColor})
             a(href=`/r/${post.slug}`)
-              h1.post__posts-title= post.title 
+              h1.posts__post-title= post.title 
+              span.posts__post-date= post.dateString
       section.landing-kindness
         include quotes
   include /includes/footer

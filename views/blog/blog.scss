@@ -42,6 +42,17 @@ $animationDelay: 300ms;
 .blog-post__body {
   animation: fade-in 700ms #{$animationDelay + 300ms} 1 both $easeOutCubic;
   
+  // All headigns look the same for consistency
+  h1, h2, h3, h4 {
+    font: 700 1.2rem $ff-body;
+    text-transform: uppercase;
+  }
+  
+  // ...except H1. this guy is special!
+  h1 {
+    font-size: msRem(2);
+  }
+  
   p {
     margin: msRem(2) 0;
     font-size: 1.2rem;

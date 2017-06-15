@@ -34,9 +34,22 @@ module.exports = () => ({
             markdown.parseFile(f.body)
           ) 
         );
-        resolve(posts);
+        const sortedPosts = sortPostsByDate(posts);
+        resolve(sortedPosts);
       }).catch(err => {
         throw new Error(err.message)
       });
   }))()
 });
+
+function sortPostsByDate(posts) {
+  return posts.sort((a, b) => {
+    if (new Date(b.date) === new Date(a.date)) {
+      return 0;
+    }
+    if (new Date(b.date) > new Date(a.date)) {
+      return 1;
+    }
+    return -1;
+  });
+}

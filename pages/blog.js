@@ -25,7 +25,7 @@ module.exports = (args) => {
           title: post.title,
           // This will be injected into the scss file prior to compilation
           scssVariables: {
-            'postColor': post.coverColor,
+            postColor: post.coverColor,
           }
         };
         const allContent = Object.assign({}, headerData, updatedData);
@@ -43,6 +43,7 @@ function getPost(slug) {
         const postParsed = markdown.parseFile(file.body);
         const filenameParsed = markdown.parseFilename(file.name);
         const post = Object.assign({}, filenameParsed, postParsed);
+        debug('%S', post);
         resolve(post);
       }).catch(err => {
         throw new Error(err.message)
