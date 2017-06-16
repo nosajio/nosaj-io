@@ -54,6 +54,8 @@ $animationDelay: 300ms;
 .blog-post__body {
   animation: fade-in 700ms #{$animationDelay + 300ms} 1 both $easeOutCubic;
   
+  // - Main elements
+  
   // All headigns look the same for consistency
   h1, h2, h3, h4 {
     display: block;
@@ -94,6 +96,8 @@ $animationDelay: 300ms;
     max-width: 100%;
   }
   
+  // - Lists
+  
   ol, ul {
     display: block;
     margin: msRem(4) 0;
@@ -112,5 +116,23 @@ $animationDelay: 300ms;
   
   ol {
     list-style-type: upper-roman;
+  }
+  
+  // - Media and other content
+  
+  iframe, cite {
+    display: block;
+    width: 100%;
+  }
+  
+  cite {
+    margin-top: msRem(1);
+    text-align: right;
+    color: #505050;
+  }
+  
+  // In-flow images and media
+  > div {
+    padding: msRem(2) 0;
   }
 }
