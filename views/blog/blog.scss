@@ -18,6 +18,11 @@ $animationDelay: 300ms;
   max-width: 860px;
   width: 100%;
   margin: 0 auto;
+  padding-top: msRem(3);
+  
+  @media #{mq(m)} {
+    padding-top: msRem(4);
+  }
 }
 
 .blog-post__title {
