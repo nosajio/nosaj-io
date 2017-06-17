@@ -16,17 +16,6 @@ $postColorReadable: $postColor;
   $postColorReadable: change-color($postColor, $lightness: 60%);
 }
 
-a {
-  color: black;
-  border-bottom: 1px solid black;
-  text-decoration: none;
-  
-  &:hover {
-    color: $postColorReadable;
-    border-color: $postColorReadable;
-  }
-}
-
 .main-frame {
   @extend %small-pad;
   display: flex;
@@ -38,6 +27,17 @@ a {
   
   @media #{mq(m)} {
     padding-top: msRem(4);
+  }
+  
+  a {
+    color: black;
+    border-bottom: 1px solid black;
+    text-decoration: none;
+    
+    &:hover {
+      color: $postColorReadable;
+      border-color: $postColorReadable;
+    }
   }
 }
 
