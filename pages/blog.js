@@ -10,7 +10,7 @@ module.exports = (args) => {
     scripts: ['ga.js'],
     title: '',
     // The message to show after the post
-    message: 'Are you making something? I\'m available for hire from July 2017. <br> Enquiries: <a href="mailto:hi@nosaj.io">jason@nosaj.io</a>',
+    message: 'Are you making something? I\'m available for hire from July 2017. <br> Enquiries: <a href="mailto:hi@nosaj.io">hi@nosaj.io</a>',
   };
   
   // Return a stripped out version of the template before args are available
