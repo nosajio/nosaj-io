@@ -49,7 +49,8 @@ $clr-secondary: lighten( $clr-landing-bg, 24%);
   flex-flow: column nowrap;
   justify-content: center;
   width: 100%;
-  min-height: 95vh;
+  height: 95vh;
+  min-height: 700px;
   
   @media #{mq(m)} {
     align-items: center;
@@ -165,13 +166,19 @@ $clr-secondary: lighten( $clr-landing-bg, 24%);
     p {
       font-size: msRem(1);
       margin: 0;
+      text-align: center;
+      font-style: italic;
+      
+      &::before { content: open-quote; }
+      &::after { content: close-quote; }
     }
     // The human
     cite {
       display: block;
       font-size: .9rem;
-      margin-top: 5px;
+      margin-top: msRem(-1);
       color: lighten($clr-landing-bg, 30%);
+      text-align: center;
     }
     cite::before {
       content: '—';
