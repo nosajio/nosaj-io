@@ -12,8 +12,8 @@ $animationDelay: 300ms;
 }
 
 $postColorReadable: $postColor;
-@if lightness($postColor) > 60% {
-  $postColorReadable: change-color($postColor, $lightness: 60%);
+@if lightness($postColor) > 50% {
+  $postColorReadable: change-color($postColor, $lightness: 50%);
 }
 
 .main-frame {
@@ -30,13 +30,13 @@ $postColorReadable: $postColor;
   }
   
   a {
-    color: black;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid lighten($postColorReadable, 30%);
+    color: $postColorReadable;
     text-decoration: none;
     
     &:hover {
-      color: $postColorReadable;
-      border-color: $postColorReadable;
+      color: black;
+      border-color: black;
     }
   }
 }
