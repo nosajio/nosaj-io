@@ -6,7 +6,8 @@ module.exports = () => ({
   
   title: '&#128187; Work',
   subtitle: 'Below are a selection of projects that I have worked on recently',
-  actionText: `I'm not a fan of these popup things either. But just to let you know, I'm available for hire from July.`,
+  availability: `Are you making something? I'm avaiable for hire from July 2017`,
+  availabilityCTA: 'mailto:hi@nosaj.io?subject=Hello',
   projects: [
     {
       id: 'justalevel',
@@ -28,6 +29,12 @@ module.exports = () => ({
         'GraphQL',
         'NodeJS'
       ]
+    },
+    {
+      // Not all projects are projects. Some are ads
+      id: 'availability',
+      ad: true,
+      message: `Are you making something? I'm available for hire from July 2017. Enquiries: <a href="mailto:hi@nosaj.io?subject=Hello">hi@nosaj.io</a>`,
     },
     {
       id: 'beachfix',

@@ -6,24 +6,26 @@ html
     main.main-frame
       section.work-main
         each project in projects
-          div.work-block(class=project.id)
-            div.work-block__preview
-              each img in project.images
-                div.preview(class=`preview--${img.type}`)
-                  img(src=img.url alt='')
-            div.work-block__body
-              header.work-block__title
-                h1= project.product
-              p= project.description
-              if project.stack
-                h2 Stack
-                ul.work-block__stack
-                  each s in project.stack
-                    li.work-block__stack-child= s
-              if project.webURL
-                a(href=project.webURL target='_blank').project-url See it live
-      section.psst-bar 
-        p(data-text=actionText) 
-        div.psst-actions
-          a.psst-action(href='mailto:hi@nosaj.io') Email me
+          // Is this a project or a 'ad' segment?
+          if project.ad
+            div.ad-block
+              div.ad-block__inner
+                p !{project.message}
+          else
+            div.work-block(class=project.id)
+              div.work-block__preview
+                each img in project.images
+                  div.preview(class=`preview--${img.type}`)
+                    img(src=img.url alt='')
+              div.work-block__body
+                header.work-block__title
+                  h1= project.product
+                p= project.description
+                if project.stack
+                  h2 Stack
+                  ul.work-block__stack
+                    each s in project.stack
+                      li.work-block__stack-child= s
+                if project.webURL
+                  a(href=project.webURL target='_blank').project-url See it live
     include /includes/footer

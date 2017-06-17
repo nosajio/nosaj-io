@@ -4,15 +4,15 @@
 @import 'fonts';
 @import 'easing';
 @import 'keyframes';
+@import 'colors';
 
 $clr-work-bg: #4a4a4a;
-$pad-work-block: msRem(6);
 $height-of-preview-img-desktop: 900px;
 $height-of-preview-img-mobile: 700px;
 
 .work-view {
   background: $clr-work-bg;
-  color: rgb(247, 249, 239);
+  color: white;
   
   // Make the logo white
   .logo svg path {
@@ -28,39 +28,28 @@ $height-of-preview-img-mobile: 700px;
   margin: 0 auto;
 }
 
+.ad-block,
+.work-block {
+  width: 100%;
+  margin: msRem(2) 0;
+  
+  @media #{mq(l)} {
+    margin: msRem(4) 0;
+  }
+}
+
 .work-block {
   display: flex;
   flex-flow: column nowrap;
-  width: 100%;
-  padding: msRem(5) 0 0;
   text-align: center;
   
   &:first-child {
     padding-top: msRem(2);
   }
-  
-  // Divider
-  &::after {
-    content: '';
-    display: none;
-    width: 100%;
-    height: 2px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: msRem(5);
-    background: rgba(255,255,255,.4);
-    
-    @media #{mq(l)} {
-      display: none;
-      margin-top: $pad-work-block;
-      margin-bottom: 0;
-    }
-  }
-    
+      
   @media #{mq(l)} {
     flex-flow: row-reverse wrap;
     justify-content: space-around;
-    padding-top: $pad-work-block;
     text-align: left;
   }
   
@@ -217,133 +206,6 @@ $height-of-preview-img-mobile: 700px;
   }  
 }
 
-// The PSST bar will be shown as the user scrolls down the page
-.psst-bar {
-  display: none;
-  position: fixed;
-  bottom: 0; left: 0;
-  flex-flow: column nowrap;
-  width: 100%;
-  padding: msRem(-1);
-  
-  @media #{mq(m)} {
-    flex-direction: row;
-    align-items: flex-end;
-    justify-content: flex-end;
-    padding: msRem(1) msRem(1) msRem(1) 0;
-  }
-  
-  p, .psst-action {
-    display: inline-block;
-    width: auto;
-    margin: 0; 
-    font-size: 1rem;
-    line-height: 1.3;
-    border-radius: 100px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, .5);
-  }
-  
-  p { 
-    color: black;
-    background: white;
-    border-radius: 10px;
-    padding: msRem(-2) msRem(-1);
-
-    @media #{mq(m)} {
-      max-width: 36%;
-    }
-  }
-  
-  strong {
-    font-weight: 700;
-  }
-  
-  &--showing {
-    display: flex;
-  }
-  
-  &--showing {
-    p {
-      animation: bounce-in 300ms 200ms 1 both $easeOutCubic;
-    }
-    
-    .psst-action {
-      animation: bounce-in 300ms 1.5s 1 both $easeOutCubic;
-    }
-  }
-  
-  // Individual letters, make them 'type' in
-  &__char {
-    @for $i from 0 through 110 {
-      &:nth-child(#{$i}n) {
-        animation: fade-in 50ms #{$i * 20}ms both 1 linear;
-      }
-    }
-  }
-  
-  .psst-actions {
-    display: block;
-    width: 100%;
-    margin-top: msRem(-1);
-    
-    @media #{mq(m)} {
-      display: inline-block;
-      width: auto;
-      margin-left: msRem(-1); 
-      margin-top: 0;
-    }
-  }
-  
-  .psst-action {
-    position: relative;
-    width: 100%;
-    padding: msRem(-2) msRem(1);
-    color: white;
-    background: black;
-    text-align: center;
-    font-weight: 500;
-    text-decoration: none;
-  }
-  
-  @keyframes psst-action-hover {
-    from {
-      background-position: 100% 0;
-    }
-    to {
-      background-position: -100% 0;
-    }
-  }
-  
-  .psst-action::before {
-    content: '';
-    position: absolute;
-    z-index: -1;
-    display: block;
-    top: 0; right: 0;
-    bottom: 0; left: 0;
-    border-radius: 100px;
-    opacity: 0;
-    transition: opacity 100ms linear;
-    background: linear-gradient(to right, #e3d423, #3cd70e, #19e4d3, #4d0bda, #e22244, #e3d423);
-    background-size: 200% auto;
-    background-repeat: repeat-x;
-  }
-  
-  .psst-action:hover::before {
-    opacity: 1;
-    animation: psst-action-hover 400ms infinite linear;
-  }
-}
-
-// Because the .work-block::after tag get's moved to before the element on mobile,
-// hide the first one
-.work-block:first-child::after { 
-  display: none; 
-  @media #{mq(l)} {
-    display: block;
-  }
-}
-
 // Flip the direction for every other project
 .work-block:nth-of-type(even) {
   @media #{mq(l)} {
@@ -362,4 +224,30 @@ $height-of-preview-img-mobile: 700px;
       right: 0; left: auto;
     }
   }
+}
+
+.ad-block {
+  display: flex;
+  width: 100%;
+  margin: msRem(2) 0;
+  justify-content: center;
+  background: darken($clr-work-bg, 2%);
+
+  @media #{mq(m)} {
+    margin: msRem(4) 0;
+  }
+  
+  &__inner {
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  p {
+    font-size: 1rem;
+    text-align: center;
+    color: lighten($clr-work-bg, 30%);
+  }
+  
+  a { color: lighten($clr-work-bg, 30%); }
+  a:hover { color: $clr-green; }
 }
