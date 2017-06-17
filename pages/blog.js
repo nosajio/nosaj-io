@@ -3,17 +3,19 @@ const fileopener = require('../server/blog/file-opener');
 const markdown = require('../server/blog/markdown-parser');
 
 module.exports = (args) => {
-  const headerData = {
+  const defaultData = {
     view: 'blog',
     path: '/r/:slug',
     stylesheet: 'views/blog/blog.scss',
     scripts: ['ga.js'],
     title: '',
+    // The message to show after the post
+    message: 'Are you making something? I\'m available for hire from July 2017. <br> Enquiries: <a href="mailto:hi@nosaj.io">jason@nosaj.io</a>',
   };
   
   // Return a stripped out version of the template before args are available
   if (! args) {
-    return headerData;
+    return defaultData;
   }
   
   // Async
@@ -28,12 +30,18 @@ module.exports = (args) => {
             postColor: post.coverColor,
           }
         };
-        const allContent = Object.assign({}, headerData, updatedData);
+        const allContent = Object.assign({}, defaultData, updatedData);
         resolve(allContent);
       });
   });
 }
 
+/**
+ * Get Post Helper
+ * Grab the post with :slug
+ * @param {String} slug
+ * @return {Promise<Object>}
+ */
 function getPost(slug) {
   return new Promise(resolve => {
     fileopener

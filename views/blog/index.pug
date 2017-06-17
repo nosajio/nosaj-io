@@ -9,5 +9,8 @@ html
           span.box(style=`border-color: ${post.coverColor}`)
           h1= post.title
         div.blog-post__body !{post.body}
+      if message
+        footer.blog-post__suffix 
+          p !{message}
         
   include /includes/footer

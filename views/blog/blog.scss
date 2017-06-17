@@ -11,6 +11,22 @@ $animationDelay: 300ms;
   from { opacity: 0; bottom: 100%; right: 100%; }
 }
 
+$postColorReadable: $postColor;
+@if lightness($postColor) > 60% {
+  $postColorReadable: change-color($postColor, $lightness: 60%);
+}
+
+a {
+  color: black;
+  border-bottom: 1px solid black;
+  text-decoration: none;
+  
+  &:hover {
+    color: $postColorReadable;
+    border-color: $postColorReadable;
+  }
+}
+
 .main-frame {
   @extend %small-pad;
   display: flex;
@@ -93,7 +109,7 @@ $animationDelay: 300ms;
     font-weight: 700;
     font-size: 65px;
     line-height: 60px;
-    color: $postColor;
+    color: $postColorReadable;
   }
   
   img {
@@ -139,5 +155,18 @@ $animationDelay: 300ms;
   // In-flow images and media
   > div {
     padding: msRem(2) 0;
+  }
+}
+
+.blog-post__suffix {
+  padding: msRem(4) 0;
+  color: #323232;
+  text-align: center;
+  font-size: msRem(1);
+  
+  p {
+    display: inline;
+    padding: 0 15px;
+    background: rgba(193, 252, 217, .4);
   }
 }
