@@ -5,7 +5,7 @@ module.exports = () => ({
   path: '/',
   stylesheet: 'views/landing/landing.scss',
   scripts: ['ga.js'],
-  title: '👋 Hi!',
+  title: '&#128075; Hi!',
   introText: [
     'I\'m Jason, nice to meet you. I design & make measurable products with modern web technologies.',
     'I\'m currently working to help people build ambitious websites & apps quickly.'

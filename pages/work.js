@@ -4,7 +4,7 @@ module.exports = () => ({
   stylesheet: 'views/work/work.scss',
   scripts: ['ga.js', '$.js', 'work.js'],
   
-  title: '💻 Work',
+  title: '&#128187; Work',
   subtitle: 'Below are a selection of projects that I have worked on recently',
   actionText: `I'm not a fan of these popup things either. But just to let you know, I'm available for hire from July.`,
   projects: [
