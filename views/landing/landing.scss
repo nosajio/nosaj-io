@@ -240,6 +240,7 @@ $clr-secondary: lighten( $clr-landing-bg, 24%);
     width: 100%;
     padding-left: msRem(1);
     padding-right: msRem(1);
+    animation: fade-in 900ms 2s 1 both $easeOutCubic;
     
     @media #{mq(m)} {
       padding-left: msRem(5);
@@ -253,6 +254,7 @@ $clr-secondary: lighten( $clr-landing-bg, 24%);
     width: 100%;
     padding-left: msRem(1);
     padding-right: msRem(1);
+    animation: fade-in 900ms 2s 1 both $easeOutCubic;
     
     @media #{mq(m)} {
       padding-left: msRem(5);
