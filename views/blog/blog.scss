@@ -44,7 +44,7 @@ $postColorReadable: $postColor;
 .blog-post__title {
   position: relative;
   padding-top: msRem(3);
-  margin-bottom: msRem(4);
+  margin-bottom: msRem(5);
   
   @media #{mq(m)} {
     padding-top: 0;
@@ -167,6 +167,5 @@ $postColorReadable: $postColor;
   p {
     display: inline;
     padding: 0 15px;
-    background: rgba(193, 252, 217, .4);
   }
 }

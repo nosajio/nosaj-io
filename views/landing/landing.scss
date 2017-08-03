@@ -66,12 +66,13 @@ $clr-secondary: lighten( $clr-landing-bg, 24%);
     animation: zoom-enter 500ms 300ms 1 both $easeOutCubic;
     
     @media #{mq(m)} {
-      max-width: 50%;
+      max-width: 70%;
     }
     
     p {
       font-weight: 500;
-      font-size: msRem(1);
+      font-size: msRem(2);
+      
       @media #{mq(m)} {
         font-size: msRem(2);
         margin: msRem(2) 0 0;
@@ -85,7 +86,7 @@ $clr-secondary: lighten( $clr-landing-bg, 24%);
     width: 100%;
     
     @media #{mq(m)} {
-      max-width: 50%;
+      max-width: 70%;
       margin-top: msRem(1);
       flex-flow: row nowrap;
     }
@@ -196,25 +197,28 @@ $clr-secondary: lighten( $clr-landing-bg, 24%);
 }
 
 .posts {
-  $post-padding-l: ms(5);
-  $post-padding-s: ms(3);
+  $post-padding-l: ms(2);
+  $post-padding-s: ms(1);
   
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  padding: msRem(5) 0;
   background: white;
   color: black;
-  text-align: center;
   
   a { 
     position: relative;
     z-index: 100;
     display: block;
-    padding: #{$post-padding-s}rem msRem(4);
+    padding: #{$post-padding-s}rem 0;
     color: black; 
     text-decoration: none;
     font-size: msRem(1);
     line-height: 1.5;
     
     @media #{mq(m)} {
-      padding: #{$post-padding-l}rem msRem(4);
+      padding: #{$post-padding-l}rem 0;
       font-size: msRem(2);
     }
   }
@@ -223,42 +227,35 @@ $clr-secondary: lighten( $clr-landing-bg, 24%);
     position: relative;
     display: block;
     width: 100%;
+    padding-left: msRem(1);
+    padding-right: msRem(1);
     overflow: hidden;
+    
+    @media #{mq(m)} {
+      max-width: 50%;
+      padding-left: 0;
+      padding-right: 0;
+    }
   }
   
   &__post-title {
-    transition: all 7s $easeOutCubic;
+    transition: all 1s $easeOutCubic;
+    font-size: msRem(1);
     font-weight: 500;
+    text-decoration: underline;
+    
+    @media #{mq(m)} {
+      font-size: msRem(2);
+    }
   }
   
   &__post-date {
     display: block;
     margin-top: msRem(-1);
-    font-size: 1rem;
+    font-size: msRem(-1);
     text-transform: uppercase;   
   }
   
-  &__post-bg {
-    position: absolute;
-    z-index: 1;
-    top: 0; left: 0;
-    width: 100%;
-    background-size: cover;
-    background-position: center;
-    transform: scale(1.5);
-    transition: all 10s $easeOutCubic;
-    filter: blur(5px);
-    height: 100%;
-    opacity: .2;
-  }
-  
   &__post:hover &__post-title {
-    transform: scale(1.1);
-  }
-  
-  &__post:hover &__post-bg {
-    filter: blur(0);
-    transform: scale(1);
-    opacity: .4;
   }
 }

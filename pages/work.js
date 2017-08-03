@@ -34,7 +34,7 @@ module.exports = () => ({
       // Not all projects are projects. Some are ads
       id: 'availability',
       ad: true,
-      message: `Are you making something? I'm available for hire now. Enquiries: <a href="mailto:hi@nosaj.io?subject=Hello">hi@nosaj.io</a>`,
+      message: `Are you making something? I'm available for hire. Enquiries: <a href="mailto:hi@nosaj.io?subject=Hello">hi@nosaj.io</a>`,
     },
     {
       id: 'beachfix',
