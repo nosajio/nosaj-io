@@ -6,7 +6,7 @@ module.exports = () => ({
   
   title: '&#128187; Work',
   subtitle: 'Below are a selection of projects that I have worked on recently',
-  availability: `Are you making something? I'm avaiable for hire from July 2017`,
+  availability: `Are you making something? I'm avaiable for hire!`,
   availabilityCTA: 'mailto:hi@nosaj.io?subject=Hello',
   projects: [
     {
@@ -34,7 +34,7 @@ module.exports = () => ({
       // Not all projects are projects. Some are ads
       id: 'availability',
       ad: true,
-      message: `Are you making something? I'm available for hire from July 2017. Enquiries: <a href="mailto:hi@nosaj.io?subject=Hello">hi@nosaj.io</a>`,
+      message: `Are you making something? I'm available for hire now. Enquiries: <a href="mailto:hi@nosaj.io?subject=Hello">hi@nosaj.io</a>`,
     },
     {
       id: 'beachfix',
