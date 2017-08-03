@@ -39,6 +39,12 @@ $clr-secondary: lighten( $clr-landing-bg, 24%);
     top: 0; right: 0;
     z-index: 1000;
   }
+  
+  .section-title {
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
 }
 
 .landing-top {
@@ -49,11 +55,11 @@ $clr-secondary: lighten( $clr-landing-bg, 24%);
   flex-flow: column nowrap;
   justify-content: center;
   width: 100%;
-  height: 95vh;
-  min-height: 700px;
+  padding: msRem(8) msRem(2);
   
   @media #{mq(m)} {
-    align-items: center;
+    align-items: flex-start;
+    padding: msRem(10) msRem(5);
   }
   
   &__header {
@@ -66,28 +72,35 @@ $clr-secondary: lighten( $clr-landing-bg, 24%);
     animation: zoom-enter 500ms 300ms 1 both $easeOutCubic;
     
     @media #{mq(m)} {
-      max-width: 70%;
+      max-width: 820px;
     }
     
-    p {
+    h1 {
       font-weight: 500;
       font-size: msRem(2);
+      line-height: 1.4;
+      margin: 0;
       
       @media #{mq(m)} {
         font-size: msRem(2);
-        margin: msRem(2) 0 0;
       }
     }
+    
+    p {
+      font-size: msRem(1);
+    }
+    
+    p:last-child { margin-bottom: 0; }
   }
   
   &__actions {
     display: flex;
     flex-flow: column nowrap;
     width: 100%;
+    margin-top: msRem(1);
     
     @media #{mq(m)} {
-      max-width: 70%;
-      margin-top: msRem(1);
+      max-width: 820px;
       flex-flow: row nowrap;
     }
     
@@ -197,8 +210,8 @@ $clr-secondary: lighten( $clr-landing-bg, 24%);
 }
 
 .posts {
-  $post-padding-l: ms(2);
-  $post-padding-s: ms(1);
+  $post-padding-l: ms(1);
+  $post-padding-s: ms(-1);
   
   display: flex;
   flex-flow: column nowrap;
@@ -223,26 +236,35 @@ $clr-secondary: lighten( $clr-landing-bg, 24%);
     }
   }
   
+  &__header {
+    width: 100%;
+    padding-left: msRem(1);
+    padding-right: msRem(1);
+    
+    @media #{mq(m)} {
+      padding-left: msRem(5);
+      padding-right: msRem(5);
+    }
+  }
+  
   &__post {
     position: relative;
     display: block;
     width: 100%;
     padding-left: msRem(1);
     padding-right: msRem(1);
-    overflow: hidden;
     
     @media #{mq(m)} {
-      max-width: 50%;
-      padding-left: 0;
-      padding-right: 0;
+      padding-left: msRem(5);
+      padding-right: msRem(5);
     }
   }
-  
+
   &__post-title {
+    position: relative;
     transition: all 1s $easeOutCubic;
     font-size: msRem(1);
     font-weight: 500;
-    text-decoration: underline;
     
     @media #{mq(m)} {
       font-size: msRem(2);
@@ -253,9 +275,29 @@ $clr-secondary: lighten( $clr-landing-bg, 24%);
     display: block;
     margin-top: msRem(-1);
     font-size: msRem(-1);
-    text-transform: uppercase;   
+    text-transform: uppercase;
   }
   
-  &__post:hover &__post-title {
+  &__post:hover .title-bg,
+  &__post:focus .title-bg,
+  &__post:active .title-bg {
+    opacity: 1;
+    width: 100%;
+  }
+  
+  .title-bg {
+    position: absolute;
+    z-index: -1;
+    top: 0; left: 0;
+    width: 0;
+    height: 100%;
+    opacity: 0;
+    transition: width 300ms $easeOutCubic, opacity 800ms $easeOutCubic;
+  }
+  
+  .title-text {
+    position: relative;
+    display: inline;
+    border-bottom: 1px solid transparent;
   }
 }

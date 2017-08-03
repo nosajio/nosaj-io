@@ -7,8 +7,10 @@ module.exports = () => ({
   scripts: ['ga.js'],
   title: '&#128075; Hi!',
   introText: [
-    'I\'m Jason, nice to meet you. I design & make measurable products with modern web technologies.',
-    'I\'m currently working to help people build ambitious websites & apps quickly.'
+    'Hi I\'m Jason, nice to meet you. I design & make measurable products with modern web technologies.',
+  ],
+  introSubtext: [
+    'I work with startups and individuals to test ideas and build ambitious things. I also make a tool for podcast listeners called <a href="ripcast.in" target="_blank">Ripcast.</a>'
   ],
   available: true,
   quotes: [

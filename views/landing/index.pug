@@ -7,15 +7,21 @@ html
       section.landing-top
         div.landing-top__intro
           each line in introText
-            p= line
+            h1= line
+          each line in introSubtext
+            p!= line
         include actions
       section.posts
+        header.posts__header 
+          h1.section-title Essays
         each post in posts
           article.posts__post
             //- div.posts__post-bg(style={'background-image': post.coverImg ? `url(${post.coverImg})` : '', 'background-color': post.coverColor})
             a(href=`/r/${post.slug}`)
               span.posts__post-date= post.dateString
-              h1.posts__post-title= post.title 
+              h1.posts__post-title
+                span.title-text(style={'border-bottom-color': post.coverColor})= post.title 
+                  span.title-bg(style={'background-color': post.coverColor})
       section.landing-kindness
         include quotes
   include /includes/footer
