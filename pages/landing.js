@@ -10,7 +10,7 @@ module.exports = () => ({
     'Hi I\'m Jason, nice to meet you. I design & make measurable products with modern web technologies.',
   ],
   introSubtext: [
-    'I work with startups and individuals to test ideas and build ambitious things. I also make a tool for podcast listeners called <a href="ripcast.in" target="_blank">Ripcast.</a>'
+    'I work with startups and individuals to test ideas and build ambitious things. I also make a tool for podcast listeners called <a href="http://ripcast.in" target="_blank">Ripcast.</a>'
   ],
   available: true,
   quotes: [
