@@ -6,7 +6,8 @@
   "author": "Jason Howmans <jason@nosaj.io>",
   "license": "MIT",
   "scripts": {
-    "dev": "DEBUG=nosaj:* nodemon boot"
+    "dev": "DEBUG=nosaj:* nodemon boot",
+    "pw": "(cd writing && git pull && cd ..) && (git add ./writing -A && git commit -m 'Pull latest writing content')"
   },
   "dependencies": {
     "debug": "^2.6.8",
