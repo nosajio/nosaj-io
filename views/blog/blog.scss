@@ -5,6 +5,7 @@
 @import 'keyframes';
 @import 'easing';
 
+$blog-font-size: 1.2rem;
 $animationDelay: 300ms;
 
 @keyframes box-in {
@@ -16,13 +17,16 @@ $postColorReadable: $postColor;
   $postColorReadable: change-color($postColor, $lightness: 50%);
 }
 
+%readable {
+  max-width: 860px;
+  width: 100%;
+  margin: 0 auto;
+}
+
 .main-frame {
   @extend %small-pad;
   display: flex;
   flex-flow: column nowrap;
-  max-width: 860px;
-  width: 100%;
-  margin: 0 auto;
   padding-top: msRem(3);
   
   @media #{mq(m)} {
@@ -42,6 +46,7 @@ $postColorReadable: $postColor;
 }
 
 .blog-post__title {
+  @extend %readable;
   position: relative;
   padding-top: msRem(3);
   margin-bottom: msRem(5);
@@ -71,29 +76,67 @@ $postColorReadable: $postColor;
   }
 }
 
+// The cover
+.blog-post__cover {
+  position: relative;
+  width: 100%;
+  margin-bottom: msRem(4);
+  overflow: hidden;
+  
+  &::after {
+    content: '';
+    display: block;
+    padding-top: 40%;
+  }
+  
+  img { 
+    position: absolute;
+    left: 0;
+    width: 100%;
+  }
+}
+
 // Main body of the post
 .blog-post__body {
+  // @extend %readable;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
   animation: fade-in 700ms #{$animationDelay + 300ms} 1 both $easeOutCubic;
   
   // - Main elements
   
-  // All headigns look the same for consistency
+  // All headigns start the same for consistency
   h1, h2, h3, h4 {
+    @extend %readable;
     display: block;
     margin: msRem(2) 0;
-    font: 700 1.2rem $ff-body;
-    text-transform: uppercase;
+    font: 700 $blog-font-size $ff-body;
   }
   
-  // ...except H1. this guy is special!
+  // H1. this guy is special
   h1 {
     font-size: msRem(2);
   }
   
+  // Secondary & tertiary headings 
+  h2 {
+    margin-top: msRem(5);
+    font-size: msRem(1);
+    text-transform: uppercase;
+  }
+  
+  h3, h4 { font-size: $blog-font-size; margin-bottom: 1rem; }
+  
   p {
-    margin: msRem(2) 0;
-    font-size: 1.2rem;
+    @extend %readable;
+    font-size: $blog-font-size;
     line-height: 1.5;
+    margin: 0;
+  }
+  
+  p + p {
+    margin: msRem(2) 0;
   }
   
   // Bold opening paragraph
@@ -126,7 +169,7 @@ $postColorReadable: $postColor;
     
     li {
       display: list-item;
-      font-size: 1.2rem;
+      font-size: $blog-font-size;
       line-height: 1.5;
     }
     
@@ -139,7 +182,36 @@ $postColorReadable: $postColor;
     list-style-type: upper-roman;
   }
   
-  // - Media and other content
+  // In-flow images and media
+  .image, .video, .embed {
+    @extend %readable;
+  }
+  
+  .image {
+    padding: msRem(2) 0;
+  }
+  
+  .image.narrow {
+    max-height: 600px;
+  }
+  
+  .image.fill {
+    max-width: 100%;
+    overflow: hidden;
+    
+    > img {
+      display: block;
+      width: 100%;
+    }
+  }
+  
+  .embed {
+    padding: msRem(4) 0;
+  }
+  
+  .video {
+    
+  }
   
   iframe, cite {
     display: block;
@@ -151,15 +223,10 @@ $postColorReadable: $postColor;
     text-align: right;
     color: #505050;
   }
-  
-  // In-flow images and media
-  > div {
-    padding: msRem(2) 0;
-  }
 }
 
 .blog-post__suffix {
-  padding: msRem(4) 0;
+  padding: msRem(6) 0;
   color: #323232;
   text-align: center;
   font-size: msRem(1);

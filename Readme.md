@@ -7,3 +7,11 @@ This is my personal site. Here's all you need to know about it in four bullet po
 - The site is made to be fast. It contains a bunch of fun optimisations and progressive web app features to get as close to no perceived wait as possible.
 - ...
 - ...
+
+# Blog
+Blog posts can accommodate various elements within the markdown. These elements are identifiable by class names:
+- `.image` An embedded image.
+  - `.image.fill` Make the image take up 100% of the width.
+  - `.image.narrow` Letterbox image.
+- `.embed` Embedded element (usually a tweet or something).
+- `.video` A video from YouTube / Vimeo etc.

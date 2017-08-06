@@ -8,6 +8,9 @@ html
         header.blog-post__title
           span.box(style=`border-color: ${post.coverColor}`)
           h1= post.title
+        if post.coverImg
+          section.blog-post__cover
+            img(src=post.coverImg alt=`${post.title}`)
         div.blog-post__body !{post.body}
       if message
         footer.blog-post__suffix 
