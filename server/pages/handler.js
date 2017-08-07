@@ -39,7 +39,11 @@ function pageHandler(req, res, { _page }) {
     function resolvePage(styles) {
       const javascript = scripts && injectScripts(scripts);
       const headerFooter = { 
-        head: { stylesheet: styles, title }, 
+        head: { 
+          stylesheet: styles, 
+          title,
+          ogImage: extractOgImage(resolvedContent)
+        }, 
         footer: { scripts: javascript || '' } 
       };
       const template = Object.assign({}, resolvedContent, headerFooter);
@@ -96,4 +100,12 @@ function pageHandler(req, res, { _page }) {
  */
 function isPromise(prop) {
   return null !== prop && typeof prop === 'object' && 'then' in prop;
+}
+
+function extractOgImage(data) {
+  let ogImage = null;
+  if (data.post && data.post.coverImg) {
+    ogImage = data.post.coverImg;
+  }
+  return ogImage;
 }

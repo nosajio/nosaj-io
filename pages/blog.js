@@ -9,6 +9,7 @@ module.exports = (args) => {
     path: '/r/:slug',
     stylesheet: 'views/blog/blog.scss',
     scripts: ['ga.js', '$.js', 'blog.js'],
+    image: null,
     title: '',
     // The message to show after the post
     message: 'Are you making something? I\'m available for hire. <br> Enquiries: <a href="mailto:hi@nosaj.io">hi@nosaj.io</a>',
