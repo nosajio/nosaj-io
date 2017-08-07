@@ -5,22 +5,13 @@
 @import 'easing';
 @import 'keyframes';
 
-@keyframes zoom-enter {
-  from {
-    transform: scale(.9);
-    opacity: 0;
-  }
-}
+
 
 $clr-landing-bg: rgb(0, 0, 0);
 $clr-secondary: lighten( $clr-landing-bg, 24%);
 
 .main-frame {
 
-}
-
-.main-navigation .nav-links {
-  animation: fade-in 500ms 1s 1 both $easeOutCubic;
 }
 
 .landing-view {
@@ -69,7 +60,6 @@ $clr-secondary: lighten( $clr-landing-bg, 24%);
   
   &__intro {
     width: 100%;
-    animation: zoom-enter 500ms 300ms 1 both $easeOutCubic;
     
     @media #{mq(m)} {
       max-width: 820px;
@@ -117,11 +107,7 @@ $clr-secondary: lighten( $clr-landing-bg, 24%);
     a:hover {
       background: darken($clr-landing-bg, 20%);
     }
-    
-    li:nth-child(1n+1) { animation: fade-in 500ms 1s 1 both $easeOutCubic; }
-    li:nth-child(1n+2) { animation: fade-in 500ms 1.4s 1 both $easeOutCubic; }
-    li:nth-child(1n+3) { animation: fade-in 500ms 1.8s 1 both $easeOutCubic; }
-    
+        
     li { // Action item
       display: flex;
       margin-top: msRem(1);
@@ -240,7 +226,6 @@ $clr-secondary: lighten( $clr-landing-bg, 24%);
     width: 100%;
     padding-left: msRem(1);
     padding-right: msRem(1);
-    animation: fade-in 900ms 1s 1 both $easeOutCubic;
     
     @media #{mq(m)} {
       padding-left: msRem(5);
@@ -254,7 +239,6 @@ $clr-secondary: lighten( $clr-landing-bg, 24%);
     width: 100%;
     padding-left: msRem(1);
     padding-right: msRem(1);
-    animation: fade-in 900ms 1s 1 both $easeOutCubic;
     
     @media #{mq(m)} {
       padding-left: msRem(5);
