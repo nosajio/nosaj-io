@@ -10,11 +10,16 @@ head
     title !{head.title} // Jason makes the internet
   else
     title Jason makes the internet
+  //- Twitter crap
+  meta(name="twitter:card" content="summary_large_image")
+  meta(name="twitter:creator" content="@__nosaj")
+  //- Original Graphter
   meta(name="viewport" content="width=device-width, initial-scale=1")
   meta(name="og:url" property="og:url" content=head.ogUrl || "https://nosaj.io/")
   meta(name="og:type" property="og:type" content="website")
   meta(name="og:title" property="og:title" content=head.title || "Jason makes the internet")
   meta(name="og:image" property="og:image" content=head.ogImage || "http://a.nosaj.io/og-nosaj.png")
+  
   style !{head.stylesheet}
   script(src='https://use.typekit.net/nha0neq.js')
   script.
