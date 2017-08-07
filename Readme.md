@@ -15,3 +15,6 @@ Blog posts can accommodate various elements within the markdown. These elements 
   - `.image.narrow` Letterbox image.
 - `.embed` Embedded element (usually a tweet or something).
 - `.video` A video from YouTube / Vimeo etc.
+- `.package` A download, or multiple downloads
+  - `.package.repo` The link is pointed at a git repo
+  - `.package.link` The link is just a link

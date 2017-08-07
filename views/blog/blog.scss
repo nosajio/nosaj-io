@@ -12,9 +12,11 @@ $animationDelay: 300ms;
   from { opacity: 0; bottom: 100%; right: 100%; }
 }
 
+$postColorBg: change-color($postColor, $lightness: 90%);
+$postColorDark: change-color($postColor, $lightness: 20%);
 $postColorReadable: $postColor;
-@if lightness($postColor) > 50% {
-  $postColorReadable: change-color($postColor, $lightness: 50%);
+@if lightness($postColor) > 40% {
+  $postColorReadable: change-color($postColor, $lightness: 40%);
 }
 
 %readable {
@@ -33,14 +35,15 @@ $postColorReadable: $postColor;
     padding-top: msRem(4);
   }
   
-  a {
-    border-bottom: 1px solid lighten($postColorReadable, 30%);
+  p a {
+    border-bottom: 2px solid $postColorBg;
     color: $postColorReadable;
     text-decoration: none;
     
     &:hover {
       color: black;
-      border-color: black;
+      border-color: $postColorReadable;
+      background: $postColorBg;
     }
   }
 }
@@ -73,6 +76,22 @@ $postColorReadable: $postColor;
       bottom: 0; left: -#{msRem(4)};
       border-left: 5px solid black;
     }
+  }
+}
+
+// Subline after title
+.blog-post__subline {
+  margin-top: msRem(2);
+  animation: fade-in 500ms #{$animationDelay + 200ms} 1 both $easeOutCubic;
+  
+  .subline__item {
+    display: inline-block;
+    color: $postColorReadable;  
+    font: 1rem $ff-mono;
+  }
+  
+  .subline__item + .subline__item {
+    margin-left: msRem(2);
   }
 }
 
@@ -135,16 +154,20 @@ $postColorReadable: $postColor;
     margin: msRem(-1) 0;
   }
   
-  p + p {
+  code {
+    padding: msRem(-5);
+    border-radius: 3px;
+    font-family: $ff-mono;
+    background: $postColorBg;
   }
   
   // Bold opening paragraph
-  p:first-child {
+  p.first-child {
     font-weight: 500;
   }
   
   // Big first letter
-  p:first-child::first-letter {
+  p.first-child::first-letter {
     display: inline-block;
     padding: 0 10px 0 0;
     float: left;
@@ -193,7 +216,7 @@ $postColorReadable: $postColor;
   }
   
   // In-flow images and media
-  .image, .video, .embed {
+  .image, .video, .embed, .package {
     @extend %readable;
     margin-bottom: msRem(4);
   }
@@ -201,6 +224,38 @@ $postColorReadable: $postColor;
   p + .image,
   p + .embed,
   p + .video { margin-top: msRem(4); }
+  
+  .package {
+    background: $postColorBg;
+    border-radius: 3px;
+    border: 1px solid $postColor;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, .2);
+    padding: msRem(-1);
+    text-align: center;
+    
+    p { margin: 0 0 msRem(-2); }
+    
+    a { 
+      color: black; 
+      font-size: 1rem;
+    }
+    
+    .link, .repo {
+      display: inline-block;
+      margin: msRem(-2);
+      padding: msRem(-3) msRem(-2);
+      background: linear-gradient(0deg, $postColorDark, lighten($postColorDark, 10%));
+      color: white;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, .4);
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 3px;
+      
+      &:hover {
+        background: $postColorDark;
+      }
+    }
+  }
   
   .image {
 

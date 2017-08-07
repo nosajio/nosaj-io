@@ -1,4 +1,5 @@
 const debug = require('debug')('nosaj:pages:landing');
+const { dateToString } = require('../lib/helpers/date');
 
 module.exports = () => ({
   view: 'landing',
@@ -68,23 +69,4 @@ function augmentPosts(posts) {
       }
     )
   );
-}
-
-function dateToString(rawDate) {
-  const date = new Date(rawDate);
-  const months = [
-    'January',
-    'Feburary',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December'
-  ];
-  return `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`;
 }

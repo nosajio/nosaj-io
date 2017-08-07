@@ -1,4 +1,5 @@
 const debug = require('debug')('nosaj:content:blog');
+const { dateToString } = require('../lib/helpers/date');
 const fileopener = require('../server/blog/file-opener');
 const markdown = require('../server/blog/markdown-parser');
 
@@ -7,7 +8,7 @@ module.exports = (args) => {
     view: 'blog',
     path: '/r/:slug',
     stylesheet: 'views/blog/blog.scss',
-    scripts: ['ga.js'],
+    scripts: ['ga.js', '$.js', 'blog.js'],
     title: '',
     // The message to show after the post
     message: 'Are you making something? I\'m available for hire. <br> Enquiries: <a href="mailto:hi@nosaj.io">hi@nosaj.io</a>',
@@ -22,6 +23,7 @@ module.exports = (args) => {
   return new Promise(resolve => {
     getPost(args.slug)
       .then(post => {
+        post.dateString = dateToString(post.date);
         const updatedData = { 
           post,
           title: post.title,

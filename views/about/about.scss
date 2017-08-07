@@ -101,13 +101,14 @@
   
   p {
     margin: 0;
+    font-family: $ff-minion;
   }
 }
 
 .bio-main {
   width: 100%;
   padding-top: msRem(2);
-  font: msRem(1) $ff-minion;
+  font: 300 msRem(1)/1.5 $ff-body;
   
   @media #{mq(m)} {
     width: 75%;

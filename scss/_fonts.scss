@@ -1,5 +1,7 @@
 $ff-minion: 'minion-pro-display';
 $ff-museo: 'museo-sans';
+$ff-anon: 'anonymous-pro';
 
 $ff-headings: #{$ff-museo}, sans-serif;
 $ff-body: #{$ff-museo}, sans-serif;
+$ff-mono: $ff-anon, monospace;
