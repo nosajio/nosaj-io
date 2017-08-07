@@ -20,7 +20,7 @@ $clr-secondary: lighten( $clr-landing-bg, 24%);
 }
 
 .main-navigation .nav-links {
-  animation: fade-in 500ms 2s 1 both $easeOutCubic;
+  animation: fade-in 500ms 1s 1 both $easeOutCubic;
 }
 
 .landing-view {
@@ -210,8 +210,8 @@ $clr-secondary: lighten( $clr-landing-bg, 24%);
 }
 
 .posts {
-  $post-padding-l: ms(1);
-  $post-padding-s: ms(-1);
+  $post-padding-l: ms(-1);
+  $post-padding-s: ms(-2);
   
   display: flex;
   flex-flow: column nowrap;
@@ -240,7 +240,7 @@ $clr-secondary: lighten( $clr-landing-bg, 24%);
     width: 100%;
     padding-left: msRem(1);
     padding-right: msRem(1);
-    animation: fade-in 900ms 2s 1 both $easeOutCubic;
+    animation: fade-in 900ms 1s 1 both $easeOutCubic;
     
     @media #{mq(m)} {
       padding-left: msRem(5);
@@ -254,7 +254,7 @@ $clr-secondary: lighten( $clr-landing-bg, 24%);
     width: 100%;
     padding-left: msRem(1);
     padding-right: msRem(1);
-    animation: fade-in 900ms 2s 1 both $easeOutCubic;
+    animation: fade-in 900ms 1s 1 both $easeOutCubic;
     
     @media #{mq(m)} {
       padding-left: msRem(5);
@@ -263,13 +263,12 @@ $clr-secondary: lighten( $clr-landing-bg, 24%);
   }
 
   &__post-title {
-    position: relative;
     transition: all 1s $easeOutCubic;
     font-size: msRem(1);
     font-weight: 500;
     
     @media #{mq(m)} {
-      font-size: msRem(2);
+      // font-size: msRem(2);
     }
   }
   
@@ -279,27 +278,24 @@ $clr-secondary: lighten( $clr-landing-bg, 24%);
     font-size: msRem(-1);
     text-transform: uppercase;
   }
-  
-  &__post:hover .title-bg,
-  &__post:focus .title-bg,
-  &__post:active .title-bg {
-    opacity: 1;
-    width: 100%;
+
+  .title-text {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px solid transparent;
   }
   
   .title-bg {
     position: absolute;
-    z-index: -1;
     top: 0; left: 0;
-    width: 0;
+    z-index: -1;
+    width: 100%;
     height: 100%;
     opacity: 0;
-    transition: width 300ms $easeOutCubic, opacity 800ms $easeOutCubic;
+    transition: all 200ms $easeOutCubic;
   }
   
-  .title-text {
-    position: relative;
-    display: inline;
-    border-bottom: 1px solid transparent;
+  &__post:hover .title-bg {
+    opacity: 1;
   }
 }
