@@ -42,7 +42,8 @@ function pageHandler(req, res, { _page }) {
         head: { 
           stylesheet: styles, 
           title,
-          ogImage: extractOgImage(resolvedContent)
+          ogImage: extractOgImage(resolvedContent),
+          ogUrl: requestUrl(req)
         }, 
         footer: { scripts: javascript || '' } 
       };
@@ -108,4 +109,8 @@ function extractOgImage(data) {
     ogImage = data.post.coverImg;
   }
   return ogImage;
+}
+
+function requestUrl(req) {
+  return req.protocol + '://' + req.get('host') + req.originalUrl;
 }

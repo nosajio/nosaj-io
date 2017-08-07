@@ -11,7 +11,7 @@ head
   else
     title Jason makes the internet
   meta(name="viewport" content="width=device-width, initial-scale=1")
-  meta(name="og:url" property="og:url" content="https://nosaj.io/")
+  meta(name="og:url" property="og:url" content=head.ogUrl || "https://nosaj.io/")
   meta(name="og:type" property="og:type" content="website")
   meta(name="og:title" property="og:title" content=head.title || "Jason makes the internet")
   meta(name="og:image" property="og:image" content=head.ogImage || "http://a.nosaj.io/og-nosaj.png")
