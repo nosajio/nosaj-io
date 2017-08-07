@@ -19,7 +19,7 @@ $bp-hd: 1900px;
 }
 
 %small-pad {
-  padding: 0 msRem(2);
+  padding: 0 msRem(1);
   @media #{mq(m)} { 
     padding: 0;
   }

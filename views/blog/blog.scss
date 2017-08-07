@@ -132,11 +132,10 @@ $postColorReadable: $postColor;
     @extend %readable;
     font-size: $blog-font-size;
     line-height: 1.5;
-    margin: 0;
+    margin: msRem(-1) 0;
   }
   
   p + p {
-    margin: msRem(2) 0;
   }
   
   // Bold opening paragraph
@@ -163,9 +162,10 @@ $postColorReadable: $postColor;
   // - Lists
   
   ol, ul {
+    @extend %readable;
     display: block;
-    margin: msRem(4) 0;
-    padding: 0 msRem(4);
+    margin: msRem(2) 0 0;
+    padding: 0 0 0 msRem(4);
     
     li {
       display: list-item;
@@ -174,21 +174,36 @@ $postColorReadable: $postColor;
     }
     
     li + li {
-      margin-top: msRem(1);
+      margin-top: msRem(-2);
     }
   }
   
   ol {
+    // color: $postColorReadable;
     list-style-type: upper-roman;
+  }
+  
+  ul {
+    list-style-type: disc; 
+    
+    li {
+      display: list-item;
+      margin: 0;
+    }
   }
   
   // In-flow images and media
   .image, .video, .embed {
     @extend %readable;
+    margin-bottom: msRem(4);
   }
   
+  p + .image,
+  p + .embed,
+  p + .video { margin-top: msRem(4); }
+  
   .image {
-    padding: msRem(2) 0;
+
   }
   
   .image.narrow {
@@ -206,7 +221,8 @@ $postColorReadable: $postColor;
   }
   
   .embed {
-    padding: msRem(4) 0;
+    display: flex;
+    justify-content: center;
   }
   
   .video {
