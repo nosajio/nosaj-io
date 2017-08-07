@@ -306,13 +306,34 @@ $postColorReadable: $postColor;
 }
 
 .blog-post__suffix {
-  padding: msRem(6) 0;
+  position: relative;
+  margin: msRem(5) 0;
+  padding: msRem(3) 0;
   color: #323232;
   text-align: center;
   font-size: msRem(1);
   
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -3px;
+    left: 50%;
+    width: 50px;
+    height: 4px;
+    transform: translateX(-25px);
+    background: $postColor;
+  }
+  
+  .thanks {
+    font-size: 1rem;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+    margin: 0 0 msRem(4) 0;
+  }
+  
   p {
-    display: inline;
+    display: block;
     padding: 0 15px;
   }
 }
