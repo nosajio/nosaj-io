@@ -86,5 +86,5 @@ function dateToString(rawDate) {
     'November',
     'December'
   ];
-  return `${date.getDate()} ${months[date.getMonth()]}`;
+  return `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`;
 }
