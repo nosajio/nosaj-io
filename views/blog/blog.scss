@@ -6,6 +6,7 @@
 @import 'easing';
 
 $blog-font-size: 1.2rem;
+$blog-font-size-s: 1.1rem;
 $animationDelay: 300ms;
 
 @keyframes box-in {
@@ -154,10 +155,14 @@ $postColorReadable: $postColor;
   
   p {
     @extend %readable;
-    font-size: $blog-font-size;
+    font-size: $blog-font-size-s;
     line-height: 1.45;
     margin-top: msRem(1);
     margin-bottom: msRem(1);
+    
+    @media #{mq(m)} {
+      font-size: $blog-font-size;
+    }
   }
   
   sup {
@@ -213,8 +218,12 @@ $postColorReadable: $postColor;
     
     li {
       display: list-item;
-      font-size: $blog-font-size;
+      font-size: $blog-font-size-s;
       line-height: 1.45;
+      
+      @media #{mq(m)} {
+        font-size: $blog-font-size;
+      }
     }
     
     li + li {
