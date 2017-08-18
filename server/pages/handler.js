@@ -112,5 +112,5 @@ function extractOgImage(data) {
 }
 
 function requestUrl(req) {
-  return req.protocol + '://' + req.get('host') + req.originalUrl;
+  return 'https://nosaj.io' + req.originalUrl;
 }
