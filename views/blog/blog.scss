@@ -155,7 +155,7 @@ $postColorReadable: $postColor;
   p {
     @extend %readable;
     font-size: $blog-font-size;
-    line-height: 1.5;
+    line-height: 1.45;
     margin-top: msRem(1);
     margin-bottom: msRem(1);
   }
