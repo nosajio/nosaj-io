@@ -40,14 +40,14 @@ $postColorReadable: $postColor;
   }
   
   p a {
-    border-bottom: 2px solid $postColorBg;
     color: $postColorReadable;
     text-decoration: none;
     
-    &:hover {
+    &:hover,
+    &:focus {
       color: black;
-      border-color: $postColorReadable;
       background: $postColorBg;
+      text-decoration: underline;
     }
   }
 }
@@ -125,10 +125,6 @@ $postColorReadable: $postColor;
 
 // Main body of the post
 .blog-post__body {
-  // @extend %readable;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
   animation: fade-in 700ms #{$animationDelay + 300ms} 1 both $easeOutCubic;
   
   // - Main elements
@@ -137,8 +133,9 @@ $postColorReadable: $postColor;
   h1, h2, h3, h4 {
     @extend %readable;
     display: block;
-    margin: msRem(2) 0;
-    font: 700 $blog-font-size $ff-body;
+    margin-top: msRem(2);
+    margin-bottom: msRem(1);
+    font: 500 $blog-font-size $ff-body;
   }
   
   // H1. this guy is special
@@ -148,9 +145,9 @@ $postColorReadable: $postColor;
   
   // Secondary & tertiary headings 
   h2 {
+    font-weight: 700;
     margin-top: msRem(5);
-    font-size: msRem(1);
-    text-transform: uppercase;
+    font-size: msRem(2);
   }
   
   h3, h4 { font-size: $blog-font-size; margin-bottom: 1rem; }
@@ -159,7 +156,15 @@ $postColorReadable: $postColor;
     @extend %readable;
     font-size: $blog-font-size;
     line-height: 1.5;
-    margin: msRem(-1) 0;
+    margin-top: msRem(1);
+    margin-bottom: msRem(1);
+  }
+  
+  sup {
+    background: #f2f2f2;
+    vertical-align: super;
+    padding: msRem(-5);
+    font: 700 15px $ff-mono;
   }
   
   code {
@@ -185,6 +190,14 @@ $postColorReadable: $postColor;
     color: $postColorReadable;
   }
   
+  p strong { font-weight: 500; }
+  p em { font-style: italic; }
+  
+  // Center text
+  p.center {
+    text-align: center;
+  }
+  
   img {
     display: block;
     max-width: 100%;
@@ -195,8 +208,8 @@ $postColorReadable: $postColor;
   ol, ul {
     @extend %readable;
     display: block;
-    margin: msRem(2) 0 0;
-    padding: 0 0 0 msRem(4);
+    margin: msRem(3) auto;
+    padding: 0 msRem(4);
     
     li {
       display: list-item;
@@ -223,16 +236,47 @@ $postColorReadable: $postColor;
     }
   }
   
+  // <hr />
+  hr {
+    display: block;
+    width: 300px;
+    height: 2px;
+    background: $postColor;
+    margin: msRem(4) auto;
+    border: none;
+  }
+  
   // In-flow images and media
-  .image, .video, .embed, .package {
+  blockquote {
+    padding: msRem(1);
+    background: #f2f2f2;
+    font: 1rem $ff-mono;
+    
+    @media #{mq(m)} {
+      padding: msRem(2);
+    }
+  }
+  
+  .image, .video, .embed, .package, .emphasis, .box {
     @extend %readable;
     margin-bottom: msRem(4);
   }
   
   p + .image,
   p + .embed,
-  p + .video { margin-top: msRem(4); }
+  p + .video { margin-top: msRem(3); }
   
+  // Boxes
+  .box {
+    background: #f2f2f2;
+    padding: msRem(-1);
+    
+    & > h1, & > h2, & > h3, & > h4 {
+      margin-top: 0;
+    }
+  }
+  
+  // Packages
   .package {
     background: $postColorBg;
     border-radius: 3px;
@@ -265,8 +309,18 @@ $postColorReadable: $postColor;
     }
   }
   
+  // Images
   .image {
-
+    img {
+      display: block;
+      width: 100%;
+    }
+    
+    .caption {
+      margin-top: msRem(-1);
+      text-align: center;
+    }
+    
   }
   
   .image.narrow {
@@ -277,18 +331,15 @@ $postColorReadable: $postColor;
     max-width: 100%;
     overflow: hidden;
     padding: 0;
-    
-    > img {
-      display: block;
-      width: 100%;
-    }
   }
   
+  // Embeds
   .embed {
     display: flex;
     justify-content: center;
   }
   
+  // Videos
   .video {
     
   }

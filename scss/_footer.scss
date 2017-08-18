@@ -1,10 +1,11 @@
 @import 'ms';
 
 .the-footer {
-  padding: msRem(2);
+  padding: msRem(5) msRem(2) msRem(2);
 }
 
 .footer-text {
   font-size: msRem(-1);
   letter-spacing: 10px;
+  text-align: center;
 }
