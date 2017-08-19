@@ -125,8 +125,7 @@ function description(data, paragraphs=1) {
 }
 
 function requestUrl(req) {
-  console.log(JSON.stringify(req.headers));
-  const originalHost = req.hostname || 'nosaj.io';
-  const originalProtocol = req.protocol || 'https';
+  const originalHost = req.headers['x-forwarded-host'] || req.hostname || 'nosaj.io';
+  const originalProtocol = req.headers['x-forwarded-protocol'] || req.protocol || 'https';
   return originalProtocol + '://' + originalHost + req.originalUrl;
 }
