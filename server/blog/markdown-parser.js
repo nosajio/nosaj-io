@@ -1,5 +1,6 @@
 const frontmatter = require('front-matter');
 const marked = require('marked');
+const striptags = require('striptags');
 
 module.exports = markdownParser();
 
@@ -20,7 +21,7 @@ function markdownParser() {
   function parseFile(fileContents) {
     const parsed = frontmatter(fileContents);
     const bodyHtml = marked(parsed.body);
-    return Object.assign({}, parsed.attributes, {body: bodyHtml});
+    return Object.assign({}, parsed.attributes, {body: bodyHtml, plain: striptags(bodyHtml)});
   }
 
   function filenameValid(filename) {

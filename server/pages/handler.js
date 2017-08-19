@@ -43,7 +43,8 @@ function pageHandler(req, res, { _page }) {
           stylesheet: styles, 
           title,
           ogImage: extractOgImage(resolvedContent),
-          ogUrl: requestUrl(req)
+          ogUrl: requestUrl(req),
+          ogDescription: description(resolvedContent),
         }, 
         footer: { scripts: javascript || '' } 
       };
@@ -109,6 +110,18 @@ function extractOgImage(data) {
     ogImage = data.post.coverImg;
   }
   return ogImage;
+}
+
+function description(data, paragraphs=1) {
+  let description = '';
+  if (data.post) {
+    // Limit post description to n words (max chars alowed in og:spec: 300)
+    description = data.post.plain
+      .split('\n')
+      .slice(0, paragraphs)
+      .join('\n');
+  }
+  return description;
 }
 
 function requestUrl(req) {
