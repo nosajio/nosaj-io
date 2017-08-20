@@ -1,5 +1,5 @@
 const debug = require('debug')('nosaj:pages:landing');
-const { dateToString } = require('../lib/helpers/date');
+const { dateToString, dateBefore } = require('../lib/helpers/date');
 
 module.exports = () => ({
   view: 'landing',
@@ -31,13 +31,15 @@ module.exports = () => ({
     fileopener
       .openAll()
       .then((files) => {
-        const posts = files.map(f => 
-          Object.assign(
-            {}, 
-            markdown.parseFilename(f.name), 
-            markdown.parseFile(f.body)
-          ) 
-        );
+        const posts = files
+          .map(f => 
+            Object.assign(
+              {}, 
+              markdown.parseFilename(f.name), 
+              markdown.parseFile(f.body)
+            ) 
+          )
+          .filter(f => dateBefore(new Date(), new Date(f.date)));
         const sortedPosts = sortPostsByDate(posts);
         const augmentedPosts = augmentPosts(sortedPosts);
         resolve(augmentedPosts);
