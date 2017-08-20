@@ -45,6 +45,7 @@ function pageHandler(req, res, { _page }) {
           ogImage: extractOgImage(resolvedContent),
           ogUrl: requestUrl(req),
           ogDescription: description(resolvedContent),
+          iconColor: iconColor(resolvedContent)
         }, 
         footer: { scripts: javascript || '' } 
       };
@@ -110,6 +111,13 @@ function extractOgImage(data) {
     ogImage = data.post.coverImg;
   }
   return ogImage;
+}
+
+function iconColor(data) {
+  if (! data.post || ! data.post.coverColor) {
+    return null;
+  }
+  return data.post.coverColor.replace('#', '');
 }
 
 function description(data, paragraphs=1) {
