@@ -1,7 +1,7 @@
 const debug = require('debug')('nosaj:pages:landing');
 const { dateToString, dateBefore } = require('../lib/helpers/date');
 
-module.exports = () => ({
+module.exports = (args) => ({
   view: 'landing',
   path: '/',
   stylesheet: 'views/landing/landing.scss',
@@ -26,6 +26,7 @@ module.exports = () => ({
   ],
   // Load in the posts and parse with the blog helpers
   posts: (() => new Promise((resolve) => {
+    const SUDO = args && args.hasOwnProperty('sudo'); // Add querystring 'sudo' for special access
     const fileopener = require('../server/blog/file-opener');
     const markdown = require('../server/blog/markdown-parser');
     fileopener
@@ -39,7 +40,7 @@ module.exports = () => ({
               markdown.parseFile(f.body)
             ) 
           )
-          .filter(f => dateBefore(new Date(), new Date(f.date)));
+          .filter(f => SUDO || dateBefore(new Date(), new Date(f.date)));
         const sortedPosts = sortPostsByDate(posts);
         const augmentedPosts = augmentPosts(sortedPosts);
         resolve(augmentedPosts);

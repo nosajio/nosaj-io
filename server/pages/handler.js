@@ -6,8 +6,8 @@ const renderError = require('../../lib/renderError');
 module.exports = pageHandler;
 
 function pageHandler(req, res, { _page }) {
-  // 0. Store request params in args variable
-  const args = req.params;
+  // 0. Store request params and querystring in args variable
+  const args = Object.assign({}, req.params, req.query);
   // Call the original page factory, this time with args
   const pageWithArgs = _page(args);
   if (isPromise(pageWithArgs)) {
