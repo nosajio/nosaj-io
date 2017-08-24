@@ -19,5 +19,10 @@ html
           p.thanks Thanks for reading
           p !{message}
       if post.next
-        p= post.next.title
+        section.next-post
+          span.next-post__read-next Read next
+          h1.next-post__title
+            a(href=`/r/${post.next.slug}`)= post.next.title
+            
+          
   include /includes/footer

@@ -12,8 +12,12 @@ $animationDelay: 300ms;
 $postColorBg: change-color($postColor, $lightness: 90%);
 $postColorDark: change-color($postColor, $lightness: 20%);
 $postColorReadable: $postColor;
+$nextPostColorReadable: $nextPostColor;
 @if lightness($postColor) > 40% {
   $postColorReadable: change-color($postColor, $lightness: 40%);
+}
+@if lightness($nextPostColor) > 40% {
+  $nextPostColorReadable: change-color($nextPostColor, $lightness: 40%);
 }
 
 %readable {
@@ -43,7 +47,6 @@ $postColorReadable: $postColor;
     &:hover,
     &:focus {
       color: black;
-      background: $postColorBg;
       text-decoration: underline;
     }
   }
@@ -61,7 +64,7 @@ $postColorReadable: $postColor;
   }
   
   h1 {
-    font: 700 msRem(3)/1.2 $ff-museo;
+    font: 700 msRem(2)/1.2 $ff-museo;
     animation: fade-in 500ms #{$animationDelay + 200ms} 1 both $easeOutCubic;
     
     @media #{mq(m)} {
@@ -172,8 +175,8 @@ $postColorReadable: $postColor;
     padding: 0 10px 0 0;
     float: left;
     font-weight: 700;
-    font-size: 65px;
-    line-height: 60px;
+    font-size: 55px;
+    line-height: 55px;
     color: $postColorReadable;
   }
   
@@ -239,12 +242,16 @@ $postColorReadable: $postColor;
   
   // In-flow images and media
   blockquote {
+    margin: msRem(2) 0;
     padding: msRem(1);
     background: #f2f2f2;
-    font: 1rem $ff-mono;
+    font-family: $ff-mono;
+    
+    p { font-size: 1rem; }
     
     @media #{mq(m)} {
       padding: msRem(2);
+      margin: msRem(4) 0;
     }
   }
   
@@ -377,5 +384,39 @@ $postColorReadable: $postColor;
   p {
     display: block;
     padding: 0 15px;
+  }
+}
+
+.next-post {
+  @extend %readable;
+  padding-top: msRem(2);
+  padding-bottom: msRem(2);
+  text-align: center;
+  
+  @media #{mq(m)} {
+    padding-top: msRem(3);
+    padding-bottom: msRem(4);
+  }
+  
+  &__read-next {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: msRem(1);
+    font-weight: 500;
+    color: $nextPostColorReadable;
+  }
+  
+  &__title {
+    display: block;
+    font: 700 msRem(2)/1.2 $ff-museo;
+    text-align: center;
+    
+    @media #{mq(m)} {
+      font-size: msRem(3);
+    }
+    
+    a { color: $nextPostColorReadable; }
+    a:hover { color: black; }
   }
 }

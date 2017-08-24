@@ -28,6 +28,7 @@ module.exports = (args) => {
           // This will be injected into the scss file prior to compilation
           scssVariables: {
             postColor: post.coverColor,
+            nextPostColor: post.next ? post.next.coverColor : '#000',
           }
         };
         const allContent = Object.assign({}, defaultData, updatedData);
