@@ -241,7 +241,28 @@ $nextPostColorReadable: $nextPostColor;
   }
   
   // In-flow images and media
-  blockquote {
+  // These are elements that are either generated from the markdown (like blockquotes)
+  // or elements specified in the Readme.
+
+  // Open with a quote, or many
+  .quotes-opener {
+    @extend %readable;
+    padding-top: msRem(1);
+    padding-bottom: msRem(5);
+        
+    > blockquote {
+      text-align: center;
+      font-family: $ff-mono;
+      p { font-size: 1rem; }
+    }
+    
+    > blockquote + blockquote {
+      margin-top: msRem(4);
+    }
+  }
+  
+  // Regular inline <blockquote>
+  > blockquote {
     margin: msRem(2) 0;
     padding: msRem(1);
     background: #f2f2f2;
@@ -249,11 +270,18 @@ $nextPostColorReadable: $nextPostColor;
     
     p { font-size: 1rem; }
     
+    cite {
+      margin-top: msRem(1);
+      text-align: right;
+      color: #505050;
+    }
+    
     @media #{mq(m)} {
       padding: msRem(2);
       margin: msRem(4) 0;
     }
   }
+  
   
   .image, .video, .embed, .package, .emphasis, .box {
     @extend %readable;
@@ -340,17 +368,6 @@ $nextPostColorReadable: $nextPostColor;
   // Videos
   .video {
     
-  }
-  
-  iframe, cite {
-    display: block;
-    width: 100%;
-  }
-  
-  cite {
-    margin-top: msRem(1);
-    text-align: right;
-    color: #505050;
   }
 }
 
