@@ -13,10 +13,9 @@ html
         include actions
       section.posts
         header.posts__header 
-          h1.section-title Essays
+          h1.section-title Blog
         each post in posts
           article.posts__post
-            //- div.posts__post-bg(style={'background-image': post.coverImg ? `url(${post.coverImg})` : '', 'background-color': post.coverColor})
             a(href=`/r/${post.slug}`)
               span.posts__post-date= post.dateString
               h1.posts__post-title

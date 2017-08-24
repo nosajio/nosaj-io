@@ -5,7 +5,7 @@
 @import 'keyframes';
 @import 'easing';
 
-$blog-font-size: 1.2rem;
+$blog-font-size: 1.15rem;
 $blog-font-size-s: 1.1rem;
 $animationDelay: 300ms;
 
@@ -17,7 +17,7 @@ $postColorReadable: $postColor;
 }
 
 %readable {
-  max-width: 860px;
+  max-width: 760px;
   width: 100%;
   padding: 0 msRem(-1);
   
