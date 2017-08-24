@@ -6,7 +6,6 @@ html
     main.main-frame
       article.blog-post
         header.blog-post__title
-          //- span.box(style=`border-color: ${post.coverColor}`)
           h1= post.title
           div.blog-post__subline
             span.subline__item.subline__item--date= post.dateString
@@ -19,5 +18,6 @@ html
         footer.blog-post__suffix 
           p.thanks Thanks for reading
           p !{message}
-        
+      if post.next
+        p= post.next.title
   include /includes/footer

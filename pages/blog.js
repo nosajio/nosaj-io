@@ -1,7 +1,5 @@
 const debug = require('debug')('nosaj:content:blog');
-const { dateToString } = require('../lib/helpers/date');
-const fileopener = require('../server/blog/file-opener');
-const markdown = require('../server/blog/markdown-parser');
+const { allPosts } = require('../lib/helpers/blog');
 
 module.exports = (args) => {
   const defaultData = {
@@ -24,7 +22,6 @@ module.exports = (args) => {
   return new Promise(resolve => {
     getPost(args.slug)
       .then(post => {
-        post.dateString = dateToString(post.date);
         const updatedData = { 
           post,
           title: post.title,
@@ -46,17 +43,53 @@ module.exports = (args) => {
  * @return {Promise<Object>}
  */
 function getPost(slug) {
-  return new Promise(resolve => {
-    fileopener
-      .openAll()
-      .then((files) => {
-        const file = files.filter(f => markdown.parseFilename(f.name).slug === slug)[0];
-        const postParsed = markdown.parseFile(file.body);
-        const filenameParsed = markdown.parseFilename(file.name);
-        const post = Object.assign({}, filenameParsed, postParsed);
-        resolve(post);
+  return new Promise((resolve, reject) => {
+    allPosts()
+      .then(posts => {
+        let currentPostIndex = postIndex(posts, slug);
+        // Find the current post
+        const current = posts.filter((p, i) => i === currentPostIndex)[0];
+        
+        // Only add next post when there is one available
+        const isLastPost = currentPostIndex + 1 === posts.length;
+        if (! isLastPost) {
+          const next = posts.filter((p, i) => i === currentPostIndex + 1)[0];
+          const post = Object.assign(
+            {}, 
+            current, 
+            { 
+              // Only send the metadata of the next post to the template. We only 
+              // need the data for building links
+              next: { 
+                slug: next.slug, 
+                title: next.title, 
+                date: next.date, 
+                category: next.category, 
+                coverImg: next.coverImg, 
+                coverColor: next.coverColor, 
+                dateString: next.dateString 
+              } 
+            }
+          );
+          resolve(post);
+        } else {
+          // Make the next post false when this is the last post
+          const post = Object.assign({}, current, { next: false });
+          resolve(post);
+        }
       }).catch(err => {
-        throw new Error(err.message)
+        reject(new Error(err.message));
       });
   });
+}
+
+function postIndex(posts, slug) {
+  let currentPostIndex;
+  posts.some((p, i) => {
+    if (p.slug === slug) {
+      currentPostIndex = i;
+      return true;
+    }
+  });
+  return currentPostIndex;
 }
