@@ -261,7 +261,12 @@ $nextPostColorReadable: $nextPostColor;
     }
   }
   
+  
   // Regular inline <blockquote>
+  cite {
+    display: block;
+  }
+  
   > blockquote {
     margin: msRem(2) 0;
     padding: msRem(1);
