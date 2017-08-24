@@ -41,7 +41,6 @@
   .sidebar-title {
     display: block;
     margin-bottom: msRem(-1);
-    letter-spacing: msRem(-4);
     font-weight: 700; 
     text-transform: uppercase;
   }
@@ -101,7 +100,6 @@
   
   p {
     margin: 0;
-    font-family: $ff-minion;
   }
 }
 
@@ -130,7 +128,6 @@
 .bio-cta {
   font: 300 msRem(1) $ff-body;
   text-align: center;
-  letter-spacing: msRem(-5);
   
   &__title {
     margin-top: msRem(4);
