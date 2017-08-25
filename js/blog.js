@@ -1,6 +1,40 @@
+const postParagraphs = $('.blog-post__body > p');
+
 // Add .first-child link to first <p> tag, as CSS will see multiple :first-child's
 // (text must be two or more lines long)
-var firstP = $('.blog-post__body > p')[0];
-if (firstP.innerText.length > 80) {
-  firstP.className = 'first-child';
+const markFirstParagraph = function () {
+  var firstP = postParagraphs[0];
+  if (firstP.innerText.length > 80) {
+    firstP.className = 'first-child';
+  }
 }
+
+// Just some custom stuff to measure readership
+const sendEvent = function (action, label) {
+  if (! window.ga) {
+    return console.warn('No GA present. Not measuring this session.');
+  }
+  window.ga('send', 'event', 'Blog', action, label);
+}
+
+const eventReadArticle = function () {
+  var reachedBottom = false;
+  var lastP = postParagraphs[ postParagraphs.length - 1 ];
+  window.addEventListener('scroll', function () {
+    var lastPPos = lastP.getBoundingClientRect().top;
+    var windowHeight = window.innerHeight;
+    if (! reachedBottom) {
+      reachedBottom = lastPPos < windowHeight;
+      if (reachedBottom) {
+        sendEvent('finished', document.location.href);
+      }
+    }
+  });
+}
+
+const configureAnalyticsEvents = function () {
+  eventReadArticle();
+}
+
+configureAnalyticsEvents();
+markFirstParagraph();
