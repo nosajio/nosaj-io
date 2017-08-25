@@ -47,7 +47,7 @@ function pageHandler(req, res, { _page }) {
           ogDescription: description(resolvedContent),
           iconColor: iconColor(resolvedContent)
         }, 
-        footer: { scripts: javascript || '' } 
+        footer: { scripts: javascript || false } 
       };
       const template = Object.assign({}, resolvedContent, headerFooter);
       res.render(view, template);
