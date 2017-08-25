@@ -28,3 +28,6 @@ head
   link(rel="apple-touch-icon" href=`/favicon.png?d=128&c=${head.iconColor || '000'}`)
   
   style !{head.stylesheet}
+  
+  if head.scripts
+    script !{head.scripts}
