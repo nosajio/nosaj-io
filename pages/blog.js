@@ -6,7 +6,7 @@ module.exports = (args) => {
     view: 'blog',
     path: '/r/:slug',
     stylesheet: 'views/blog/blog.scss',
-    scripts: ['ga.js', '$.js', 'blog.js'],
+    scripts: ['ga.js', '$.js', 'debounce.js', 'blog.js'],
     image: null,
     title: '',
     // The message to show after the post

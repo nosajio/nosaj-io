@@ -1,14 +1,5 @@
 var postParagraphs = $('.blog-post__body > p');
 
-// Debounce the callback
-var _debounceTimer;
-var debounce = function (ms, cb) {
-  if (_debounceTimer) {
-    window.clearTimeout(_debounceTimer);
-  }
-  _debounceTimer = window.setTimeout(cb, ms);
-}
-
 // Add .first-child link to first <p> tag, as CSS will see multiple :first-child's
 // (text must be two or more lines long)
 var markFirstParagraph = function () {
