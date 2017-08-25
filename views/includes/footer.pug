@@ -5,5 +5,12 @@ footer.the-footer
   
   div.footer-social
 
+//- Configure TypeKit
+script(src='https://use.typekit.net/nha0neq.js')
+script.
+  try{Typekit.load({ async: false });}catch(e){}
+if head.scripts
+  script !{head.scripts}
+
 if footer.scripts
   script !{footer.scripts}

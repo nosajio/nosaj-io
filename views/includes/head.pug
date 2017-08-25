@@ -28,8 +28,3 @@ head
   link(rel="apple-touch-icon" href=`/favicon.png?d=128&c=${head.iconColor || '000'}`)
   
   style !{head.stylesheet}
-  script(src='https://use.typekit.net/nha0neq.js')
-  script.
-    try{Typekit.load({ async: true });}catch(e){}
-  if head.scripts
-    script !{head.scripts}
