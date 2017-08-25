@@ -1,5 +1,14 @@
 var postParagraphs = $('.blog-post__body > p');
 
+// Debounce the callback
+var _debounceTimer;
+var debounce = function (ms, cb) {
+  if (_debounceTimer) {
+    window.clearTimeout(_debounceTimer);
+  }
+  _debounceTimer = window.setTimeout(cb, ms);
+}
+
 // Add .first-child link to first <p> tag, as CSS will see multiple :first-child's
 // (text must be two or more lines long)
 var markFirstParagraph = function () {
@@ -20,7 +29,7 @@ var sendEvent = function (action, label) {
 var eventReadArticle = function () {
   var reachedBottom = false;
   var lastP = postParagraphs[ postParagraphs.length - 1 ];
-  window.addEventListener('scroll', function () {
+  var trackReadEvent = function () {
     var lastPPos = lastP.getBoundingClientRect().top;
     var windowHeight = window.innerHeight;
     if (! reachedBottom) {
@@ -29,6 +38,9 @@ var eventReadArticle = function () {
         sendEvent('finished', document.location.href);
       }
     }
+  };
+  window.addEventListener('scroll', function () {
+    debounce(1500, trackReadEvent);
   });
 }
 
