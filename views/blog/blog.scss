@@ -5,6 +5,8 @@
 @import 'keyframes';
 @import 'easing';
 
+$blog-content-width: 760px;
+
 $blog-font-size: 1.15rem;
 $blog-font-size-s: 1.1rem;
 $animationDelay: 300ms;
@@ -21,11 +23,11 @@ $nextPostColorReadable: $nextPostColor;
 }
 
 %readable {
-  max-width: 760px;
+  max-width: $blog-content-width;
   width: 100%;
   padding: 0 msRem(-1);
   
-  @media screen and (min-width: 865px) {
+  @media screen and (min-width: $blog-content-width + 40px) {
     margin: 0 auto;
     padding: 0;
   }
@@ -133,10 +135,18 @@ $nextPostColorReadable: $nextPostColor;
   h2 {
     font-weight: 700;
     margin-top: msRem(5);
-    font-size: msRem(2);
+    font-size: msRem(1);
+    
+    @media #{mq(m)} {
+      font-size: msRem(2);
+    }
   }
   
-  h3, h4 { font-size: $blog-font-size; margin-bottom: 1rem; }
+  h3, h4 { 
+    font-size: $blog-font-size; 
+    margin-top: msRem(2); 
+    margin-bottom: 0; 
+  }
   
   p {
     @extend %readable;
@@ -372,7 +382,12 @@ $nextPostColorReadable: $nextPostColor;
   
   // Videos
   .video {
-    
+    iframe {
+      display: block;
+      width: 100%;
+      max-width: $blog-content-width;
+      margin: 0 auto;
+    }
   }
 }
 
