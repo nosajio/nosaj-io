@@ -17,10 +17,10 @@ html
         each post in posts
           article.posts__post
             a(href=`/r/${post.slug}`)
-              span.posts__post-date= post.dateString
               h1.posts__post-title
                 span.title-text(style={'border-bottom-color': post.coverColor})= post.title 
                   span.title-bg(style={'background-color': post.coverColor})
+              span.posts__post-date= post.dateString
       section.landing-kindness
-        include quotes
+        //- include quotes
   include /includes/footer
