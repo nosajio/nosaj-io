@@ -5,248 +5,246 @@
 @import 'easing';
 @import 'keyframes';
 @import 'colors';
+@import 'page';
 
-$clr-work-bg: #4a4a4a;
-$height-of-preview-img-desktop: 900px;
-$height-of-preview-img-mobile: 800px;
+$section-spacing: ms(7);
+$section-spacing-rem: #{$section-spacing}rem;
 
 .work-view {
-  background: $clr-work-bg;
-  color: white;
+  background: white;
+  color: #1c1c1c;
   
   // Make the logo white
   .logo svg path {
-    fill: white;
+    fill: black;
   }
+  
+  .nav-links a { color: black; }
+}
+
+// Add margins to making-something. Compensate for margin-bottom of blocks
+.making-something {
+  margin: #{ms(6) - $section-spacing}rem 0 msRem(6);
+}
+
+.work-heading {
+  display: block;
+  margin-bottom: msRem(2);
+  font-size: msRem(2);
+  font-style: italic;
+  font-weight: 500;
+  text-align: center;
 }
 
 .work-main {
   display: flex;
   flex-flow: column nowrap;
-  width: 100%;
-  max-width: 1500px;
-  margin: 0 auto;
+  align-items: center;
 }
 
-.ad-block,
-.work-block {
+.work-projects,
+.work-open-src,
+.work-fulltime,
+.work-archive {
   width: 100%;
-  
-  @media #{mq(l)} {
-  }
-}
-
-.work-block {
   display: flex;
-  flex-flow: column nowrap;
-  text-align: center;
-  padding: msRem(8) 0 msRem(9);
+  flex-flow: column;
+  margin-bottom: $section-spacing-rem;
+}
+
+.project {
+  position: relative;
+  display: flex;
+  flex-flow: column-reverse nowrap;
+  justify-content: space-between;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, .5);
   
-      
-  @media #{mq(l)} {
-    flex-flow: row-reverse wrap;
-    justify-content: space-around;
-    text-align: left;
+  @media #{mq(m)} {
+    flex-flow: row nowrap;
+  }
+  
+  &__image {
+    height: 400px;
+    width: 100%;
+    background-size: 100% auto;
+    
+    @media #{mq(m)} {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50%;
+      height: 100%;
+      background-size: auto 100%;
+    }
   }
   
   &__title {
-    display: block;
-    width: 100%;
-    margin-bottom: msRem(1);
-    
-    h1 {
-      display: inline-block;
-      font: 600 msRem(1) $ff-headings;
-      letter-spacing: 5px;
-      text-transform: uppercase;
-      padding-bottom: msRem(-3);
-      border-bottom: solid 2px white;
-    }
+    font: 700 msRem(2) $ff-headings;
   }
   
-  &__preview,
   &__body {
-    width: 100%;
-    // max-width: 100%;
-    @media #{mq(l)} {
-      
-      // max-width: 600px;
-    }
-  }
-  
-  &__preview {
-    position: relative;
-    margin-bottom: msRem(3);
+    padding: msRem(2);
     
-    @media #{mq(l)} {
-      margin-top: 0;
-      width: 60%;
-    }
-  }
-  
-  .preview {
-    display: block;
-    height: auto;
-    max-height: $height-of-preview-img-mobile;
-    border-radius: 5px;
-    overflow: hidden;
-    box-shadow: 0 0 50px rgba(0,0,0,.2);
-    
-    @media #{mq(l)} {
-      max-height: $height-of-preview-img-desktop;
-    }
-    
-    img {
-      display: block;
-      height: auto;
-      width: 100%;
-    }
-  }
-  
-  .preview--desktop {
-    animation: fade-in 800ms 500ms 1 both $easeOutCubic;
-    
-    @media #{mq(l)} {
-      margin-left: msRem(3);
-    }
-  }
-  
-  .preview--mobile {
-    display: none;
-    position: absolute;
-    left: msRem(2);
-    top: $height-of-preview-img-mobile / 3; // 1/2 of the height of the main preview
-    max-width: 40%;
-    max-height: $height-of-preview-img-mobile / 3 * 2;
-    // Calculate max-height based off height variable
-    animation: fade-in 800ms 650ms 1 both $easeOutCubic;
+    p { font-size: 1.15rem; }
     
     @media #{mq(m)} {
-      display: block;
-    }
-    
-    @media #{mq(l)} {
-      top: calc(#{$height-of-preview-img-desktop / 3} + 40px); // 1/3 of the height of the main preview
-      left: 0;
-      max-height: $height-of-preview-img-desktop / 3 * 2;
+      flex-basis: 40%;
     }
   }
   
-  &__body {
-    width: 100%;
-    padding: 0 msRem(2);
-    max-width: 500px;
-    margin: 0 auto;
-    animation: fade-in 900ms 800ms 1 both $easeOutCubic;
+  &__stack,
+  &__turnaround {
     
-    p {
-      margin: 0;
-      font-size: 1rem;
-      line-height: 1.6;
-    }
+    & + & { margin-top: msRem(-1); }
     
-    h2 {
-      margin: msRem(1) 0 1rem;
+    // This is the 'heading'
+    strong {
+      display: block;
+      margin-bottom: msRem(-4);
       font-weight: 600;
     }
-    
-    @media #{mq(l)} {
-      padding-left: msRem(2);
-      width: 30%;
-      max-width: 400px;
-      margin: 0;
-    }
-  }
-  
-  &__stack-child {
-    display: inline;
-    color: white;
-    opacity: .8;
-    
-    & + &::before {
-      content: '/';
-      display: inline;
-      margin: 0 5px;
-      color: lighten($clr-work-bg, 10%);
-    }
-  }
-  
-  .project-url {
-    display: inline-block;
-    margin-top: msRem(3);
-    color: white;
-    text-decoration: none;
-    border-bottom: 2px solid rgba(255 , 255, 255, .7);
   }
 }
 
-@keyframes bounce-in {
-  0% { 
-    opacity: 0; 
-    transform: scale(.5) translateY(80px);
-  }
-  60% {
-    opacity: 1;
-    transform: scale(1.15);
-  }
-  100% {
-    transform: scale(1) translateY(0);
-  }
-}
-
-@keyframes psst {
-  from {
-    opacity: 0;
-    transform: translateY(200px);
-  }  
-}
-
-// Flip the direction for every other project
-.work-block:nth-of-type(even) {
-  @media #{mq(l)} {
-    flex-direction: row;
-  }
-  
-  .preview--desktop {
-    @media #{mq(l)} {
-      margin-right: msRem(3);
-      margin-left: 0;
-    }
-  }
-  
-  .preview--mobile {
-    @media #{mq(l)} {
-      right: 0; left: auto;
-    }
-  }
-}
-
-.work-block + .work-block {
-  position: relative;
-}
-
-.ad-block {
+.open-src {
   display: flex;
-  width: 100%;
-  margin: msRem(2) 0;
-  justify-content: center;
-  padding: 0 msRem(1);
-
-  @media #{mq(m)} {
-    margin: msRem(4) 0;
-  }
+  flex-wrap: wrap;
+  justify-content: space-between;
   
-  &__inner {
-    width: 100%;
-  }
-  
-  p {
-    font-size: 1rem;
+  &__item {
+    display: block;
+    padding-bottom: msRem(2);
+    max-width: 200px;
+    min-width: 180px;
     text-align: center;
-    color: white;
-    font-size: msRem(1);
+    
+    a {
+      color: $clr-blue;
+      text-decoration: none;
+    }
+    
+    a:hover { color: black; }
   }
   
-  a { color: $clr-green; }
-  a:hover { color: lighten($clr-work-bg, 30%); }
+  &__title {
+    font-size: msRem(1);
+    font-weight: 500;
+  }
+  
+  &__description {
+    display: block;
+    margin-top: msRem(-3);
+    color: black;
+  }
+}
+
+.fulltime {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  
+  @media #{mq(m)} {
+    justify-content: center;
+  }
+  
+  &__item {
+    width: 100%;
+    min-width: 300px;
+    padding-bottom: msRem(1);
+    text-align: center;
+    
+    @media #{mq(m)} {
+      max-width: 333px;
+    }
+  }
+  
+  &__title,
+  &__position,
+  &__location,
+  &__when {
+    display: block;
+    margin-top: msRem(-2);
+  }
+  
+  &__title {
+    margin-top: 0;
+    font-size: msRem(1);
+    font-weight: 500;
+  }
+  
+  &__location {
+    color: lighten(black, 40%);
+    text-transform: uppercase;
+    font-size: msRem(-2);
+    font-weight: 500;
+  }
+  
+  &__when {
+    display: inline-block;
+    margin: 0 0 msRem(-1) 0;
+    padding: msRem(-8) msRem(-2);
+    font-size: msRem(-1);
+    background: darken(white, 5%);
+    border-radius: 50px;
+  }
+}
+
+.archive {
+  display: grid;
+  max-width: 900px;
+  margin: 0 auto;
+  grid-gap: msRem(1);
+  grid-template-columns: 100%;
+  
+  @media #{mq(m)} {
+    grid-template-columns: 50% auto;
+  }
+  
+  &__year {
+    display: block;
+  }
+  
+  &__year-heading {
+    font-size: msRem(1);
+    font-weight: 600;
+    margin: msRem(2) 0 msRem(-1);
+  }
+  
+  &__projects {
+    
+  }
+  
+  &__project {
+    line-height: 1.4;
+    margin: msRem(-2) 0;
+  }
+  
+  &__project a {
+    color: black;
+    text-decoration: none;
+    &:hover { color: $clr-blue; }
+  }
+  
+  &__project a &__title {
+    border-bottom: 1px solid lighten(black, 50%);
+  }
+  
+  &__title {
+    font-weight: 500;
+  }
+  
+  &__owned {
+    font-size: .9rem;
+    margin-left: msRem(-1);
+  }
+  
+  &__employer {
+    font-size: .9rem;
+    padding: msRem(-8) msRem(-3);
+    margin-right: msRem(-4);
+    background: darken(white, 6%);
+    color: darken(white, 60%);
+    border-radius: 3px;
+  }
 }

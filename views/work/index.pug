@@ -4,28 +4,70 @@ html
   body.work-view
     include /includes/navigation
     main.main-frame
-      section.work-main
-        each project in projects
-          // Is this a project or a 'ad' segment?
-          if project.ad
-            div.ad-block
-              div.ad-block__inner
-                p !{project.message}
-          else
-            div.work-block(class=project.id style={'background': project.gradient})
-              div.work-block__preview
-                each img in project.images
-                  div.preview(class=`preview--${img.type}`)
-                    img(src=img.url alt='')
-              div.work-block__body
-                header.work-block__title
-                  h1= project.product
-                p= project.description
-                if project.stack
-                  h2 Stack
-                  ul.work-block__stack
-                    each s in project.stack
-                      li.work-block__stack-child= s
-                if project.webURL
-                  a(href=project.webURL target='_blank').project-url See it live
+      header.page-header 
+        h1 Work.
+      section.work-main.page-body
+        section.work-projects
+          h2.work-heading Recent projects.
+          each p in recentProjects
+            article.project(style={ background: p.color || 'white', color: p.textColor || 'black' })
+              div.project__body
+                h1.project__title= p.product
+                p= p.description
+                if p.stack
+                  div.project__stack
+                    strong Stack:
+                    span= p.stack
+                if p.turnaround
+                  div.project__turnaround
+                    strong Turnaround:
+                    span= p.turnaround
+              div.project__image(style={ 'background-image': `url(${p.image});` })
+                
+        include /includes/umakingsummatbruv
+        
+        if opensrc
+          section.work-open-src
+            h2.work-heading Open source.
+            ul.open-src
+              each os, title in opensrc
+                li.open-src__item
+                  a(href=os.url target='_blank')
+                    h3.open-src__title= title
+                    span.open-src__description= os.description
+          
+        if fulltime
+          section.work-fulltime
+            h2.work-heading Full time positions.
+            ul.fulltime
+              each ft in fulltime
+                li.fulltime__item
+                  span.fulltime__image(style={ 'background-image': `url(${ft.image})`})
+                  span.fulltime__when= ft.when
+                  h2.fulltime__title= ft.name
+                  span.fulltime__position= ft.position
+                  span.fulltime__location= ft.where
+        
+        if archive
+          section.work-archive
+            h2.work-heading Projects archive
+            article.archive
+              each year in archive
+                div.archive__year
+                  h3.archive__year-heading= year.year
+                  ul.archive__projects
+                    each p in year.projects
+                      li.archive__project
+                        if p.url
+                          a(href=p.url target='_blank')
+                            if p.employer
+                              span.archive__employer= p.employer
+                            strong.archive__title= p.title
+                            em.archive__owned= p.owned
+                        else
+                          if p.employer
+                            span.archive__employer= p.employer
+                          strong.archive__title= p.title
+                          em.archive__owned= p.owned
+              
     include /includes/footer
