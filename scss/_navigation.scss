@@ -6,24 +6,23 @@ $nav-spacing: msRem(1);
 
 .main-navigation {
   display: flex;
-  flex-flow: row-reverse wrap;
+  flex-flow: column nowrap;
   justify-content: center;
+  align-items: center;
   padding: msRem(1);
   padding-bottom: msRem(3);
   width: 100%;
   
   @media #{mq(m)} {
-    justify-content: flex-start;
-    flex-wrap: nowrap;
+    // justify-content: flex-start;
+    // flex-wrap: nowrap;
   }
   
   .logo {
-    margin-bottom: msRem(1);
     min-width: 100%;
     
     @media #{mq(m)} {
       min-width: 0;
-      margin: 0 0 0 $nav-spacing;
     }
   }
   
@@ -34,6 +33,7 @@ $nav-spacing: msRem(1);
     text-transform: uppercase;
     font-size: .9rem;
     font-weight: 500;
+    margin-top: $nav-spacing;
     
     a {
       display: block;
