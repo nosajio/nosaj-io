@@ -12,6 +12,8 @@ module.exports = () => ({
     {
       id: 'justalevel',
       product: 'Just A-level',
+      color: '#3746CC',
+      gradient: `linear-gradient(to bottom, transparent, #3746CC 50px, #3746CC 80%, #439078)`,
       webURL: 'http://justalevel.com',
       images: [
         {
@@ -20,10 +22,10 @@ module.exports = () => ({
         },
         {
           type: 'mobile',
-          url: 'http://a.nosaj.io/work/justalevel-course-mobile.jpg'
+          url: 'http://a.nosaj.io/work/justalevel-video-mobile.jpg'
         },
       ],
-      description: 'Just A-level is an education platform funded by the UK government as an initiative to teach computer science to more students. I was involved with the project from a very early stage, and was involved in the full process from planning and design to development. We were able to design and build the first version of the product in under two months, and successfully launched the site on time.',
+      description: 'Just A-level is an education platform funded by the UK government as an initiative to teach computer science to more students. I was involved with the project throughout the entire process, from planning and design to development. We were able to design and build the first version of the product in under two months, and successfully launched the site on time.',
       stack: [
         'React',
         'GraphQL',
@@ -31,14 +33,10 @@ module.exports = () => ({
       ]
     },
     {
-      // Not all projects are projects. Some are ads
-      id: 'availability',
-      ad: true,
-      message: `Are you making something? I'm available for hire. Enquiries: <a href="mailto:hi@nosaj.io?subject=Hello">hi@nosaj.io</a>`,
-    },
-    {
       id: 'beachfix',
       product: 'BeachFix',
+      color: '#439078',
+      gradient: `linear-gradient(to bottom, #439078, #439078 80%, #545454)`,
       webURL: 'http://www.beachfix.co/beaches/28',
       images: [
         {
@@ -58,6 +56,8 @@ module.exports = () => ({
     },
     {
       product: 'TopHat Films',
+      color: '#545454',
+      gradient: `linear-gradient(to bottom, #545454, #545454)`,
       webURL: 'http://thetophatfilmswebsite.com',
       images: [
         {
@@ -73,7 +73,13 @@ module.exports = () => ({
       stack: [
         'Vanilla'
       ]
-    }
+    },
+    {
+      // Not all projects are projects. Some are ads
+      id: 'availability',
+      ad: true,
+      message: `Are you making something? I'm available for hire. Enquiries: <a href="mailto:hi@nosaj.io?subject=Hello">hi@nosaj.io</a>`,
+    },
   ],
   
   employers: [

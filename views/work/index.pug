@@ -12,7 +12,7 @@ html
               div.ad-block__inner
                 p !{project.message}
           else
-            div.work-block(class=project.id)
+            div.work-block(class=project.id style={'background': project.gradient})
               div.work-block__preview
                 each img in project.images
                   div.preview(class=`preview--${img.type}`)

@@ -8,7 +8,7 @@
 
 $clr-work-bg: #4a4a4a;
 $height-of-preview-img-desktop: 900px;
-$height-of-preview-img-mobile: 700px;
+$height-of-preview-img-mobile: 800px;
 
 .work-view {
   background: $clr-work-bg;
@@ -24,17 +24,15 @@ $height-of-preview-img-mobile: 700px;
   display: flex;
   flex-flow: column nowrap;
   width: 100%;
-  max-width: 1300px;
+  max-width: 1500px;
   margin: 0 auto;
 }
 
 .ad-block,
 .work-block {
   width: 100%;
-  margin: msRem(2) 0;
   
   @media #{mq(l)} {
-    margin: msRem(4) 0;
   }
 }
 
@@ -42,10 +40,8 @@ $height-of-preview-img-mobile: 700px;
   display: flex;
   flex-flow: column nowrap;
   text-align: center;
+  padding: msRem(8) 0 msRem(9);
   
-  &:first-child {
-    padding-top: msRem(2);
-  }
       
   @media #{mq(l)} {
     flex-flow: row-reverse wrap;
@@ -120,7 +116,7 @@ $height-of-preview-img-mobile: 700px;
     position: absolute;
     left: msRem(2);
     top: $height-of-preview-img-mobile / 3; // 1/2 of the height of the main preview
-    max-width: 30%;
+    max-width: 40%;
     max-height: $height-of-preview-img-mobile / 3 * 2;
     // Calculate max-height based off height variable
     animation: fade-in 800ms 650ms 1 both $easeOutCubic;
@@ -130,7 +126,7 @@ $height-of-preview-img-mobile: 700px;
     }
     
     @media #{mq(l)} {
-      top: $height-of-preview-img-desktop / 3; // 1/2 of the height of the main preview
+      top: calc(#{$height-of-preview-img-desktop / 3} + 40px); // 1/3 of the height of the main preview
       left: 0;
       max-height: $height-of-preview-img-desktop / 3 * 2;
     }
@@ -164,7 +160,8 @@ $height-of-preview-img-mobile: 700px;
   
   &__stack-child {
     display: inline;
-    color: lighten($clr-work-bg, 40%);
+    color: white;
+    opacity: .8;
     
     & + &::before {
       content: '/';
@@ -226,22 +223,6 @@ $height-of-preview-img-mobile: 700px;
 
 .work-block + .work-block {
   position: relative;
-  
-  &::before {
-    content: '';
-    display: block;
-    position: absolute;
-    top: -#{msRem(2)}; left: 50%;
-    z-index: 500;
-    height: 3px;
-    width: 100px;
-    transform: translateX(-50px);
-    background: darken($clr-work-bg, 5%);
-    
-    @media #{mq(m)} {
-      top: -#{msRem(4)};
-    }
-  }
 }
 
 .ad-block {
@@ -249,7 +230,6 @@ $height-of-preview-img-mobile: 700px;
   width: 100%;
   margin: msRem(2) 0;
   justify-content: center;
-  background: darken($clr-work-bg, 2%);
   padding: 0 msRem(1);
 
   @media #{mq(m)} {
@@ -258,15 +238,15 @@ $height-of-preview-img-mobile: 700px;
   
   &__inner {
     width: 100%;
-    max-width: msRem(11);
   }
   
   p {
     font-size: 1rem;
     text-align: center;
-    color: lighten($clr-work-bg, 30%);
+    color: white;
+    font-size: msRem(1);
   }
   
-  a { color: lighten($clr-work-bg, 30%); }
-  a:hover { color: $clr-green; }
+  a { color: $clr-green; }
+  a:hover { color: lighten($clr-work-bg, 30%); }
 }
