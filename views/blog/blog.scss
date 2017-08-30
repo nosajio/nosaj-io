@@ -66,7 +66,7 @@ $nextPostColorReadable: $nextPostColor;
   }
   
   h1 {
-    font: 700 msRem(2)/1.2 $ff-museo;
+    font: 700 msRem(2)/1.2 $ff-body;
     animation: fade-in 500ms #{$animationDelay + 200ms} 1 both $easeOutCubic;
     
     @media #{mq(m)} {
@@ -446,7 +446,7 @@ $nextPostColorReadable: $nextPostColor;
   
   &__title {
     display: block;
-    font: 700 msRem(2)/1.2 $ff-museo;
+    font: 700 msRem(2)/1.2 $ff-body;
     text-align: center;
     
     @media #{mq(m)} {
