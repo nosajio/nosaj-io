@@ -111,7 +111,11 @@ $section-spacing-rem: #{$section-spacing}rem;
 .open-src {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
+  
+  @media #{mq(m)} {
+    justify-content: space-between;
+  }
   
   &__item {
     display: block;
