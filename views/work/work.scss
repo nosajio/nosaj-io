@@ -14,11 +14,6 @@ $section-spacing-rem: #{$section-spacing}rem;
   background: white;
   color: #1c1c1c;
   
-  // Make the logo white
-  .logo svg path {
-    fill: black;
-  }
-  
   .nav-links a { color: black; }
 }
 
@@ -30,6 +25,7 @@ $section-spacing-rem: #{$section-spacing}rem;
 .work-heading {
   display: block;
   margin-bottom: msRem(2);
+  color: lighten(black, 60%);
   font-size: msRem(2);
   font-style: italic;
   font-weight: 500;

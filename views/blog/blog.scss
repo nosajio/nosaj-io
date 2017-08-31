@@ -33,6 +33,13 @@ $nextPostColorReadable: $nextPostColor;
   }
 }
 
+.blog-view {
+  // Make the logo use the post color
+  .logo svg path {
+    fill: $postColor;
+  }
+}
+
 .main-frame {
   display: flex;
   flex-flow: column nowrap;

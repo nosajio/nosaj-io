@@ -15,7 +15,7 @@ $logo-width: 70px;
   
   path { 
     fill: white; 
-    opacity: .6;
+    opacity: .9;
     transition: all 300ms $easeOutCubic;
   }
   
@@ -27,5 +27,15 @@ $logo-width: 70px;
 .logo:hover {
   path {
     opacity: 1;
+    fill: #dd0f58;
+  }
+}
+
+.light-bg .logo {
+  
+  &:hover {
+    svg path {
+      fill: #21ee9a;
+    }
   }
 }
