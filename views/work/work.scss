@@ -67,6 +67,8 @@ $section-spacing-rem: #{$section-spacing}rem;
     height: 400px;
     width: 100%;
     background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: top left;
     
     @media #{mq(m)} {
       position: absolute;
