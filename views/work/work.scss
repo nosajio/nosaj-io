@@ -63,6 +63,18 @@ $section-spacing-rem: #{$section-spacing}rem;
     flex-flow: row nowrap;
   }
   
+  // Every other project switches directions
+  &:nth-of-type(even) {
+    @media #{mq(m)} {
+      flex-flow: row-reverse nowrap;
+    }
+    
+    .project__image {
+      right: auto;
+      left: 0;
+    }
+  }
+  
   &__image {
     height: 400px;
     width: 100%;

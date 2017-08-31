@@ -27,6 +27,10 @@ head
   link(rel="icon" href=`/favicon.png?c=${head.iconColor || '000'}`)
   link(rel="apple-touch-icon" href=`/favicon.png?d=128&c=${head.iconColor || '000'}`)
   
+  //- Configure Typekit
+  style.
+    @import url("https://use.typekit.net/nha0neq.css");
+  
   style !{head.stylesheet}
   
   if head.scripts
