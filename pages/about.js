@@ -7,35 +7,17 @@ module.exports = () => ({
   title: 'About Jason',
   
   bio: {
-    intro: 'Hi I\'m Jason, nice to meet you. I\'ve been designing and making things for the internet since age fourteen. Now—almost fourteen years later—I continue to get a kick from making interesting products that can improve people\'s lives.',
+    opener: [
+      'I\'m a multi-diciplinary designer and maker of software with > 14 years of experience.',
+      'Right now I\'m helping startups make measurable software, fast.'
+    ],
     body: [
-      'I\'m a big proponent of self-education, and have embodied the philosophy in my life and career. I\'m entirely self taught as a programmer, systems admin, and designer, and I continue to immerse myself in projects and situations that I find very challenging. I think this is by far the best way to learn.',
-      'I\'ve involved myself in all sorts of full time positions, including \'designer\', \'front end developer\', \'creative technologist\', \'developer\', and \'engineer\', for a bunch of companies big and small. I enjoyed all of them, and learned a hell of a lot in the process.',
-      'At this moment I\'m using my time to help startups and small businesses to make measurable products quickly. It\'s imperative that a product can be measured in order to improve it. Otherwise it can be difficult to know for sure which parts of the product are or aren\'t performing to expectations.',
-      'I live in the exciting city of London where I spend my free time inventing businesses, working out, reading, playing chess, and annoying my girlfriend.'
+      'I was brought up in a small town in the centre of England called Rugeley. When I was 16, after finishing high school, I was bored over the summer so I decided to teach myself PHP. I wanted to make a forum for my friends and I to chat on. Afterwards, I realised that the product I\'d been inspired by (PHPBB) was open source, so I didn\'t have to make my own version. But I learned a lot from it.',
+      'I\'m a big proponent of self-education – or learning how to learn – and have embodied the philosophy throughout my life and career. I\'m self taught in design, programming, infrastructure and business, and I continue to immerse myself in challenging projects and situations to improve. I learn as I make. I believe this is the best way to get better.',
+      'Over the years I\'ve developed a "T" shaped skillset that brings all that\'s needed to make web software. Being able to make software solo comes with a bonus: speed. One person can work more efficiently than a team of two or three.',
+      'Right now I\'m helping startups and small teams with short deadlines to deliver measurable products on time. I also help them iterate and improve the product based on metrics.'
     ],
   },
   
-  repos: [
-    {
-      name: 'spin',
-      description: '🎨 Interact with the color wheel using Javascript',
-      link: 'https://github.com/nosajio/spin'
-    },
-    {
-      name: 'nosaj.io',
-      description: 'This website',
-      link: 'https://github.com/nosajio/nosaj-io'
-    },
-    {
-      name: 'doc-gen',
-      description: '✨ For generating various business documents like invoices and estimates from JSON ✨',
-      link: 'https://github.com/nosajio/doc-gen'
-    },
-    {
-      name: 'myapi',
-      description: 'Generate a JSON API out of plain old Markdown files',
-      link: 'https://github.com/nosajio/myapi'
-    },
-  ]
+  
 });
