@@ -44,12 +44,13 @@ $about-block-spacing: msRem(5);
   
   @media #{mq(m)} {
     column-count: 2;
+    column-gap: msRem(2);
     max-width: 820px;
   }
   
   p {
     font-size: 1.1rem;
     line-height: 1.4;
-    margin: #{ms(1) / 2}rem 0;
+    margin: 0 0 msRem(2) 0;
   }
 }
