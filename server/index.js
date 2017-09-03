@@ -66,7 +66,8 @@ function redirectHTTPToHTTPS() {
     const originalURL = req.headers['x-forwarded-url'] || req.originalURL || '';
     const isSecure = originalProtocol === 'https';
     if (! isSecure && isProduction) {
-      res.redirect(`https://${originalHost}${originalURL}`);
+      // 301 moved perminently 
+      res.redirect(301, `https://${originalHost}${originalURL}`);
       return;
     } 
     next();
