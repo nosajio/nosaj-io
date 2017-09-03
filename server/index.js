@@ -67,7 +67,7 @@ function redirectHTTPToHTTPS() {
     debug(originalURL);
     const isSecure = originalProtocol === 'https';
     if (! isSecure && isProduction) {
-      res.redirect(`https://${originalHost}/${originalURL}`);
+      res.redirect(`https://${originalHost}${originalURL}`);
       return;
     } 
     next();
