@@ -63,7 +63,7 @@ function redirectHTTPToHTTPS() {
   app.get('*', (req, res, next) => {
     const originalHost = req.headers['x-forwarded-host'] || req.hostname || 'nosaj.io';
     const originalProtocol = req.headers['x-forwarded-protocol'] || req.protocol || 'https';
-    const originalURL = req.originalURL || '';
+    const originalURL = req.headers['x-forwarded-url'] || req.originalURL || '';
     const isSecure = originalProtocol === 'https';
     if (! isSecure && isProduction) {
       res.redirect(`https://${originalHost}/${originalURL}`);
