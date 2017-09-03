@@ -9,7 +9,8 @@ const handleFaviconRoute = require('./favicon');
 const express = require('express');
 const app = express();
 
-const { PORT } = process.env;
+const { PORT, NODE_ENV } = process.env;
+const isProduction = NODE_ENV === 'production';
 const viewsDir = 'views';
 const publicDir = 'public';
 
@@ -19,6 +20,8 @@ function boot() {
   middleware();
   initDynamicRoutes();
   initFaviconRoute();
+  // Make HTTP requests automatically redirect to HTTPS
+  redirectHTTPToHTTPS();
   app.listen(PORT, () => debug('Listening on http://localhost:%s', PORT));
 }
 
@@ -54,4 +57,18 @@ function handleDynamicRoutes(pages) {
 function initFaviconRoute() {
   debug('Register /favicon.png');
   app.get('/favicon.png', handleFaviconRoute);
+}
+
+function redirectHTTPToHTTPS() {
+  app.get('*', (req, res, next) => {
+    const originalHost = req.headers['x-forwarded-host'] || req.hostname || 'nosaj.io';
+    const originalProtocol = req.headers['x-forwarded-protocol'] || req.protocol || 'https';
+    const { originalURL } = req || '';
+    const isSecure = originalProtocol === 'https';
+    if (! isSecure && isProduction) {
+      res.redirect(`https://${originalHost}/${originalURL}`);
+      return;
+    } 
+    next();
+  });
 }
