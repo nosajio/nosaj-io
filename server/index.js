@@ -21,7 +21,7 @@ function boot() {
   initDynamicRoutes();
   initFaviconRoute();
   // Make HTTP requests automatically redirect to HTTPS
-  redirectHTTPToHTTPS();
+  // redirectHTTPToHTTPS();
   app.listen(PORT, () => debug('Listening on http://localhost:%s', PORT));
 }
 

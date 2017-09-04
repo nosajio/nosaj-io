@@ -1,5 +1,6 @@
 @import 'globals';
 @import 'fonts';
+@import 'colors';
 @import 'cf';
 @import 'ms';
 @import 'mq';
@@ -53,4 +54,14 @@ $about-block-spacing: msRem(5);
     line-height: 1.4;
     margin: 0 0 msRem(2) 0;
   }
+}
+
+.about__follow-me {
+  margin-top: msRem(1);
+  font-size: msRem(1);
+  
+  a {
+    color: $clr-blue;
+  }
+  a:hover { color: black; }
 }
