@@ -9,22 +9,12 @@ module.exports = (args) => ({
   scripts: ['ga.js'],
   title: '&#128075; Hi!',
   introText: [
-    'Hi I\'m Jason, nice to meet you. I design & make measurable products with modern web technologies.',
+    '👋 Hi, nice to meet you. I\'m Jason, I design & make measurable software with modern web technologies.',
   ],
   introSubtext: [
-    'I work with startups and individuals to test ideas and build ambitious things. I also make a tool for podcast listeners called <a href="http://ripcast.in" target="_blank">Ripcast.</a>'
+    'I work with startups to test ideas and build ambitious things. I also <a href="https://nosaj.io/r/ripcast-writeup">made a tool</a> called <a href="http://ripcast.in" target="_blank">Ripcast.</a>. You should follow me on <a href="https://twitter.com/__nosaj" target="_blank">Twitter</a>.'
   ],
   available: true,
-  quotes: [
-    {
-      from: 'Nuno Vega',
-      quote: 'Jason get\'s my five stars'
-    },
-    {
-      from: 'Alex DeFazio',
-      quote: 'I simply cannot speak highly enough of Jason'
-    },
-  ],
   // Load in the posts and parse with the blog helpers
   posts: (() => new Promise((resolve) => {
     const SUDO = args && args.hasOwnProperty('sudo'); // Add querystring 'sudo' for special access
