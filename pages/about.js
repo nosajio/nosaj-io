@@ -8,7 +8,7 @@ module.exports = () => ({
   
   bio: {
     opener: [
-      'I\'m a multi-diciplinary designer and maker of software with > 14 years of experience.',
+      'I\'m a multi-disciplinary designer and maker of software with > 14 years of experience.',
       'Right now I\'m helping startups make measurable software, fast.'
     ],
     body: [
