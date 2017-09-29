@@ -32,7 +32,7 @@ function pageHandler(req, res, { _page }) {
    */
   function handleResolveContent(resolvedContent) {
     const { stylesheet, scripts, view, title, scssVariables } = resolvedContent;
-    renderStylesheet(stylesheet, scssVariables)
+    renderStylesheet(stylesheet, scssVariables, view)
       .then(s => resolvePage(s))
       .catch(err => renderError(res, '500', err));
     
