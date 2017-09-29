@@ -1,0 +1,34 @@
+$device-browser-max-width: 700px;
+$device-browser-max-height: 1300px;
+$device-browser-clr-body: #bb3939;
+$device-browser-clr-chrome: darken($device-browser-clr-body, 15%);
+$device-browser-border-radius: 7px;
+
+.device-browser {
+  display: flex;
+  justify-content: center;
+  
+  &__window {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+    max-width: $device-browser-max-width;
+    height: 1000px;
+    border-radius: $device-browser-border-radius;
+    overflow: hidden;
+    box-shadow: 0 10px 35px 0 rgba(18, 18, 29, 0.2),
+
+  }
+  
+  
+  &__chrome {
+    height: 30px;
+    width: 100%;
+    background: $device-browser-clr-chrome;
+  }
+  
+  &__body {
+    flex: 1 0 auto;
+    background: $device-browser-clr-body;
+  }
+}

@@ -9,6 +9,7 @@
 
 // Import the styles for different device types
 @import './mobile';
+@import './browser';
 
 $section-spacing: ms(7);
 $section-spacing-rem: #{$section-spacing}rem;
