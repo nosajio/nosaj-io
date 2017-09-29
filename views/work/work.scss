@@ -49,72 +49,115 @@ $section-spacing-rem: #{$section-spacing}rem;
 }
 
 .project {
-  position: relative;
   display: flex;
-  flex-flow: column-reverse nowrap;
-  justify-content: space-between;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, .5);
+  flex-flow: column nowrap;
   
   @media #{mq(m)} {
     flex-flow: row nowrap;
   }
-  
-  // Every other project switches directions
-  &:nth-of-type(even) {
-    @media #{mq(m)} {
-      flex-flow: row-reverse nowrap;
-    }
-    
-    .project__image {
-      right: auto;
-      left: 0;
-      background-position: top right;
-    }
-  }
-  
-  &__image {
-    height: 400px;
-    width: 100%;
-    background-size: 100% auto;
-    background-repeat: no-repeat;
-    background-position: top left;
-    
-    @media #{mq(m)} {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 60%;
-      height: 100%;
-      background-size: auto 100%;
-    }
+
+  @media #{mq(l)} {
+    padding: msRem(7) msRem(5);
+    align-items: flex-start;
   }
   
   &__title {
-    font: 700 msRem(2) $ff-headings;
+    @media #{mq(m)} {
+      flex: 0 1 auto;
+      width: 100%;
+      max-width: 20%;
+    }
+    
+    @media #{mq(l)} {
+      max-width: 20%;
+    }
+    
+    h1 {
+      font-size: msRem(3);
+      font-weight: $ff-body-medium;
+      margin-bottom: msRem(3);
+      
+      @media #{mq(hd)} {
+        font-size: msRem(4);
+      }
+    }
+  }
+  
+  &__turnaround,
+  &__stack {
+    display: flex;
+    text-transform: uppercase;
+    font-size: msRem(-1);
+    margin-top: msRem(-5);
+    font-weight: $ff-body-medium;
+    
+    @media #{mq(l)} {
+      flex-flow: column;
+      margin-top: msRem(-2);
+    }
+    
+    strong { 
+      display: block; 
+      font-weight: $ff-body-bold;
+      margin-right: msRem(-2);
+    }
+    span { display: block; }
+  }
+  
+  &__project-stack {
+    
+  }
+  
+  &__project-turnaround {
+    
+  }
+  
+  &__image {
+    @media #{mq(m)} {
+      flex: 1 0 auto;
+      width: 100%;
+      max-width: 30%;
+      margin: 0 msRem(1);
+    }
+    
+    @media #{mq(l)} {
+      max-width: 50%;
+      margin: 0 msRem(2);
+    }
+    
+    @media #{mq(hd)} {
+      margin: 0 msRem(4);
+    }
+    
+    img {
+      display: block;
+      height: auto;
+      width: 100%;
+    }
   }
   
   &__body {
-    padding: msRem(2);
-    
-    p { font-size: 1.15rem; }
-    
     @media #{mq(m)} {
-      flex-basis: 40%;
+      flex: 0 1 auto;
+      width: 100%;
+      max-width: 40%;
+    }
+    
+    @media #{mq(l)} {
+      max-width: 30%;
+    }
+    
+    p {
+      margin: 0;
+      line-height: ms(2);
+      
+      & + p {
+        margin-top: msRem(1);
+      }
     }
   }
   
-  &__stack,
-  &__turnaround {
-    
-    & + & { margin-top: msRem(-1); }
-    
-    // This is the 'heading'
-    strong {
-      display: block;
-      margin-bottom: msRem(-4);
-      font-weight: 600;
-    }
-  }
+  
 }
 
 .open-src {

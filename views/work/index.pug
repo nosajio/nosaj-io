@@ -6,26 +6,29 @@ html
     main.main-frame
       header.page-header 
         h1 Work.
-      section.work-main.page-body
+      section.work-main
         section.work-projects
           h2.work-heading Recent projects.
           each p in recentProjects
-            article.project(style={ background: p.color || 'white', color: p.textColor || 'black' })
-              div.project__body
-                h1.project__title= p.product
-                p= p.description
+            article.project
+              div.project__title
+                h1= p.product
                 if p.stack
-                  div.project__stack
+                  span.project__stack
                     strong Stack:
                     span= p.stack
                 if p.turnaround
-                  div.project__turnaround
+                  span.project__turnaround
                     strong Turnaround:
                     span= p.turnaround
-              div.project__image(style={ 'background-image': `url(${p.image});` })
+              div.project__image
+                //- img(src=p.image alt='')
+              div.project__body
+                p= p.description
                 
         include /includes/umakingsummatbruv
         
+      section.work-secondary.page-body
         if opensrc
           section.work-open-src
             h2.work-heading Open source.
