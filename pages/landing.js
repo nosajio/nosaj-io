@@ -12,7 +12,7 @@ module.exports = (args) => ({
     'Hi I\'m Jason, nice to meet you. I design & make measurable software with modern web technologies.',
   ],
   introSubtext: [
-    'I work with startups to test ideas and build ambitious things. I also <a href="https://nosaj.io/r/ripcast-writeup">made a tool</a> called <a href="http://ripcast.in" target="_blank">Ripcast.</a>. You can find me on <a href="https://twitter.com/__nosaj" target="_blank">Twitter</a>.'
+    'I work with startups to test ideas and build ambitious things quickly. I also make <a href="http://ripcast.in" target="_blank">Ripcast.</a> and <a target="_blank" href="http://liveworksearch.com">Live/Work Search</a>. I tweet about making stuff on <a href="https://twitter.com/__nosaj" target="_blank">Twitter</a>.'
   ],
   available: true,
   // Load in the posts and parse with the blog helpers
