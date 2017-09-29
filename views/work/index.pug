@@ -22,6 +22,9 @@ html
                     strong Turnaround:
                     span= p.turnaround
               div.project__image
+                case p.image[0].frame
+                  when 'mobile'
+                    include /work/mobile
                 //- img(src=p.image alt='')
               div.project__body
                 p= p.description
