@@ -17,7 +17,7 @@ module.exports = () => ({
       textColor: 'white',
       image: [{
         frame: 'mobile',
-        url: 'http://a.nosaj.io/work/ripcast-montage.png',
+        url: 'http://a.nosaj.io/work/ripcast-mobile.jpg',
       }],
       webURL: 'http://justalevel.com',
       description: 'Ripcast is an app I made to scratch an itch in response to YouTube\'s bad UX. Its a web application that converts YouTube content into podcasts, so that they can be listened to on the move. I launched Ripcast in July 2017, since then it\'s had a steady increase in users with little marketing effort',
@@ -32,7 +32,7 @@ module.exports = () => ({
       webURL: 'http://justalevel.com',
       image: [{
         frame: 'browser',
-        url: 'http://a.nosaj.io/work/justalevel-montage.png',
+        url: 'http://a.nosaj.io/work/justalevel-dashboard-browser.jpg',
       }],
       description: 'Just A-level is an education platform funded by the UK government as an initiative to teach computer science to more students. I was involved with the project throughout the entire process, from planning and design to development. We were able to design and build the first version of the product in under two months, and successfully launched the site on time.',
       stack: 'React, GraphQL, NodeJS, Postgres, AWS',
@@ -46,7 +46,7 @@ module.exports = () => ({
       webURL: 'http://www.beachfix.co/beaches/28',
       image: [{
         frame: 'browser',
-        url: 'http://a.nosaj.io/work/beachfix-montage.png',
+        url: 'http://a.nosaj.io/work/beachfix-beach-browser.jpg',
       }],
       description: 'BeachFix is a beach holiday website that came about after the CEO spent a year travelling the world\'s beaches collecting data. I was hired to help the team design and build the first non-beta version of the app, condensing all of the lessons they had learned into a new version. We spent around a month on the design which was tested against user feedback, and another month on development.',
       stack: 'NodeJS, React',

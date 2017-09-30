@@ -47,5 +47,6 @@ $device-mobile-screen-border-radius: 10px;
     height: percentage($device-mobile-screen-h-ratio);
     background: darken($device-mobile-clr-body, 30%);
     border-radius: $device-mobile-screen-border-radius;
+    overflow: hidden;
   }
 }

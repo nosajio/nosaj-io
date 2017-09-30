@@ -15,7 +15,7 @@ $section-spacing: ms(7);
 $section-spacing-rem: #{$section-spacing}rem;
 
 .work-view {
-  background: white;
+  background: darken(white, 2%);
   color: #1c1c1c;
   
   .nav-links a { color: black; }
@@ -76,7 +76,6 @@ $section-spacing-rem: #{$section-spacing}rem;
     }
     
     @media #{mq(l)} {
-      max-width: 20%;
     }
     
     h1 {
@@ -130,7 +129,7 @@ $section-spacing-rem: #{$section-spacing}rem;
     
     @media #{mq(l)} {
       max-width: 50%;
-      margin: 0 msRem(2);
+      margin: 0 msRem(3);
     }
     
     @media #{mq(hd)} {
