@@ -58,10 +58,12 @@ $section-spacing-rem: #{$section-spacing}rem;
   
   @media #{mq(m)} {
     flex-flow: row nowrap;
+    padding: msRem(7) msRem(1);
   }
 
   @media #{mq(l)} {
-    padding: msRem(7) msRem(5);
+    margin: 0 auto;
+    max-width: 1500px;
     align-items: flex-start;
   }
   
@@ -70,6 +72,7 @@ $section-spacing-rem: #{$section-spacing}rem;
       flex: 0 1 auto;
       width: 100%;
       max-width: 20%;
+      text-align: right;
     }
     
     @media #{mq(l)} {
@@ -94,16 +97,17 @@ $section-spacing-rem: #{$section-spacing}rem;
     font-size: msRem(-1);
     margin-top: msRem(-5);
     font-weight: $ff-body-medium;
+    flex-flow: column;
+    color: #9e9e9e;
     
     @media #{mq(l)} {
-      flex-flow: column;
       margin-top: msRem(-2);
     }
     
     strong { 
       display: block; 
       font-weight: $ff-body-bold;
-      margin-right: msRem(-2);
+      color: #838383;
     }
     span { display: block; }
   }
@@ -144,7 +148,7 @@ $section-spacing-rem: #{$section-spacing}rem;
     @media #{mq(m)} {
       flex: 0 1 auto;
       width: 100%;
-      max-width: 40%;
+      max-width: 50%;
     }
     
     @media #{mq(l)} {
@@ -299,6 +303,7 @@ $section-spacing-rem: #{$section-spacing}rem;
   &__owned {
     font-size: .9rem;
     margin-left: msRem(-1);
+    color: #9e9e9e;
   }
   
   &__employer {

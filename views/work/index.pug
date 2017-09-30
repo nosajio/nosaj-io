@@ -8,18 +8,17 @@ html
         h1 Work.
       section.work-main
         section.work-projects
-          h2.work-heading Recent projects.
           each p in recentProjects
             article.project
               div.project__title
                 h1= p.product
                 if p.stack
                   span.project__stack
-                    strong Stack:
+                    strong Stack
                     span= p.stack
                 if p.turnaround
                   span.project__turnaround
-                    strong Turnaround:
+                    strong Turnaround
                     span= p.turnaround
               div.project__image
                 case p.image[0].frame
@@ -27,7 +26,6 @@ html
                     include /work/mobile
                   when 'browser'
                     include /work/browser
-                //- img(src=p.image alt='')
               div.project__body
                 p= p.description
                 
@@ -44,17 +42,17 @@ html
                     h3.open-src__title= title
                     span.open-src__description= os.description
           
-        if fulltime
-          section.work-fulltime
-            h2.work-heading Places I've worked.
-            ul.fulltime
-              each ft in fulltime
-                li.fulltime__item
-                  span.fulltime__image(style={ 'background-image': `url(${ft.image})`})
-                  span.fulltime__when= ft.when
-                  h2.fulltime__title= ft.name
-                  span.fulltime__position= ft.position
-                  span.fulltime__location= ft.where
+        //- if fulltime
+        //-   section.work-fulltime
+        //-     h2.work-heading Places I've worked.
+        //-     ul.fulltime
+        //-       each ft in fulltime
+        //-         li.fulltime__item
+        //-           span.fulltime__image(style={ 'background-image': `url(${ft.image})`})
+        //-           span.fulltime__when= ft.when
+        //-           h2.fulltime__title= ft.name
+        //-           span.fulltime__position= ft.position
+        //-           span.fulltime__location= ft.where
         
         if archive
           section.work-archive

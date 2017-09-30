@@ -1,6 +1,6 @@
 $device-browser-max-width: 700px;
 $device-browser-max-height: 1300px;
-$device-browser-clr-body: #bb3939;
+$device-browser-clr-body: #d9d9d9;
 $device-browser-clr-chrome: darken($device-browser-clr-body, 15%);
 $device-browser-border-radius: 7px;
 
@@ -16,7 +16,9 @@ $device-browser-border-radius: 7px;
     height: 1000px;
     border-radius: $device-browser-border-radius;
     overflow: hidden;
-    box-shadow: 0 10px 35px 0 rgba(18, 18, 29, 0.2),
+    box-shadow:
+      0 10px 35px 0 rgba(18, 18, 29, 0.2),
+      0 4px 3px 0 rgba(15, 15, 34, 0.1);
 
   }
   
