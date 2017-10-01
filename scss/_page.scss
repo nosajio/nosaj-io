@@ -1,3 +1,4 @@
+@import 'fonts';
 @import 'ms';
 @import 'mq';
 
@@ -8,8 +9,8 @@
   
   h1 {
     font-size: msRem(3);
-    font-weight: 500;
-    font-style: italic;
+    font-weight: $ff-body-bold;
+    // font-style: italic;
     text-align: center;
     
     @media #{mq(m)} {

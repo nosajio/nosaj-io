@@ -18,6 +18,26 @@ $bp-hd: 1900px;
   } 
 }
 
+
+@mixin media($scale) {
+  $query: $mq-desktop-up;
+  @if $scale == s {
+    $query: mq(s);
+  }
+  @if $scale == m {
+    $query: mq(m);
+  }
+  @if $scale == l {
+    $query: mq(l);
+  }
+  @if $scale == hd {
+    $query: mq(hd);
+  }
+  @media #{$query} {
+    @content;
+  }
+}
+
 %small-pad {
   padding: 0 msRem(1);
   @media #{mq(m)} { 

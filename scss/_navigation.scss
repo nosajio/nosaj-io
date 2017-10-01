@@ -1,25 +1,25 @@
 @import 'easing';
+@import 'fonts';
 @import 'ms';
 @import 'mq';
 
-$nav-spacing: msRem(1);
+$nav-spacing: msRem(2);
 
 .main-navigation {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  padding: msRem(1);
-  padding-bottom: msRem(3);
+  padding: 0 0 msRem(3);
   width: 100%;
   
   @media #{mq(m)} {
+    margin-bottom: msRem(5);
     // justify-content: flex-start;
     // flex-wrap: nowrap;
   }
   
   .logo {
-    min-width: 100%;
     
     @media #{mq(m)} {
       min-width: 0;
@@ -28,22 +28,24 @@ $nav-spacing: msRem(1);
   
   .nav-links {
     display: flex;
-    align-items: center;
     flex-flow: row nowrap;
+    align-items: stretch;
     text-transform: uppercase;
     font-size: .9rem;
     font-weight: 500;
-    margin-top: $nav-spacing;
+    margin-top: msRem(1);
     
     a {
-      display: block;
-      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 120px;
+      // margin: 0 $nav-spacing;
       text-decoration: none;
-      padding: 0 $nav-spacing;
-      opacity: .7;
+      font-weight: $ff-body-semibold;
+      color: white;
+      opacity: .5;
       transition: all 200ms $easeOutCubic;
-      padding-top: msRem(-1);
-      padding-bottom: msRem(-1);
     }
     
     a:hover {
