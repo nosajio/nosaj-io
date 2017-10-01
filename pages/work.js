@@ -108,8 +108,15 @@ module.exports = () => ({
     // 2017
     {
       year: 2017,
+      title: 'Live/Work Search',
+      owned: 'Owner, Design, Frontend, Backend',
+      url: 'http://liveworksearch.com',
+    },
+    {
+      year: 2017,
       title: 'Ripcast',
-      owned: 'Design, Frontend, Backend',
+      owned: 'Owner, Design, Frontend, Backend',
+      url: 'http://ripcast.in',
     },
     {
       year: 2017,
