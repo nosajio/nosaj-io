@@ -2,10 +2,9 @@
 @import 'mq';
 @import 'ms';
 @import 'fonts';
+@import 'links';
 @import 'easing';
 @import 'keyframes';
-
-
 
 $clr-landing-bg: rgb(0, 0, 0);
 $clr-secondary: lighten( $clr-landing-bg, 24%);
@@ -81,6 +80,13 @@ $clr-secondary: lighten( $clr-landing-bg, 24%);
     }
     
     p:last-child { margin-bottom: 0; }
+    
+    a {
+      @include underline(#fff, $clr-red);
+      &:hover {
+        color: $clr-red;
+      }
+    }
   }
   
   &__actions {
