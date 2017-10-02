@@ -10,7 +10,7 @@
   h1 {
     font-size: msRem(3);
     font-weight: $ff-body-bold;
-    // font-style: italic;
+    margin-bottom: msRem(3);
     text-align: center;
     
     @media #{mq(m)} {

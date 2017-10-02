@@ -100,18 +100,31 @@ $clr-secondary: lighten( $clr-landing-bg, 24%);
       flex-flow: row nowrap;
     }
     
-    a { color: lighten($clr-secondary, 15%); }
+    a { 
+      color: lighten($clr-secondary, 65%); 
+      font-weight: $ff-body-semibold; 
+    }
     
-    .action-cta { 
+    .landing-top__action { 
       color: white;
       background: lighten($clr-landing-bg, 9%);
       padding: 8px 15px;
       border-radius: 3px;
-      text-decoration: none;
+      transition: all 100ms $easeOutCubic;
+      
+      &:hover {
+        background: $clr-red;
+      }
+      
+      a {
+        text-decoration: none;
+      }
     }
     
-    a:hover {
-      background: darken($clr-landing-bg, 20%);
+    .landing-top__action + .landing-top__action {
+      @include media(m) {
+        margin-left: msRem(2);
+      }
     }
         
     li { // Action item
@@ -119,18 +132,6 @@ $clr-secondary: lighten( $clr-landing-bg, 24%);
       margin-top: msRem(1);
       flex-flow: row nowrap;
       align-items: center;
-    }
-    
-    @media #{mq(m)} {
-      li + li::before {
-        content: '';
-        margin: 0 20px;
-        display: inline-block;
-        width: 5px;
-        height: 5px;
-        border-radius: 10px;
-        background: $clr-secondary;
-      }    
     }
   }
   
@@ -258,13 +259,8 @@ $clr-secondary: lighten( $clr-landing-bg, 24%);
   }
 
   &__post-title {
-    transition: all 1s $easeOutCubic;
     font-size: msRem(1);
     font-weight: 500;
-    
-    @media #{mq(m)} {
-      // font-size: msRem(2);
-    }
   }
   
   &__post-date {

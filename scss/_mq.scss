@@ -20,7 +20,7 @@ $bp-hd: 1900px;
 
 
 @mixin media($scale) {
-  $query: $mq-desktop-up;
+  $query: mq(l);
   @if $scale == s {
     $query: mq(s);
   }
