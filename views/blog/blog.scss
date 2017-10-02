@@ -4,6 +4,7 @@
 @import 'fonts';
 @import 'keyframes';
 @import 'easing';
+@import 'links';
 
 $blog-content-width: 760px;
 
@@ -50,13 +51,12 @@ $nextPostColorReadable: $nextPostColor;
   }
   
   p a {
-    color: $postColorReadable;
-    text-decoration: none;
+    color: black;
+    @include underline(black, $postColorReadable);
     
     &:hover,
     &:focus {
-      color: black;
-      text-decoration: underline;
+      color: $postColorReadable;
     }
   }
 }
@@ -141,7 +141,7 @@ $nextPostColorReadable: $nextPostColor;
   // Secondary & tertiary headings 
   h2 {
     font-weight: 700;
-    margin-top: msRem(5);
+    margin-top: msRem(3);
     font-size: msRem(1);
     
     @media #{mq(m)} {
@@ -460,7 +460,10 @@ $nextPostColorReadable: $nextPostColor;
       font-size: msRem(3);
     }
     
-    a { color: $nextPostColorReadable; }
+    a { 
+      color: $nextPostColorReadable; 
+      @include underline($nextPostColorReadable, black);
+    }
     a:hover { color: black; }
   }
 }
