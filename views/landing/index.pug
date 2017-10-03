@@ -18,8 +18,7 @@ html
           article.posts__post
             a(href=`/r/${post.slug}`)
               h1.posts__post-title
-                span.title-text(style={'border-bottom-color': post.coverColor})= post.title 
-                  span.title-bg(style={'background-color': post.coverColor})
+                span.title-text(style={'background-image': `linear-gradient(to bottom, ${post.coverColor} 50%, transparent 50%)`})= post.title 
               span.posts__post-date= post.dateString
       section.landing-kindness
         //- include quotes

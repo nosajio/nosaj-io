@@ -1,7 +1,7 @@
 @import 'colors';
 
 // Add a neat underline to links
-@mixin underline($base:#000, $hover:$clr-blue) {
+@mixin underline($base:#000, $hover:$clr-blue, $width:.1em) {
   $br: red($base);
   $bg: green($base);
   $bb: blue($base);
@@ -13,7 +13,7 @@
     text-decoration: none;
     background-image: linear-gradient(to bottom, rgba($br, $bg, $bb, .9) 50%, rgba($br, $bg, $bb, 0) 50%);
     background-repeat: repeat-x;
-    background-size: 2px .1em;
+    background-size: 2px $width;
     background-position: 0 1.2em;
   }
   
