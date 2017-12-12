@@ -6,6 +6,8 @@
 $nav-spacing: msRem(2);
 
 .main-navigation {
+  position: relative;
+  z-index: 500; // Make sure it shows above bg absolute/fixed content
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
