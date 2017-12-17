@@ -1,10 +1,18 @@
-// This file is a simple way to include all global styles
+// This file is a simple way to include all global styles and utilities
+
+// Utils
+@import './mq';
+@import './ms';
+@import './links';
+
+// Global styles
 @import './reset';
 @import './typography';
 @import './layout';
+@import './g';
+@import './fonts';
 
-// Global elements
+// Components used on all pages
 @import './logo';
 @import './navigation';
 @import './footer';
-@import './umakingsummatbruv';

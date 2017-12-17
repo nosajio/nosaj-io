@@ -2,13 +2,30 @@ include /components/button
 doctype html
 html
   include /includes/head
-    
   body.front-view
     main.main-frame
-      section.front-intro
+      section.front-section.front-intro.g4
         h1.front-intro-title= introText
         each p in introSubtext
           p !{p}
         div.front-intro-actions
           +button('Hire me', '/work-together')
           +button('Contact me', '/contact')
+      section.front-section.front-writing.g4
+        h2.front-heading Writing
+        ul.writing-posts-list
+          each post in posts
+            li.writing-post
+              a(href=`/r/${post.slug}`)= post.title
+      section.front-section.front-work.g4
+        h2.front-heading Work
+        each project in projects
+          article.project
+            div.project-images
+              each img in project.images
+                div.project-image(class=`project-image--${img.device}` style={'background-image': `url(${img.src})`})
+            div.project-info
+              h3.project-title= project.title
+              a.project-url(href=project.url target='_blank')= project.url
+              p.project-description= project.description
+  include /includes/footer

@@ -1,0 +1,16 @@
+// g = grid.
+
+// Specify the grid dimensions
+$g-column: 131px;
+$g-margin: 40px;
+$g-columns: 6;
+
+// Create the grid class names
+@for $g-i from 1 through $g-columns {
+  .g#{$g-i} {
+    width: ($g-column * $g-i) + $g-margin * ($g-i - 1);
+  }
+}
+
+.gml { margin-left: $g-margin; }
+.gmr { margin-left: $g-margin; }

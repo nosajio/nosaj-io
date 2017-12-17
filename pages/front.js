@@ -24,5 +24,32 @@ module.exports = (args) => ({
       }).catch(err => {
         throw new Error(err)
       });
-  }))()
+  }))(),
+  projects: [
+    {
+      title: 'Live/Work Search',
+      description: 'I made liveworksearch.com to help a growing neiche of entrepreneurs to find live/work style properties in London. The tool consists of a simple web crawler that collects data from around the internet before showing it on a map, ready to be explored. The whole system and website is fully autonomous.',
+      url: 'http://liveworksearch.com',
+      date: 'OCT 2016',
+      tags: ['design', 'dev'],
+      images: [
+        { device: 'desktop', src: 'http://placehold.it/604x466/fff/bbbbbb&text=screen' },
+        { device: 'mobile', src: 'http://placehold.it/322x466/fff/bbbbbb&text=screen' },
+        { device: 'mobile', src: 'http://placehold.it/322x466/fff/bbbbbb&text=screen' }
+      ]
+    },
+    {
+      title: 'Just A-level',
+      description: 'Just A-level is an education platform funded by the UK government as an initiative to teach computer science to more students. I was involved with the project throughout the entire process, from planning and design to development. We were able to design and build the first version of the product in under two months, and successfully launched the site on time.',
+      url: 'https://justalevel.com',
+      date: 'JUL 2017',
+      tags: ['design', 'dev'],
+      images: [
+        { device: 'mobile', src: 'http://placehold.it/322x466/fff/bbbbbb&text=screen' },
+        { device: 'mobile', src: 'http://placehold.it/322x466/fff/bbbbbb&text=screen' },
+        { device: 'mobile', src: 'http://placehold.it/322x466/fff/bbbbbb&text=screen' },
+        { device: 'mobile', src: 'http://placehold.it/322x466/fff/bbbbbb&text=screen' }
+      ]
+    },
+  ]
 });

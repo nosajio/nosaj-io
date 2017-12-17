@@ -1,10 +1,119 @@
 @import 'globals';
-@import 'mq';
-@import 'ms';
-@import 'fonts';
-@import 'links';
+@import 'button';
 @import 'easing';
 @import 'keyframes';
 
-$clr-landing-bg: rgb(0, 0, 0);
-$clr-secondary: lighten( $clr-landing-bg, 24%);
+$clr-landing-bg: rgb(245, 245, 245);
+
+a {
+  color: $clr-black;
+  // The underline
+  text-decoration: none;
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 50%, transparent 50%);
+  background-repeat: repeat-x;
+  background-size: 2px .17em;
+  background-position: 0 1.1em;
+  
+  &:hover {
+    color: $clr-blue;
+    background-image: linear-gradient(to bottom, $clr-blue 50%, transparent 50%);
+  }
+}
+
+.front-view {
+  background: $clr-landing-bg;
+  color: $clr-black;
+}
+
+.front-section {
+  & + & {
+    margin-top: msRem(23);
+  }
+}
+
+.front-heading {
+  margin-bottom: msRem(10);
+  font-size: msRem(6);
+  font-weight: $ff-body-semibold;
+  font-style: italic;
+  color: $clr-blue;
+}
+
+// Intro section
+.main-frame {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.front-intro {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  min-height: 80vh;
+  
+  &-title {
+    font-size: msRem(6);
+    font-weight: $ff-body-semibold;
+  }
+}
+
+// Writing section
+.front-writing {
+}
+
+.writing-posts-list {
+}
+
+.writing-post {
+  font-size: msRem(2);
+  font-weight: $ff-body-medium;
+  
+  & + & {
+    margin-top: msRem(1);
+  }
+  
+  a {
+
+  }
+}
+
+// Work section
+.project {
+  & + & {
+    margin-top: msRem(13);
+  }
+  
+  &-images {
+    width: 100%;
+    margin-bottom: msRem(9);
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  &-image {
+    display: block;
+    height: 233px;
+    background-size: contain;
+    box-shadow: 0 5px 10px -2px rgba(0,0,0,0.05);
+    border-radius: 7px;
+    
+    &--mobile { width: 20.3416%; max-width: 131px; }
+    &--desktop { width: 46.8944%; max-width: 302px; }
+  }
+  
+  &-title {
+    margin-bottom: msRem(-10);
+    font-size: 1rem;
+    font-weight: $ff-body-medium;
+  }
+  
+  &-url {
+    font-size: msRem(-1);
+    color: $clr-grey-2;
+  }
+  
+  &-description {
+    font-size: msRem(-1);
+  }
+}
