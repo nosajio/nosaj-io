@@ -39,13 +39,13 @@ a {
   color: $clr-blue;
 }
 
-// Intro section
 .main-frame {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
 }
 
+// Intro section
 .front-intro {
   display: flex;
   flex-flow: column;
@@ -53,8 +53,12 @@ a {
   min-height: 80vh;
   
   &-title {
-    font-size: msRem(6);
+    font-size: msRem(4);
     font-weight: $ff-body-semibold;
+  }
+  
+  &-actions {
+    margin-top: msRem(6);
   }
 }
 
@@ -66,15 +70,31 @@ a {
 }
 
 .writing-post {
-  font-size: msRem(2);
-  font-weight: $ff-body-medium;
+  display: flex;
+  align-items: center;
+  width: 100%;
   
   & + & {
     margin-top: msRem(1);
   }
   
   a {
-
+  }
+  
+  &-title {
+    display: block;
+    font-size: msRem(2);
+    font-weight: $ff-body-medium;
+  }
+  
+  &-date {
+    display: block;
+    width: $g-column;
+    margin-right: $g-margin;
+    color: $clr-grey-2;
+    font-size: msRem(-3);
+    text-transform: uppercase;
+    text-align: right;
   }
 }
 

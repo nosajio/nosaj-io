@@ -5,19 +5,21 @@ html
   body.front-view
     main.main-frame
       section.front-section.front-intro.g4
-        h1.front-intro-title= introText
-        each p in introSubtext
-          p !{p}
+        h1.front-intro-title !{introText}
         div.front-intro-actions
           +button('Hire me', '/work-together')
           +button('Contact me', '/contact')
-      section.front-section.front-writing.g4
-        h2.front-heading Writing
+      section.front-section.front-writing.g6
+        a#writing
+        h2.front-heading.g4.center Writing
         ul.writing-posts-list
           each post in posts
             li.writing-post
-              a(href=`/r/${post.slug}`)= post.title
+              span.writing-post-date=post.dateString
+              a(href=`/r/${post.slug}`)
+                span.writing-post-title=post.title
       section.front-section.front-work.g4
+        a#work
         h2.front-heading Work
         each project in projects
           article.project
