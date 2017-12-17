@@ -1,18 +1,16 @@
-const debug = require('debug')('nosaj:pages:landing');
+const debug = require('debug')('nosaj:pages:front');
 const { dateBefore } = require('../lib/helpers/date');
 const { allPosts } = require('../lib/helpers/blog');
 
 module.exports = (args) => ({
-  view: 'landing',
+  view: 'front',
   path: '/',
-  stylesheet: 'views/landing/landing.scss',
+  stylesheet: 'views/front/front.scss',
   scripts: ['ga.js'],
-  title: '&#128075; Hi!',
-  introText: [
-    'Hi I\'m Jason, nice to meet you. I design & make measurable software with modern web technologies.',
-  ],
+  title: 'Noasj',
+  introText: 'Hi I\'m Jason. I design and make software for the web.',
   introSubtext: [
-    'I work with startups to test ideas and build ambitious things quickly. I also make <a href="http://ripcast.in" target="_blank">Ripcast.</a> and <a target="_blank" href="http://liveworksearch.com">Live/Work Search</a>. I tweet about making stuff on <a href="https://twitter.com/__nosaj" target="_blank">Twitter</a>.'
+    'At the moment I’m working with startups to build ambitious products. I also write, <a href="http://codeatuni.com" target="_blank">teach</a>, <a href="https://twitter.com/__nosaj" target="_blank">tweet</a> and <a href="http://liveworksearch.com" target="_blank">make</a> <a href="http://rapcast.in" target="_blank">stuff</a>.'
   ],
   available: true,
   // Load in the posts and parse with the blog helpers

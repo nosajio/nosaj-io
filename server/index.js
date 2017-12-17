@@ -5,7 +5,6 @@ const error = require('debug')('nosaj:error');
 const path = require('path');
 const readPages = require('../lib/dynamicRoutes');
 const pageHandler = require('./pages/handler');
-const handleFaviconRoute = require('./favicon');
 const express = require('express');
 const app = express();
 
@@ -19,9 +18,7 @@ module.exports = {boot};
 function boot() {
   middleware();
   initDynamicRoutes();
-  initFaviconRoute();
   // Make HTTP requests automatically redirect to HTTPS
-  // redirectHTTPToHTTPS();
   app.listen(PORT, () => debug('Listening on http://localhost:%s', PORT));
 }
 
@@ -52,24 +49,4 @@ function handleDynamicRoutes(pages) {
     app.get(p.path, (req, res) => pageHandler(req, res, p));
   });
   return pages;
-}
-
-function initFaviconRoute() {
-  debug('Register /favicon.png');
-  app.get('/favicon.png', handleFaviconRoute);
-}
-
-function redirectHTTPToHTTPS() {
-  app.get('*', (req, res, next) => {
-    const originalHost = req.headers['x-forwarded-host'] || req.hostname || 'nosaj.io';
-    const originalProtocol = req.headers['x-forwarded-protocol'] || req.protocol || 'https';
-    const originalURL = req.headers['x-forwarded-url'] || req.originalURL || '';
-    const isSecure = originalProtocol === 'https';
-    if (! isSecure && isProduction) {
-      // 301 moved perminently 
-      res.redirect(301, `https://${originalHost}${originalURL}`);
-      return;
-    } 
-    next();
-  });
 }

@@ -1,0 +1,14 @@
+include /components/button
+doctype html
+html
+  include /includes/head
+    
+  body.front-view
+    main.main-frame
+      section.front-intro
+        h1.front-intro-title= introText
+        each p in introSubtext
+          p !{p}
+        div.front-intro-actions
+          +button('Hire me', '/work-together')
+          +button('Contact me', '/contact')

@@ -1,0 +1,10 @@
+@import 'globals';
+@import 'mq';
+@import 'ms';
+@import 'fonts';
+@import 'links';
+@import 'easing';
+@import 'keyframes';
+
+$clr-landing-bg: rgb(0, 0, 0);
+$clr-secondary: lighten( $clr-landing-bg, 24%);
