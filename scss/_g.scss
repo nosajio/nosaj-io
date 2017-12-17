@@ -8,7 +8,8 @@ $g-columns: 6;
 // Create the grid class names
 @for $g-i from 1 through $g-columns {
   .g#{$g-i} {
-    width: ($g-column * $g-i) + $g-margin * ($g-i - 1);
+    width: 100%;
+    max-width: ($g-column * $g-i) + $g-margin * ($g-i - 1);
   }
 }
 

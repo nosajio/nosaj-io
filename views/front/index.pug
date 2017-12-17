@@ -16,8 +16,8 @@ html
           each post in posts
             li.writing-post
               span.writing-post-date=post.dateString
-              a(href=`/r/${post.slug}`)
-                span.writing-post-title=post.title
+              span.writing-post-title
+                a(href=`/r/${post.slug}`)= post.title
       section.front-section.front-work.g4
         a#work
         h2.front-heading Work
