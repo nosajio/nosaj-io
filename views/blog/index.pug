@@ -7,12 +7,6 @@ html
       article.blog-post
         header.blog-post__title
           h1= post.title
-          div.blog-post__subline
-            span.subline__item.subline__item--date= post.dateString
-            span.subline__item.subline__item--location London
-        if post.coverImg
-          section.blog-post__cover
-            img(src=post.coverImg alt=`${post.title}`)
         div.blog-post__body !{post.body}
       if message
         footer.blog-post__suffix 

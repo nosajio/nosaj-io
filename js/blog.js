@@ -4,8 +4,9 @@ var postParagraphs = $('.blog-post__body > p');
 // (text must be two or more lines long)
 var markFirstParagraph = function () {
   var firstP = postParagraphs[0];
+  firstP.className = 'first-child';
   if (firstP.innerText.length > 80) {
-    firstP.className = 'first-child';
+    firstP.className += ' drop-cap';
   }
 }
 

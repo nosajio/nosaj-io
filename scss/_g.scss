@@ -4,6 +4,7 @@
 $g-column: 131px;
 $g-margin: 40px;
 $g-columns: 6;
+$g-max-width: $g-column * $g-columns + $g-margin * ($g-columns - 1);
 
 // Create the grid class names
 @for $g-i from 1 through $g-columns {

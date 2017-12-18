@@ -10,7 +10,7 @@ module.exports = (args) => {
     image: null,
     title: '',
     // The message to show after the post
-    message: 'Are you making something? I\'m available for hire. <br> Enquiries: <a href="mailto:hi@nosaj.io">hi@nosaj.io</a>',
+    message: 'To find out about more posts like this one, <a href="https://twitter.com/__nosaj" target="_blank">follow me on Twitter.</a>',
   };
   
   // Return a stripped out version of the template before args are available
@@ -25,11 +25,6 @@ module.exports = (args) => {
         const updatedData = { 
           post,
           title: post.title,
-          // This will be injected into the scss file prior to compilation
-          scssVariables: {
-            postColor: post.coverColor,
-            nextPostColor: post.next ? post.next.coverColor : '#000',
-          }
         };
         const allContent = Object.assign({}, defaultData, updatedData);
         resolve(allContent);
@@ -49,12 +44,11 @@ function getPost(slug) {
       .then(posts => {
         let currentPostIndex = postIndex(posts, slug);
         // Find the current post
-        const current = posts.filter((p, i) => i === currentPostIndex)[0];
-        
+        const current = posts.find((p, i) => i === currentPostIndex);
         // Only add next post when there is one available
         const isLastPost = currentPostIndex + 1 === posts.length;
         if (! isLastPost) {
-          const next = posts.filter((p, i) => i === currentPostIndex + 1)[0];
+          const next = posts.find((p, i) => i === currentPostIndex + 1);
           const post = Object.assign(
             {}, 
             current, 
