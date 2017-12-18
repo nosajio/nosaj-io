@@ -10,7 +10,7 @@ $blog-content-width: $g-column * 4 + $g-margin * 3;
 // Just occupy the margins on either side of the grid
 $blog-media-width: $blog-content-width + ($g-margin * 2);
 // Extra narrow - quotes are only 2 columns
-$blog-quotes-width: $g-column * 2 + $g-margin;
+$blog-quotes-width: ($g-column * 2) + ($g-margin * 3);
 // Content widths
 $blog-font-size: msRem(1);
 $blog-font-size-s: 1rem;
@@ -53,8 +53,8 @@ $clr-blog-text: $clr-black;
   
   // Global links
   a {
+    @include underline($clr-blog-text, $hover: $clr-blue, $spacing: 1.2em);
     color: $clr-blog-text;
-    @include underline($clr-blog-text, $clr-blue);
     &:hover { color: $clr-blue; }
   }
 }
@@ -110,6 +110,7 @@ $clr-blog-text: $clr-black;
     font-size: msRem(5);
     font-weight: $ff-body-semibold;
   }
+  
 }
 
 
@@ -122,7 +123,7 @@ $clr-blog-text: $clr-black;
   // : Links
   
   a {  
-    &:link { @include underline($clr-blog-text, $clr-blue, 0.19em); color: $clr-blog-text; }
+    &:link { @include underline($clr-blog-text, $clr-blue); color: $clr-blog-text; }
     &:hover, &:focus { color: $clr-blue; }
     &:visited { 
       color: $clr-deep-purple; 
@@ -196,8 +197,8 @@ $clr-blog-text: $clr-black;
   }
   
   code {
-    padding: msRem(-9);
-    border-radius: 3px;
+    padding: msRem(-15) msRem(-8);
+    border-radius: 2px;
     font: msRem(-1) $ff-mono;
     background: $clr-black;
     color: $clr-green;
@@ -282,7 +283,9 @@ $clr-blog-text: $clr-black;
     max-width: $blog-quotes-width;
     margin: msRem(6) auto;
     font-style: oblique;
-        
+    
+    p { font-size: 1rem; }
+    
     cite {
       margin-top: msRem(3);
       color: $clr-grey-1;
@@ -326,9 +329,8 @@ $clr-blog-text: $clr-black;
       margin-top: 0;
     }
     
-    .image {
-      @extend %readable;
-    }
+    .image { @extend %readable; }
+    p { font-size: 1rem; }
   }
   
   // Packages
