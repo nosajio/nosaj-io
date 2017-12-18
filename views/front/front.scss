@@ -46,7 +46,7 @@ a {
   margin-bottom: msRem(10);
   font-size: msRem(6);
   font-weight: $ff-body-semibold;
-  font-style: italic;
+  font-style: oblique;
   color: $clr-blue;
 }
 
@@ -142,7 +142,7 @@ a {
     display: block;
     background-size: cover;
     background-position: center;
-    box-shadow: 0 5px 10px -2px rgba(0,0,0,0.05);
+    box-shadow: 0 5px 10px -2px rgba(0,0,0,0.2);
     border-radius: 9px;
     margin: msRem(-1);
     
@@ -176,7 +176,7 @@ a {
   
   &-title {
     margin-bottom: msRem(-10);
-    font-size: 1rem;
+    font-size: msRem(1);
     font-weight: $ff-body-medium;
   }
   
@@ -185,9 +185,5 @@ a {
     color: $clr-grey-2;
   }
   
-  &-description {
-    @include media(m) {
-      font-size: msRem(-1);
-    }
-  }
+  &-description { font-size: 1rem;}
 }

@@ -13,7 +13,7 @@ $blog-media-width: $blog-content-width + ($g-margin * 2);
 $blog-quotes-width: $g-column * 2 + $g-margin;
 // Content widths
 $blog-font-size: msRem(1);
-$blog-font-size-s: 1.1rem;
+$blog-font-size-s: 1rem;
 $blog-line-height: 1.45;
 // Animations
 $animationDelay: 300ms;
@@ -115,7 +115,7 @@ $clr-blog-text: $clr-black;
 
 // Main body of the post
 .blog-post__body {
-  animation: fade-in 700ms #{$animationDelay + 300ms} 1 both $easeOutCubic;
+  animation: fade-in 700ms #{$animationDelay} 1 both $easeOutCubic;
 
 
 
@@ -139,11 +139,11 @@ $clr-blog-text: $clr-black;
     display: block;
     margin-top: msRem(9);
     margin-bottom: msRem(1);
-    font: $ff-body-semibold $blog-font-size $ff-body;
+    font: $ff-body-bold $blog-font-size $ff-body;
   }
   
   // H1. this guy is special
-  h1 { font-size: msRem(2); }
+  h1 { font-size: msRem(4); }
   
   // Secondary & tertiary headings 
   h2 {
@@ -153,6 +153,7 @@ $clr-blog-text: $clr-black;
   
   h3, h4 { 
     font-size: $blog-font-size; 
+    font-weight: $ff-body-medium;
     @media #{mq(m)} { font-size: msRem(1); }
   }
   
@@ -180,7 +181,7 @@ $clr-blog-text: $clr-black;
   
   p {
     @extend %readable;
-    font-size: $blog-font-size-s;
+    font: $ff-alda-normal $blog-font-size-s $ff-serif;
     line-height: $blog-line-height;
     margin-top: msRem(1);
     margin-bottom: msRem(1);
@@ -191,7 +192,7 @@ $clr-blog-text: $clr-black;
     background: #f2f2f2;
     vertical-align: super;
     padding: msRem(-5);
-    font: $ff-body-bold 15px $ff-mono;
+    font: 700 15px $ff-mono;
   }
   
   code {
@@ -203,9 +204,7 @@ $clr-blog-text: $clr-black;
   }
   
   // Treat the first paragraph
-  p.first-child { 
-    margin-top: 0;
-  }
+  p.first-child { margin-top: 0; }
   
   // Drop caps
   p.first-child.drop-cap { font-weight: $ff-body-medium; }
@@ -221,7 +220,7 @@ $clr-blog-text: $clr-black;
   // Centered text
   p.center { text-align: center; }
   
-  p strong { font-weight: 500; }
+  p strong { font-weight: $ff-alda-bold; }
   p em { font-style: italic; }
   
   
@@ -343,7 +342,7 @@ $clr-blog-text: $clr-black;
     padding: msRem(-1);
     text-align: center;
     
-    p { margin: 0 0 msRem(-2); }
+    p { margin: 0 0 msRem(-2); font-family: $ff-body; }
     a { color: black; font-size: 1rem; }
     
     .link, .repo {
@@ -352,9 +351,6 @@ $clr-blog-text: $clr-black;
       color: $clr-black;
       font-weight: 600;
       text-decoration: none;
-      
-      &:hover {
-      }
     }
   }
   
