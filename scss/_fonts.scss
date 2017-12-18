@@ -1,8 +1,8 @@
 $ff-futura: 'futura-pt';
-$ff-alda: 'alda';
+$ff-freight: 'freight-text-pro';
 
 $ff-headings: #{$ff-futura}, sans-serif;
-$ff-serif: #{$ff-alda}, serif;
+$ff-serif: #{$ff-freight}, serif;
 $ff-body: #{$ff-futura}, sans-serif;
 // Hope the user has fonts on their machine
 $ff-mono: "Fira Mono", "Source Code Pro", "Roboto Mono", "Anonymous Pro", monospace;
@@ -12,5 +12,5 @@ $ff-body-medium: 500;
 $ff-body-semibold: 600;
 $ff-body-bold: 700;
 
-$ff-alda-normal: 400;
-$ff-alda-bold: 700;
+$ff-freight-normal: 400;
+$ff-freight-semibold: 600;

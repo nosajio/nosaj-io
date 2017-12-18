@@ -70,9 +70,9 @@ $clr-blog-text: $clr-black;
 // Title block
 .blog-post__title {
   @extend %readable;
-  margin-bottom: msRem(9);
+  margin-bottom: msRem(6);
   
-  @media #{mq(m)} { margin-bottom: msRem(13); }
+  @media #{mq(m)} { margin-bottom: msRem(9); }
   
   h1 { font-size: msRem(5); font-weight: $ff-body-semibold; }
 }
@@ -165,7 +165,7 @@ $clr-blog-text: $clr-black;
   
   p {
     @extend %readable;
-    font: $ff-alda-normal $blog-font-size-s $ff-serif;
+    font: $ff-freight-normal $blog-font-size-s $ff-serif;
     line-height: $blog-line-height;
     margin-top: msRem(1);
     margin-bottom: msRem(1);
@@ -204,7 +204,7 @@ $clr-blog-text: $clr-black;
   // Centered text
   p.center { text-align: center; }
   
-  p strong { font-weight: $ff-alda-bold; }
+  p strong { font-weight: $ff-freight-semibold; }
   p em { font-style: italic; }
   
   img { display: block; max-width: 100%; }
