@@ -2,7 +2,6 @@
 @import 'button';
 @import 'keyframes';
 @import 'easing';
-@import 'links';
 
 // Various variables
 // The blog width is 4 columns of the grid
@@ -25,10 +24,12 @@ $clr-blog-text: $clr-black;
   max-width: $blog-content-width;
   width: 100%;
   padding: 0 msRem(-2);
+  overflow: hidden;
   
   @media screen and (min-width: $blog-media-width) {
     margin: 0 auto;
     padding: 0;
+    overflow: visible;
   }
 }
 
@@ -46,10 +47,8 @@ $clr-blog-text: $clr-black;
 .blog-view {
   background: $clr-blog-bg;
   
-  // Make the logo use the post color
-  .logo svg path {
-    fill: $clr-black;
-  }
+  // Make the logo use the text color
+  .logo svg path { fill: $clr-blog-text; }
   
   // Global links
   a {
@@ -64,9 +63,7 @@ $clr-blog-text: $clr-black;
   flex-flow: column nowrap;
   margin-top: msRem(10);
   
-  @media #{mq(m)} {
-    margin-top: msRem(16);
-  }
+  @media #{mq(m)} { margin-top: msRem(16); }
 }
 
 
@@ -75,14 +72,9 @@ $clr-blog-text: $clr-black;
   @extend %readable;
   margin-bottom: msRem(9);
   
-  @media #{mq(m)} {
-    margin-bottom: msRem(13);
-  }
+  @media #{mq(m)} { margin-bottom: msRem(13); }
   
-  h1 {
-    font-size: msRem(5);
-    font-weight: $ff-body-semibold;
-  }
+  h1 { font-size: msRem(5); font-weight: $ff-body-semibold; }
 }
 
 
@@ -106,11 +98,7 @@ $clr-blog-text: $clr-black;
     color: $clr-grey-1;
   }
   
-  &__title {
-    font-size: msRem(5);
-    font-weight: $ff-body-semibold;
-  }
-  
+  &__title { font-size: msRem(5); font-weight: $ff-body-semibold; }
 }
 
 
@@ -121,19 +109,15 @@ $clr-blog-text: $clr-black;
 
 
   // : Links
-  
   a {  
     &:link { @include underline($clr-blog-text, $clr-blue); color: $clr-blog-text; }
     &:hover, &:focus { color: $clr-blue; }
-    &:visited { 
-      color: $clr-deep-purple; 
-    }
+    &:visited { color: $clr-deep-purple; }
   }
 
 
 
   // :: Headings
-  
   // All headigns start the same for consistency
   h1, h2, h3, h4 {
     @extend %readable;
@@ -161,7 +145,6 @@ $clr-blog-text: $clr-black;
   
   
   // :: Body elements
-  
   hr {
     display: block;
     width: 100%;
@@ -224,16 +207,11 @@ $clr-blog-text: $clr-black;
   p strong { font-weight: $ff-alda-bold; }
   p em { font-style: italic; }
   
-  
-  img {
-    display: block;
-    max-width: 100%;
-  }
+  img { display: block; max-width: 100%; }
   
   
   
   // :: Lists
-  
   ol, ul {
     @extend %readable;
     display: block;
@@ -250,22 +228,14 @@ $clr-blog-text: $clr-black;
       }
     }
     
-    li + li {
-      margin-top: msRem(-6);
-    }
+    li + li { margin-top: msRem(-6); }
   }
   
-  ol {
-    list-style-type: upper-roman;
-  }
+  ol { list-style-type: upper-roman; }
   
   ul {
     list-style-type: disc; 
-    
-    li {
-      display: list-item;
-      margin: 0;
-    }
+    li { display: list-item; margin: 0; }
   }
   
   
@@ -311,12 +281,12 @@ $clr-blog-text: $clr-black;
   
   
   // Images, embeds, packages, and boxes
-  .image, .video, .embed, .package, .emphasis, .box {
-    @extend %media;
-    margin-bottom: msRem(9);
+  .image, .video, .embed, 
+  .package, .emphasis, .box { @extend %media; margin-bottom: msRem(9);
   }
   
-  p + .image, p + .video, p + .embed, p + .package, p + .emphasis, p + .box { margin-top: msRem(9); }
+  p + .image, p + .video, p + .embed, 
+  p + .package, p + .emphasis, p + .box { margin-top: msRem(9); }
   
   // Boxes
   // Boxes are just container elements with a background color different 
@@ -325,9 +295,7 @@ $clr-blog-text: $clr-black;
     background: $clr-grey-3;
     padding: msRem(-1);
     
-    & > h1, & > h2, & > h3, & > h4 {
-      margin-top: 0;
-    }
+    & > h1, & > h2, & > h3, & > h4 { margin-top: 0; }
     
     .image { @extend %readable; }
     p { font-size: 1rem; }
@@ -358,10 +326,7 @@ $clr-blog-text: $clr-black;
   
   // Images
   .image {
-    img {
-      display: block;
-      width: 100%;
-    }
+    img { display: block; width: 100%; }
     
     .caption {
       @extend %readable;
@@ -374,10 +339,7 @@ $clr-blog-text: $clr-black;
     
   }
   
-  .image.narrow {
-    max-height: 600px;
-  }
-  
+  .image.narrow { max-height: 600px; }   
   .image.fill {
     max-width: 100%;
     overflow: hidden;
@@ -385,10 +347,7 @@ $clr-blog-text: $clr-black;
   }
   
   // Embeds
-  .embed {
-    display: flex;
-    justify-content: center;
-  }
+  .embed { display: flex; justify-content: center; }
   
   // Videos
   .video {
