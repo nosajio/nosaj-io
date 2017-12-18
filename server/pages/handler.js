@@ -71,7 +71,12 @@ function pageHandler(req, res, { _page }) {
       // First deal with ordinary content, then deal with promises to avoid race conditions
       props.forEach(k => {
         if (! isPromise(page[k])) {
-          resolvedContent[k] = page[k];
+          // Pure function need to be ran at runtime
+          if (isPureFunction(page[k])) {
+            resolvedContent[k] = page[k](page);
+          } else {
+            resolvedContent[k] = page[k];
+          }
         }
       });
       // If there are no unresolved promises, resolve here
@@ -103,6 +108,13 @@ function pageHandler(req, res, { _page }) {
  */
 function isPromise(prop) {
   return null !== prop && typeof prop === 'object' && 'then' in prop;
+}
+
+/**
+ * Is this prop a pure function?
+ */
+function isPureFunction(prop) {
+  return null !== prop && typeof prop === 'function' && ! isPromise(prop);
 }
 
 function extractOgImage(data) {
