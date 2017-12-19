@@ -4,7 +4,7 @@ module.exports = () => ({
   view: 'work',
   path: '/work',
   stylesheet: 'views/work/work.scss',
-  scripts: ['ga.js', '$.js'],
+  scripts: ['js/ga.js', 'js/$.js'],
   
   title: '&#128187; Work',
   availability: `Are you making something? Email: hi@nosaj.io`,

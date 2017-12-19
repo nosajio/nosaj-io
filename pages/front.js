@@ -6,7 +6,7 @@ module.exports = (args) => ({
   view: 'front',
   path: '/',
   stylesheet: 'views/front/front.scss',
-  scripts: ['ga.js'],
+  scripts: ['js/ga.js'],
   title: 'Nosaj',
   introText: 'Hi I\'m Jason. I design and make software for the web. At the moment I’m working with startups to build ambitious products.<br/>I also <a href="#writing">write</a>, <a href="http://codeatuni.com" target="_blank">teach</a>, <a href="https://twitter.com/__nosaj" target="_blank">tweet</a> and <a href="http://liveworksearch.com" target="_blank">make</a> <a href="http://ripcast.in" target="_blank">stuff</a>.',
   available: true,
