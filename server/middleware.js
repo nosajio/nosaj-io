@@ -1,8 +1,11 @@
 const path = require('path');
 const express = require('express');
+const bodyParser = require('body-parser');
 const publicDir = 'public';
 
 module.exports = function middleware(app, viewsDir) {
+  // Tell express how to handle JSON requests
+  app.use( bodyParser.json() );
   // Setup public (assets) directory
   app.use( express.static(path.resolve(__dirname, '../', publicDir)) )
   // Setup templating
