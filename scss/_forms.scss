@@ -1,3 +1,62 @@
-.form-surround {
+@import 'globals';
+@import 'colors';
+
+// A form field is a container element that contains the field, label and 
+// supporting elements
+.form-field {
+  position: relative;
+  display: block;
+  width: 100%;
+  
+  & + & {
+    margin-top: msRem(2);
+  }
+  
+  // For labels within field containers, position them over the top of any
+  // succeeding form elements
+  > .field-label {
+    position: absolute;
+    top: 0; left: 0;
+    padding: msRem(-1);
+  }
+}
+
+.field-label {
+  font-size: msRem(-1);
+  color: $clr-grey-2;
+  transition: all 400ms $easeOutCubic;
+}
+
+.text-field,
+.textarea-field {
+  border: none;
+  padding: msRem(7) msRem(-1) msRem(-1);
+  width: 100%;
+  background: $clr-grey-4;
+  border-radius: 5px;
+  font: 1rem/#{$modular-scale} $ff-body;
+  outline: none;
+  border: 1px solid $clr-grey-4;
+  transition: all 400ms $easeOutCubic;
+  
+  &:focus {
+    border-color: $clr-grey-1;
+  }
+  
+  // Style label on focus (this requires putting the label element AFTER the
+  // field element in the HTML)
+  &:focus + .field-label {
+    color: $clr-blue;
+  } 
+}
+
+.textarea-field {
+  height: msRem(15);
+}
+
+// Grow textareas on focus 
+.textarea-field.grow {
+  // Cheating way to say 'n lines tall'
+  height: 16 * (1em * $modular-scale);
   
 }

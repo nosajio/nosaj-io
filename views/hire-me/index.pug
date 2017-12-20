@@ -20,17 +20,18 @@ html
         each logo in logos
           div.logos-logo
             //- img(src=logo.src alt=logo.name)
-      section.hire-me-section.form
-        header.hire-me-section-head.g4
-          h2.hire-me-section-title Tell me about your project
-        div.form-surround.g4
+      section.hire-me-section.hire-me-form
+        div.hire-me-form-text
+          h2.hire-me-form-title Tell me about your project
+          p.hire-me-form-instruction= formText
+        div.hire-me-form-main
           form(name='hire-me-form' action='/forms/hire-me' data-dynamic-form)
             label.form-field.field-email
-              div.form-label What are you making?
-              textarea.textarea-field(name='description')
+              input.text-field(required type='email' value='' name='email')
+              div.field-label Email address (so I can reply to you)
             label.form-field.field-email
-              div.form-label Email address (so I can reply to you)
-              input.text-field(type='text' value='' name='email')
+              textarea.textarea-field(required name='description')
+              div.field-label What are you making?
             label.form-field.field-submit
-              button.button(type='submit') Send
+              button.button.button--flat.button--blue.button--width-full(type='submit') Send
   include /includes/footer

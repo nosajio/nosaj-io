@@ -1,9 +1,15 @@
+@import 'globals';
+@import 'colors';
+
 .button {
   display: inline-block;
   padding: 11px 21px;
   background: white;
   box-shadow: 0 5px 10px -2px rgba(0,0,0,0.2);
   border-radius: 5px;
+  font: $ff-body-medium 1rem $ff-body;
+  cursor: pointer;
+  transition: all 400ms $easeOutCubic;
   
   &:hover {
     color: white;
@@ -13,4 +19,32 @@
 
 .button + .button {
   margin-left: msRem(1);
+}
+
+
+
+// : Modifiers
+
+// Modifier: Flat
+.button--flat {
+  box-shadow: none;
+  border: none;
+}
+
+// Modifier: Full width
+.button--width-full {
+  width: 100%;
+}
+
+
+
+// : Colors
+
+// Color: Blue
+.button--blue {
+  background: $clr-blue;
+  color: white;
+  &:hover {
+    background: darken($clr-blue, 20%);
+  }
 }

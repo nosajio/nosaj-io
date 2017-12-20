@@ -1,6 +1,7 @@
 @import 'globals';
 @import 'colors';
 @import 'forms';
+@import 'button';
 
 $clr-busy: $clr-grey-3;
 $clr-available: rgb(116, 230, 141);
@@ -20,6 +21,12 @@ $clr-available: rgb(116, 230, 141);
 
 
 .hire-me-section {
+  padding: 0 msRem(2);
+  
+  @include media(m) {
+    padding: 0;
+  }
+  
   &-head {
     width: 100%;
     text-align: center;
@@ -113,12 +120,44 @@ $clr-available: rgb(116, 230, 141);
 }
 
 
-.form {
+.hire-me-form {
   display: flex;
   flex-flow: column nowrap;
-  align-items: center;
+  justify-content: center;
+  align-items: stretch;
+  flex: 1 1 auto;
   width: 100%;
   padding: msRem(13) msRem(-2);
   border: 50px $clr-grey-4 solid;
   background: #ffffff;
+  
+  @include media(m) {
+    flex-flow: row nowrap;
+  }
+  
+  &-text,
+  &-main {
+    width: 100%;
+    
+    @include media(m) {
+      max-width: 33%;
+    }
+  }
+  
+  &-text {
+  }
+  
+  &-title {
+    font-size: msRem(4);
+  }
+  
+  &-main {
+    margin-top: msRem(9);
+    
+    @include media(m) {
+      padding: 0 0 0 msRem(6);
+      margin: 0 0 0 msRem(6);
+      
+    }
+  }
 }
