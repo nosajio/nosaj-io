@@ -1,0 +1,36 @@
+doctype html
+html
+  include /includes/head
+  body.hire-me-view
+    include /includes/navigation
+    main.main-frame
+      section.hire-me-section.introduction.g4
+        h1.introduction-title= introText
+      section.hire-me-section.availability.g6
+        header.hire-me-section-head.small
+          h2.hire-me-section-title.g4 Availability
+        div.availability-chart
+          each month in availabilityMonths 
+            div.availability-chart-month(class=month.availability ? 'availability-chart-month--available' : 'availability-chart-month--busy')
+              span.availability-chart-month-name= month.name
+              span.availability-chart-month-status= month.status
+      section.hire-me-section.logos.g6
+        header.hire-me-section-head
+          h2.hire-me-section-title.g4= workedWith
+        each logo in logos
+          div.logos-logo
+            //- img(src=logo.src alt=logo.name)
+      section.hire-me-section.form
+        header.hire-me-section-head.g4
+          h2.hire-me-section-title Tell me about your project
+        div.form-surround.g4
+          form(name='hire-me-form' action='/forms/hire-me' data-dynamic-form)
+            label.form-field.field-email
+              div.form-label What are you making?
+              textarea.textarea-field(name='description')
+            label.form-field.field-email
+              div.form-label Email address (so I can reply to you)
+              input.text-field(type='text' value='' name='email')
+            label.form-field.field-submit
+              button.button(type='submit') Send
+  include /includes/footer

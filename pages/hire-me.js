@@ -12,7 +12,7 @@ module.exports = (args) => ({
   view: 'hire-me',
   path: '/work-together',
   stylesheet: 'views/hire-me/hire-me.scss',
-  scripts: ['js/ga.js', 'views/hire-me/hire-me.js'],
+  scripts: ['js/ga.js', 'js/$.js', 'js/api-service.js', 'js/dynamic-form.js', 'views/hire-me/hire-me.js'],
   title: 'Hire me',
   
   // Opening section...
