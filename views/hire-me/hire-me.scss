@@ -127,11 +127,13 @@ $clr-available: rgb(116, 230, 141);
   align-items: stretch;
   flex: 1 1 auto;
   width: 100%;
-  padding: msRem(13) msRem(-2);
+  padding: msRem(13) msRem(8);
   border: 50px $clr-grey-4 solid;
   background: #ffffff;
   
   @include media(m) {
+    padding-left: msRem(5);
+    padding-right: msRem(5);
     flex-flow: row nowrap;
   }
   
@@ -140,8 +142,12 @@ $clr-available: rgb(116, 230, 141);
     width: 100%;
     
     @include media(m) {
-      max-width: 33%;
+      max-width: 50%;
     }
+    @include media(l) {
+      max-width: 33.33%;
+    }
+    
   }
   
   &-text {
