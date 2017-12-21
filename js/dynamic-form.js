@@ -19,7 +19,12 @@ function handleSubmitForm(event) {
   
   var fields = getFields(form);
   var values = getFieldValues(fields);
-  postFormToApi(postUrl, values);
+  postFormToApi(postUrl, values)
+    .then(function handleResponse(body) {
+      if (body.success) {
+        form.classList.add('form--success');
+      }
+    });
   event.preventDefault();
   return false;
 }
@@ -43,5 +48,10 @@ function getFieldValues(fields) {
 
 
 function postFormToApi(url, values) {
-  api(url, 'POST', values);
+  return api(url, 'POST', values).catch(handleError)
+}
+
+
+function handleError(err) {
+  console.error(err);
 }

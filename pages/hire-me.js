@@ -35,12 +35,11 @@ module.exports = (args) => ({
   // Who I've worked with...
   workedWith: 'Working with everybody from individual founders and small teams to startups and blue chips, I\'ve learned a thing or two about how to make a successful web product.',
   logos: [
-    { name: 'William Hill Online', src: ''},
-    { name: 'MrSite', src: ''},
-    { name: 'CodeAtUni', src: ''},
-    { name: 'Utility Warehouse', src: ''},
-    { name: 'BBC', src: ''},
-    { name: 'BBC', src: ''},
+    { name: 'William Hill Online', src: '/img/hire-me/wh-logo.png'},
+    { name: 'MrSite', src: '/img/hire-me/mrsite-logo.png'},
+    { name: 'CodeAtUni', src: '/img/hire-me/cau-logo.png'},
+    { name: 'Utility Warehouse', src: '/img/hire-me/uw-logo.png'},
+    // { name: 'BBC', src: ''},
   ],
   
   formText: 'Please give me a brief overview of your project.'

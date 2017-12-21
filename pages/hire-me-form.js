@@ -3,6 +3,8 @@ module.exports = args => ({
   method: 'POST',
   handler: (req, res) => {
     const { body } = req;
-    res.json(body);
+    res.json({
+      success: true,
+    });
   }
 });

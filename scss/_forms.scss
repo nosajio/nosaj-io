@@ -1,6 +1,16 @@
 @import 'globals';
 @import 'colors';
 
+form {
+  .success-content {
+    display: none;
+  }
+  
+  &.form--success {
+    background: #84e5fa;
+  }
+}
+
 // A form field is a container element that contains the field, label and 
 // supporting elements
 .form-field {

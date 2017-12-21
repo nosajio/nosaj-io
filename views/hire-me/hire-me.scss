@@ -108,14 +108,20 @@ $clr-available: rgb(116, 230, 141);
 .logos {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   
   &-logo {
     width: 100%;
     max-width: 300px;
-    height: 50px;
     margin-bottom: msRem(2);
-    background: $clr-grey-3;
+    padding: msRem(3);
+    text-align: center;
+    // background: $clr-grey-3;
+  }
+  
+  &-logo img {
+    display: inline-block;
+    width: 100%;
   }
 }
 
