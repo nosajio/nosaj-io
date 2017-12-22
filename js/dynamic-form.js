@@ -48,7 +48,11 @@ function getFieldValues(fields) {
 
 
 function postFormToApi(url, values) {
-  return api(url, 'POST', values).catch(handleError)
+  const postData = values.reduce( function (acc, val) {
+    acc[val.name] = val.value;
+    return acc;
+  }, {});
+  return api(url, 'POST', postData).catch(handleError)
 }
 
 

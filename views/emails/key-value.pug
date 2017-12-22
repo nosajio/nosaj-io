@@ -1,0 +1,9 @@
+doctype transitional
+html
+  head
+  body
+    .email-body
+      each section in sections
+        .email-block
+          h2= section.key
+          p= section.val

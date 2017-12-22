@@ -42,5 +42,5 @@ module.exports = (args) => ({
     // { name: 'BBC', src: ''},
   ],
   
-  formText: 'Please give me a brief overview of your project.'
+  formText: 'Tell me a little bit about your project.'
 });
