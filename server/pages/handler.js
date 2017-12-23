@@ -2,6 +2,7 @@ const debug = require('debug')('nosaj:pageHandler');
 const renderStylesheet = require('../../lib/renderStylesheet');
 const injectScripts = require('../../lib/injectScripts');
 const renderError = require('../../lib/renderError');
+const packageJSON = require('../../package.json');
 
 module.exports = pageHandler;
 
@@ -47,7 +48,7 @@ function pageHandler(req, res, { _page }) {
           ogDescription: description(resolvedContent),
           iconColor: iconColor(resolvedContent)
         }, 
-        footer: { scripts: javascript || false } 
+        footer: { version: packageJSON.version, scripts: javascript || false } 
       };
       const template = Object.assign({}, resolvedContent, headerFooter);
       res.render(view, template);

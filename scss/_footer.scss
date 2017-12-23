@@ -1,16 +1,25 @@
 @import 'ms';
+@import 'colors';
 
 .the-footer {
-  padding: msRem(5) msRem(2) msRem(2);
+  padding: msRem(9) msRem(2) msRem(10);
+  > * + * {
+    margin-top: msRem(1);
+  }
 }
 
-.footer-text {
-  font-size: msRem(-1);
-  letter-spacing: 10px;
+.footer-links,
+.footer-signed,
+.footer-version {
+  width: 100%;
   text-align: center;
-  
-  a {
-    text-decoration: none;
-    color: black;
-  }
+}
+
+.footer-link {
+  margin: 0 msRem(-1);
+}
+
+.footer-version {
+  font-size: msRem(-2);
+  color: $clr-grey-2;
 }

@@ -11,13 +11,23 @@
 
   & {
     text-decoration: none;
-    background-image: linear-gradient(to bottom, rgba($br, $bg, $bb, .9) 50%, rgba($br, $bg, $bb, 0) 50%);
+    background-image: linear-gradient(to bottom, rgba($br, $bg, $bb, 1) 50%, rgba($br, $bg, $bb, 0) 50%);
     background-repeat: repeat-x;
     background-size: 2px $width;
     background-position: 0 $spacing;
   }
   
   &:hover {
-    background-image: linear-gradient(to bottom, rgba($hr, $hg, $hb, .9) 50%, rgba($hr, $hg, $hb, 0) 50%);
+    background-image: linear-gradient(to bottom, rgba($hr, $hg, $hb, 1) 50%, rgba($hr, $hg, $hb, 0) 50%);
+  }
+}
+
+a {
+  color: $clr-black;
+  @include underline($base: $clr-black, $hover: $clr-blue, $spacing: 1.1em)
+  
+  &:visited {
+    // color: $clr-grey-1;
+    // @include underline($base: $clr-grey-1, $hover: $clr-blue, $spacing: 1.1em)
   }
 }

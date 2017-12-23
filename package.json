@@ -1,6 +1,6 @@
 {
   "name": "nosaj.io",
-  "version": "4.1.2",
+  "version": "5.0.0",
   "main": "index.js",
   "repository": "https://github.com/nosajio/nosaj.io",
   "author": "Jason Howmans <jason@nosaj.io>",

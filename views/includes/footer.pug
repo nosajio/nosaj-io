@@ -1,9 +1,10 @@
 footer.the-footer
-  div.footer-text &copy; 
-    a(href="https://en.wikipedia.org/wiki/Holocene_calendar" target="_blank") XMMXVII
-  div.footer-links
+  section.footer-links
+    a.footer-link(href='/') Front page
+    a.footer-link(href='/#work') Work
+    a.footer-link(href='/work-together') Enquiries
+  section.footer-signed Made by Jason Howmans &copy; 2017
+  section.footer-version= `v.${footer.version}`
   
-  div.footer-social
-
 if footer.scripts
   script !{footer.scripts}
