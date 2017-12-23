@@ -7,19 +7,19 @@ html
       section.hire-me-section.introduction.g4
         h1.introduction-title= introText
       section.hire-me-section.availability.g6
-        header.hire-me-section-head.small
-          h2.hire-me-section-title.g4 Availability
         div.availability-chart
           each month in availabilityMonths 
             div.availability-chart-month(class=month.availability ? 'availability-chart-month--available' : 'availability-chart-month--busy')
               span.availability-chart-month-name= month.name
               span.availability-chart-month-status= month.status
-      section.hire-me-section.logos.g6
-        header.hire-me-section-head
-          h2.hire-me-section-title.g4= workedWith
-        each logo in logos
-          div.logos-logo
-            img(src=logo.src alt=logo.name)
+          h2.availability-subtitle.g6 My availability for the next six months
+      section.hire-me-section.logos
+        div.logos-container.g6
+          each logo in logos
+            div.logos-logo
+              img(src=logo.src alt=logo.name)
+        header.hire-me-section-head.g4.gc
+          h2.hire-me-section-title= workedWith
       section.hire-me-section.hire-me-form
         div.hire-me-form-text
           h2.hire-me-form-title Start the conversation

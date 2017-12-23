@@ -102,25 +102,50 @@ $clr-available: rgb(116, 230, 141);
     font-size: msRem(-3);
     text-transform: uppercase;
   }
+  
+  .availability-subtitle {
+    font-size: msRem(-1);
+    color: $clr-grey-1;
+    width: 100%;
+    margin-top: msRem(-2);
+    text-align: center;
+  }
 }
 
 
 .logos {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
+  
+  .hire-me-section-head { margin-bottom: 0; }
+  
+  &-container {
+    display: flex;
+    width: 100%;
+    flex-flow: row wrap;
+    justify-content: center;
+  }
   
   &-logo {
-    width: 100%;
-    max-width: 300px;
+    display: flex;
+    align-items: center;
+    width: 50%;
+    max-width: 200px;
+    min-width: 180px;
     margin-bottom: msRem(2);
     padding: msRem(3);
     text-align: center;
     // background: $clr-grey-3;
+    
+    @include media(m) {
+      width: 33.33%;
+      max-width: 300px;
+    }
+    @include media(l) {
+      width: 20%;
+    }
   }
   
   &-logo img {
-    display: inline-block;
+    display: block;
     width: 100%;
   }
 }

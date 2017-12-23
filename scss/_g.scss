@@ -14,5 +14,12 @@ $g-max-width: $g-column * $g-columns + $g-margin * ($g-columns - 1);
   }
 }
 
+// Add left padding to element
 .gml { margin-left: $g-margin; }
+// Add right margin
 .gmr { margin-left: $g-margin; }
+// Center using margins
+.gc {
+  margin-left: auto;
+  margin-right: auto;
+}
