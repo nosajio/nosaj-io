@@ -1,6 +1,7 @@
 // Utils
 @import 'links';
 @import 'easing';
+@import 'shadows';
 // Styling
 @import 'globals';
 @import 'button';
@@ -141,11 +142,11 @@ a {
   }
   
   &-image {
+    @include box-shadow(3);
     display: block;
     background-size: 100% auto;
     background-repeat: no-repeat;
     background-position: top center;
-    box-shadow: 0 5px 10px -2px rgba(0,0,0,0.2);
     border-radius: 3px;
     margin-bottom: msRem(-1);
     

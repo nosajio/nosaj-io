@@ -1,0 +1,11 @@
+// Add realistic looking shadows to an element based on depth
+// Ratios will increace as depth increases
+@mixin box-shadow($distance: 3) {
+  $shadow-1-y:    #{round($distance * 3.333)}px;
+  $shadow-1-size: #{round($distance * 11.666)}px;
+  $shadow-2-y:    #{round($distance * 1.333)}px;
+  $shadow-2-size: #{round($distance)}px;
+  box-shadow: 
+    0 $shadow-1-y $shadow-1-size 0 rgba(18,18,29,0.2), 
+    0 $shadow-2-y $shadow-2-size rgba(15,15,34,0.1);
+}

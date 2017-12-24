@@ -43,5 +43,5 @@ module.exports = (args) => ({
     { name: 'Metabroadcast', src: '/img/hire-me/mbst-logo.png'},
   ],
   
-  formText: 'Tell me a little bit about your project.'
+  formText: 'Take the first step by sending me a message about your project. Don\'t forget to leave your email address so I can get back to you :)',
 });
