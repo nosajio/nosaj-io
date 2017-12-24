@@ -115,7 +115,7 @@ $clr-available: rgb(116, 230, 141);
 
 .logos {
   
-  .hire-me-section-head { margin-bottom: 0; }
+  .hire-me-section-head { margin: msRem(9) auto 0; }
   
   &-container {
     display: flex;
@@ -128,9 +128,8 @@ $clr-available: rgb(116, 230, 141);
     display: flex;
     align-items: center;
     width: 50%;
-    max-width: 200px;
+    max-width: 1450px;
     min-width: 180px;
-    margin-bottom: msRem(2);
     padding: msRem(3);
     text-align: center;
     // background: $clr-grey-3;
@@ -140,7 +139,7 @@ $clr-available: rgb(116, 230, 141);
       max-width: 300px;
     }
     @include media(l) {
-      width: 20%;
+      width: 25%;
     }
   }
   

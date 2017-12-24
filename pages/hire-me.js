@@ -38,6 +38,7 @@ module.exports = (args) => ({
     { name: 'Utility Warehouse', src: '/img/hire-me/uw-logo.png'},
     { name: 'MrSite', src: '/img/hire-me/mrsite-logo.png'},
     { name: 'CodeAtUni', src: '/img/hire-me/cau-logo.png'},
+    { name: 'FIrstminute Capital', src: '/img/hire-me/fm-logo.png'},
     { name: 'William Hill Online', src: '/img/hire-me/wh-logo.png'},
     { name: 'Metabroadcast', src: '/img/hire-me/mbst-logo.png'},
   ],
