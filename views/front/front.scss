@@ -133,6 +133,7 @@ a {
     margin-bottom: msRem(9);
     display: flex;
     flex-flow: row wrap;
+    align-items: flex-start;
     justify-content: space-around;
     
     @include media(m) {
@@ -165,15 +166,15 @@ a {
       // Compensate for the margin on all image elements
       max-width: calc(50% - #{ms(-1) * 2}rem); 
       width: 100%; 
-      &::after { padding-top: 177.862%; }
+      &::after { padding-top: 177%; }
     }
     &--desktop { 
       width: calc(100% - #{ms(-1) * 2}rem); ;
-      &::after { padding-top: 77.152%; }
+      &::after { padding-top: 88.5%; }
     }
     
     @include media(m) {
-      &--mobile { width: 33.33%; max-width: 200px; }
+      &--mobile { width: 33.33%; max-width: 200px;  }
       &--desktop { max-width: 400px; width: 66.66%; }
     }    
   }
