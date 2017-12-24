@@ -30,9 +30,9 @@ module.exports = (args) => ({
       date: 'OCT 2016',
       tags: ['design', 'dev'],
       images: [
-        { device: 'desktop', src: 'http://placehold.it/604x466/fff/bbbbbb&text=screen' },
-        { device: 'mobile', src: 'http://placehold.it/322x466/fff/bbbbbb&text=screen' },
-        { device: 'mobile', src: 'http://placehold.it/322x466/fff/bbbbbb&text=screen' }
+        { device: 'desktop', src: 'http://a.nosaj.io/front/lws-desktop-main.png' },
+        { device: 'mobile', src: 'http://a.nosaj.io/front/lws-mobile-main.png' },
+        // { device: 'mobile', src: 'http://a.nosaj.io/front/lws-mobile-property.png' }
       ]
     },
     {
@@ -42,10 +42,23 @@ module.exports = (args) => ({
       date: 'JUL 2017',
       tags: ['design', 'dev'],
       images: [
-        { device: 'mobile', src: 'http://placehold.it/322x466/fff/bbbbbb&text=screen' },
-        { device: 'mobile', src: 'http://placehold.it/322x466/fff/bbbbbb&text=screen' },
-        { device: 'mobile', src: 'http://placehold.it/322x466/fff/bbbbbb&text=screen' },
-        { device: 'mobile', src: 'http://placehold.it/322x466/fff/bbbbbb&text=screen' }
+        { device: 'mobile', src: 'http://a.nosaj.io/front/jal-mobile-dashboard.png' },
+        { device: 'mobile', src: 'http://a.nosaj.io/front/jal-mobile-course.png' },
+        { device: 'mobile', src: 'http://a.nosaj.io/front/jal-mobile-video.png' },
+        // { device: 'mobile', src: 'http://a.nosaj.io/front/jal-mobile-.png' }
+      ]
+    },
+    {
+      title: 'Beachfix',
+      description: 'BeachFix is a beach holiday website that came about after the CEO spent a year travelling the world\'s beaches collecting data. I was hired to help the team design and build the first non-beta version of the app, condensing all of the lessons they had learned into a new version. We spent around a month on the design which was tested against user feedback, and another month on development.',
+      url: 'http://beachfix.co',
+      date: 'OCT 2016',
+      tags: ['design', 'dev'],
+      images: [
+        { device: 'desktop', src: 'http://a.nosaj.io/work/beachfix-beach-browser.jpg' },
+        { device: 'mobile', src: 'http://a.nosaj.io/front/beachfix-mobile-beach.png' },
+        // { device: 'mobile', src: 'http://a.nosaj.io/front/jal-mobile-video.png' },
+        // { device: 'mobile', src: 'http://a.nosaj.io/front/jal-mobile-.png' }
       ]
     },
   ]

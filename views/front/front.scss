@@ -44,10 +44,11 @@ a {
 
 .front-heading {
   margin-bottom: msRem(10);
-  font-size: msRem(6);
-  font-weight: $ff-body-semibold;
-  font-style: oblique;
-  color: $clr-blue;
+  font-size: msRem(13);
+  font-weight: $ff-body-bold;
+  color: $clr-grey-2;
+  // Add periods after each heading
+  &::after { content: "."; }
 }
 
 .main-frame {
@@ -131,6 +132,7 @@ a {
     margin-bottom: msRem(9);
     display: flex;
     flex-flow: row wrap;
+    justify-content: space-around;
     
     @include media(m) {
       flex-flow: row nowrap;
@@ -140,11 +142,12 @@ a {
   
   &-image {
     display: block;
-    background-size: cover;
-    background-position: center;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: top center;
     box-shadow: 0 5px 10px -2px rgba(0,0,0,0.2);
-    border-radius: 9px;
-    margin: msRem(-1);
+    border-radius: 3px;
+    margin-bottom: msRem(-1);
     
     @include media(m) {
       margin: 0;
@@ -169,8 +172,8 @@ a {
     }
     
     @include media(m) {
-      &--mobile { width: 20.3416%; max-width: 131px; }
-      &--desktop { max-width: 302px; width: 46.8944%; }
+      &--mobile { width: 33.33%; max-width: 200px; }
+      &--desktop { max-width: 400px; width: 66.66%; }
     }    
   }
   
