@@ -223,6 +223,9 @@ $clr-blog-text: $clr-black;
       font-size: $blog-font-size-s;
       line-height: 1.45;
       
+      strong { font-weight: $ff-freight-semibold; }
+      em { font-weight: $ff-freight-semibold; }
+      
       @media #{mq(m)} {
         font-size: $blog-font-size;
       }
