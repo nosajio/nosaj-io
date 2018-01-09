@@ -2,12 +2,18 @@
 @import 'colors';
 
 form {
-  .success-content {
+  .form-success {
     display: none;
   }
   
   &.form--success {
-    background: #84e5fa;
+    .form-content {
+      display: none;
+    }
+    
+    .form-success {
+      display: block;
+    }
   }
 }
 

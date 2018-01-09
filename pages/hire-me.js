@@ -22,7 +22,7 @@ module.exports = (args) => ({
   // Each key represents a month from now to 6 months from now
   // 0 = unavailable
   // 1 = available
-  availability: [0,1,1,1,1,1],
+  availability: [1,1,1,1,1,1],
   // Compute month numbers and combine with availability status
   availabilityMonths: ({ availability }) => 
     availability.map((a, i) => ({
@@ -43,5 +43,7 @@ module.exports = (args) => ({
     { name: 'Metabroadcast', src: '/img/hire-me/mbst-logo.png'},
   ],
   
-  formText: 'Take the first step by sending me a message about your project. Don\'t forget to leave your email address so I can get back to you :)',
+  // Form...
+  formText: 'Don\'t forget to leave your email address so I can reply to you.',
+  formSuccess: 'Thanks for getting in touch. I do my best to reply to new messages within 24h.'
 });

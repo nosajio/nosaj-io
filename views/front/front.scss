@@ -45,11 +45,11 @@ a {
 
 .front-heading {
   margin-bottom: msRem(10);
-  font-size: msRem(13);
+  font-size: msRem(9);
   font-weight: $ff-body-bold;
   color: $clr-grey-2;
   // Add periods after each heading
-  &::after { content: "."; }
+  // &::after { content: "."; }
 }
 
 .main-frame {

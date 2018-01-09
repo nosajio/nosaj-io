@@ -26,12 +26,16 @@ html
           p.hire-me-form-instruction= formText
         div.hire-me-form-main
           form(name='hire-me-form' action='/forms/hire-me' data-dynamic-form)
-            label.form-field.field-email
-              input.text-field(required type='email' value='' name='email')
-              div.field-label Email address (so I can reply to you)
-            label.form-field.field-email
-              textarea.textarea-field(required name='description')
-              div.field-label What are you making?
-            label.form-field.field-submit
-              button.button.button--flat.button--blue.button--width-full(type='submit') Send
+            div.form-content
+              label.form-field.field-email
+                input.text-field(required type='email' value='' name='email')
+                div.field-label Email address
+              label.form-field.field-email
+                textarea.textarea-field(required name='description')
+                div.field-label What are you making?
+              label.form-field.field-submit
+                button.button.button--flat.button--blue.button--width-full(type='submit') Send
+            div.form-success
+              p= formSuccess
+              p Speak soon!
   include /includes/footer
