@@ -1,4 +1,6 @@
 const debug = require('debug')('nosaj:pages:hire-me');
+const injectScripts = require('../lib/injectScripts');
+
 
 const monthName = monthsAhead => {
   const currentMonth = new Date().getMonth();
@@ -12,7 +14,7 @@ module.exports = (args) => ({
   view: 'hire-me',
   path: '/work-together',
   stylesheet: 'views/hire-me/hire-me.scss',
-  scripts: ['js/ga.js', 'js/$.js', 'js/api-service.js', 'js/dynamic-form.js', 'js/grow-textareas.js', 'views/hire-me/hire-me.js'],
+  scripts: injectScripts(['views/hire-me/hire-me.js']),
   title: 'Hire me',
   
   // Opening section...

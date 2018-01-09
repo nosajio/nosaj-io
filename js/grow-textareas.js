@@ -1,3 +1,5 @@
+import $ from 'js/$';
+
 // For all textareas on screen, apply a .grow class on first focus, and keep it
 // there until the page reloads
 $('.textarea-field').forEach(focusEventListener.bind(null, addGrowClassName));

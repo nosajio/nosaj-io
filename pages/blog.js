@@ -1,12 +1,13 @@
 const debug = require('debug')('nosaj:content:blog');
 const { allPosts } = require('../lib/helpers/blog');
+const injectScripts = require('../lib/injectScripts');
 
 module.exports = (args) => {
   const defaultData = {
     view: 'blog',
     path: '/r/:slug',
     stylesheet: 'views/blog/blog.scss',
-    scripts: ['js/ga.js', 'js/$.js', 'js/debounce.js', 'js/blog.js'],
+    scripts: injectScripts(['views/blog/blog.js']),
     image: null,
     title: '',
     // The message to show after the post

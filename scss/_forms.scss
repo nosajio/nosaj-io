@@ -4,6 +4,9 @@
 form {
   .form-success {
     display: none;
+    font-size: msRem(2);
+    font-weight: $ff-body-semibold;
+    p { margin: msRem(2) 0 0; }
   }
   
   &.form--success {

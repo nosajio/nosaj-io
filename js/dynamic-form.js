@@ -1,4 +1,5 @@
-/*eslint no-undef: 1*/
+import $ from 'js/$';
+import api from 'js/api-service.js';
 
 var formsOnPage = $('[data-dynamic-form]');
 

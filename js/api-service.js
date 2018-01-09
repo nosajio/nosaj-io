@@ -1,3 +1,5 @@
+export default api;
+
 /**
  * Send a fetch request to the API
  * 

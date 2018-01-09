@@ -1,3 +1,5 @@
+export default $;
+
 /**
  * Query selector
  * Two ways of using this method:

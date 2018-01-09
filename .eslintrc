@@ -9,8 +9,7 @@
     "module": true,
     "Promise": true,
     "process": true,
-    "__dirname": true,
-    
+    "__dirname": true
   },
   "plugins": [
   ],

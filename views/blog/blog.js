@@ -1,3 +1,7 @@
+import 'js/ga.js';
+import $ from 'js/$.js';
+import debounce from 'js/debounce.js';
+
 var postParagraphs = $('.blog-post__body > p');
 
 // Add .first-child link to first <p> tag, as CSS will see multiple :first-child's
