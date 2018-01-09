@@ -5,5 +5,7 @@ html
     .email-body
       each section in sections
         .email-block
-          h2= section.key
-          p= section.val
+          p
+            div 
+              strong= section.key
+            | #{section.val}
