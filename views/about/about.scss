@@ -2,11 +2,10 @@
 @import 'fonts';
 @import 'colors';
 @import 'cf';
-@import 'ms';
 @import 'mq';
 @import 'page';
 
-$about-block-spacing: msRem(5);
+$about-block-spacing: msrem(5);
 
 .making-something {
   margin-bottom: $about-block-spacing;
@@ -36,7 +35,7 @@ $about-block-spacing: msRem(5);
   text-align: center;
   
   p {
-    font-size: msRem(2);
+    font-size: msrem(2);
     font-weight: 600;
   }
 }
@@ -45,20 +44,20 @@ $about-block-spacing: msRem(5);
   
   @media #{mq(m)} {
     column-count: 2;
-    column-gap: msRem(2);
+    column-gap: msrem(2);
     max-width: 820px;
   }
   
   p {
     font-size: 1.2rem;
     line-height: 1.4;
-    margin: 0 0 msRem(2) 0;
+    margin: 0 0 msrem(2) 0;
   }
 }
 
 .about__follow-me {
-  margin-top: msRem(5);
-  font-size: msRem(1);
+  margin-top: msrem(5);
+  font-size: msrem(1);
   
   a {
     color: $clr-blue;

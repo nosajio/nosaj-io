@@ -1,20 +1,18 @@
 @import 'easing';
 @import 'fonts';
-@import 'ms';
-@import 'mq';
 
-$nav-spacing: msRem(2);
+$nav-spacing: msrem(2);
 
 .main-navigation {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  margin-top: msRem(3);
+  margin-top: msrem(3);
   width: 100%;
   
   @media #{mq(m)} {
-    margin-top: msRem(5);
+    margin-top: msrem(5);
   }
   
   .logo {

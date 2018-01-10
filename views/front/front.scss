@@ -31,11 +31,11 @@ a {
 }
 
 .front-section {
-  padding-left: msRem(-1);
-  padding-right: msRem(-1);
+  padding-left: msrem(-1);
+  padding-right: msrem(-1);
   
   & + & {
-    margin-top: msRem(23);
+    margin-top: msrem(23);
   }
   
   @include media(m) {
@@ -44,8 +44,8 @@ a {
 }
 
 .front-heading {
-  margin-bottom: msRem(10);
-  font-size: msRem(9);
+  margin-bottom: msrem(10);
+  font-size: msrem(9);
   font-weight: $ff-body-bold;
   color: $clr-grey-2;
   // Add periods after each heading
@@ -66,12 +66,12 @@ a {
   min-height: 80vh;
   
   &-title {
-    font-size: msRem(4);
+    font-size: msrem(4);
     font-weight: $ff-body-semibold;
   }
   
   &-actions {
-    margin-top: msRem(6);
+    margin-top: msrem(6);
   }
 }
 
@@ -94,7 +94,7 @@ a {
   }
   
   & + & {
-    margin-top: msRem(1);
+    margin-top: msrem(1);
   }
   
   a {
@@ -102,7 +102,7 @@ a {
   
   &-title {
     display: block;
-    font-size: msRem(2);
+    font-size: msrem(2);
     font-weight: $ff-body-medium;
   }
   
@@ -111,7 +111,7 @@ a {
     width: 100%;
     text-align: left;
     color: $clr-grey-2;
-    font-size: msRem(-3);
+    font-size: msrem(-3);
     text-transform: uppercase;
     
     @include media(m) {
@@ -125,12 +125,12 @@ a {
 // Work section
 .project {
   & + & {
-    margin-top: msRem(13);
+    margin-top: msrem(13);
   }
   
   &-images {
     width: 100%;
-    margin-bottom: msRem(9);
+    margin-bottom: msrem(9);
     display: flex;
     flex-flow: row wrap;
     align-items: flex-start;
@@ -149,7 +149,7 @@ a {
     background-repeat: no-repeat;
     background-position: top center;
     border-radius: 3px;
-    margin-bottom: msRem(-1);
+    margin-bottom: msrem(-1);
     
     @include media(m) {
       margin: 0;
@@ -180,13 +180,13 @@ a {
   }
   
   &-title {
-    margin-bottom: msRem(-10);
-    font-size: msRem(1);
+    margin-bottom: msrem(-10);
+    font-size: msrem(1);
     font-weight: $ff-body-medium;
   }
   
   &-url {
-    font-size: msRem(-1);
+    font-size: msrem(-1);
     color: $clr-grey-2;
   }
   

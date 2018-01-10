@@ -1,10 +1,9 @@
-@import 'ms';
 @import 'colors';
 
 .the-footer {
-  padding: msRem(9) msRem(2) msRem(10);
+  padding: msrem(9) msrem(2) msrem(10);
   > * + * {
-    margin-top: msRem(1);
+    margin-top: msrem(1);
   }
 }
 
@@ -16,10 +15,10 @@
 }
 
 .footer-link {
-  margin: 0 msRem(-1);
+  margin: 0 msrem(-1);
 }
 
 .footer-version {
-  font-size: msRem(-2);
+  font-size: msrem(-2);
   color: $clr-grey-2;
 }

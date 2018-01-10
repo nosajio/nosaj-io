@@ -1,8 +1,11 @@
 // This file is a simple way to include all global styles and utilities
 
+// Modular scale
+$ms-scale: 1.125;
+
 // Utilities
 @import './mq';
-@import './ms';
+@import 'modularscale-helpers/scss/ms';
 @import './links';
 
 // Global styles

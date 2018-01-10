@@ -1,5 +1,4 @@
 @import 'globals';
-@import 'ms';
 @import 'mq';
 @import 'fonts';
 @import 'easing';
@@ -23,14 +22,14 @@ $section-spacing-rem: #{$section-spacing}rem;
 
 // Add margins to making-something. Compensate for margin-bottom of blocks
 .making-something {
-  margin: #{ms(6) - $section-spacing}rem 0 msRem(6);
+  margin: #{ms(6) - $section-spacing}rem 0 msrem(6);
 }
 
 .work-heading {
   display: block;
-  margin-bottom: msRem(2);
+  margin-bottom: msrem(2);
   color: lighten(black, 60%);
-  font-size: msRem(2);
+  font-size: msrem(2);
   font-style: italic;
   font-weight: 500;
   text-align: center;
@@ -58,7 +57,7 @@ $section-spacing-rem: #{$section-spacing}rem;
   
   @media #{mq(m)} {
     flex-flow: row nowrap;
-    padding: msRem(7) msRem(1);
+    padding: msrem(7) msrem(1);
   }
 
   @media #{mq(l)} {
@@ -79,12 +78,12 @@ $section-spacing-rem: #{$section-spacing}rem;
     }
     
     h1 {
-      font-size: msRem(3);
+      font-size: msrem(3);
       font-weight: $ff-body-medium;
-      margin-bottom: msRem(3);
+      margin-bottom: msrem(3);
       
       @media #{mq(hd)} {
-        font-size: msRem(4);
+        font-size: msrem(4);
       }
     }
   }
@@ -93,14 +92,14 @@ $section-spacing-rem: #{$section-spacing}rem;
   &__stack {
     display: flex;
     text-transform: uppercase;
-    font-size: msRem(-1);
-    margin-top: msRem(-5);
+    font-size: msrem(-1);
+    margin-top: msrem(-5);
     font-weight: $ff-body-medium;
     flex-flow: column;
     color: #9e9e9e;
     
     @media #{mq(l)} {
-      margin-top: msRem(-2);
+      margin-top: msrem(-2);
     }
     
     strong { 
@@ -124,16 +123,16 @@ $section-spacing-rem: #{$section-spacing}rem;
       flex: 1 0 auto;
       width: 100%;
       max-width: 30%;
-      margin: 0 msRem(1);
+      margin: 0 msrem(1);
     }
     
     @media #{mq(l)} {
       max-width: 50%;
-      margin: 0 msRem(3);
+      margin: 0 msrem(3);
     }
     
     @media #{mq(hd)} {
-      margin: 0 msRem(4);
+      margin: 0 msrem(4);
     }
     
     img {
@@ -159,7 +158,7 @@ $section-spacing-rem: #{$section-spacing}rem;
       line-height: ms(2);
       
       & + p {
-        margin-top: msRem(1);
+        margin-top: msrem(1);
       }
     }
   }
@@ -178,7 +177,7 @@ $section-spacing-rem: #{$section-spacing}rem;
   
   &__item {
     display: block;
-    padding-bottom: msRem(2);
+    padding-bottom: msrem(2);
     max-width: 200px;
     min-width: 180px;
     text-align: center;
@@ -192,13 +191,13 @@ $section-spacing-rem: #{$section-spacing}rem;
   }
   
   &__title {
-    font-size: msRem(1);
+    font-size: msrem(1);
     font-weight: 500;
   }
   
   &__description {
     display: block;
-    margin-top: msRem(-3);
+    margin-top: msrem(-3);
     color: black;
   }
 }
@@ -216,7 +215,7 @@ $section-spacing-rem: #{$section-spacing}rem;
   &__item {
     width: 100%;
     min-width: 300px;
-    padding-bottom: msRem(1);
+    padding-bottom: msrem(1);
     text-align: center;
     
     @media #{mq(m)} {
@@ -229,27 +228,27 @@ $section-spacing-rem: #{$section-spacing}rem;
   &__location,
   &__when {
     display: block;
-    margin-top: msRem(-2);
+    margin-top: msrem(-2);
   }
   
   &__title {
     margin-top: 0;
-    font-size: msRem(1);
+    font-size: msrem(1);
     font-weight: 500;
   }
   
   &__location {
     color: lighten(black, 40%);
     text-transform: uppercase;
-    font-size: msRem(-2);
+    font-size: msrem(-2);
     font-weight: 500;
   }
   
   &__when {
     display: inline-block;
-    margin: 0 0 msRem(-1) 0;
-    padding: msRem(-8) msRem(-2);
-    font-size: msRem(-1);
+    margin: 0 0 msrem(-1) 0;
+    padding: msrem(-8) msrem(-2);
+    font-size: msrem(-1);
     background: darken(white, 5%);
     border-radius: 50px;
   }
@@ -259,7 +258,7 @@ $section-spacing-rem: #{$section-spacing}rem;
   display: grid;
   max-width: 900px;
   margin: 0 auto;
-  grid-gap: msRem(1);
+  grid-gap: msrem(1);
   grid-template-columns: 100%;
   
   @media #{mq(m)} {
@@ -271,9 +270,9 @@ $section-spacing-rem: #{$section-spacing}rem;
   }
   
   &__year-heading {
-    font-size: msRem(1);
+    font-size: msrem(1);
     font-weight: 600;
-    margin: msRem(2) 0 msRem(-1);
+    margin: msrem(2) 0 msrem(-1);
   }
   
   &__projects {
@@ -282,7 +281,7 @@ $section-spacing-rem: #{$section-spacing}rem;
   
   &__project {
     line-height: 1.4;
-    margin: msRem(-2) 0;
+    margin: msrem(-2) 0;
   }
   
   &__project a {
@@ -301,14 +300,14 @@ $section-spacing-rem: #{$section-spacing}rem;
   
   &__owned {
     font-size: .9rem;
-    margin-left: msRem(-1);
+    margin-left: msrem(-1);
     color: #9e9e9e;
   }
   
   &__employer {
     font-size: .9rem;
-    padding: msRem(-8) msRem(-3);
-    margin-right: msRem(-4);
+    padding: msrem(-8) msrem(-3);
+    margin-right: msrem(-4);
     background: darken(white, 6%);
     color: darken(white, 60%);
     border-radius: 3px;

@@ -2516,6 +2516,10 @@ mississippi@^1.3.0:
   dependencies:
     minimist "0.0.8"
 
+modularscale-helpers@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/modularscale-helpers/-/modularscale-helpers-1.0.2.tgz#b11a9004cf70140a93efab03cda7ae5fe16c36b2"
+
 move-concurrently@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/move-concurrently/-/move-concurrently-1.0.1.tgz#be2c005fda32e0b29af1f05d7c4b33214c701f92"

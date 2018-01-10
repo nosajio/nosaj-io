@@ -4,9 +4,9 @@
 form {
   .form-success {
     display: none;
-    font-size: msRem(2);
+    font-size: msrem(2);
     font-weight: $ff-body-semibold;
-    p { margin: msRem(2) 0 0; }
+    p { margin: msrem(2) 0 0; }
   }
   
   &.form--success {
@@ -28,7 +28,7 @@ form {
   width: 100%;
   
   & + & {
-    margin-top: msRem(2);
+    margin-top: msrem(2);
   }
   
   // For labels within field containers, position them over the top of any
@@ -36,12 +36,12 @@ form {
   > .field-label {
     position: absolute;
     top: 0; left: 0;
-    padding: msRem(-1);
+    padding: msrem(-1);
   }
 }
 
 .field-label {
-  font-size: msRem(-1);
+  font-size: msrem(-1);
   color: $clr-grey-2;
   transition: all 400ms $easeOutCubic;
 }
@@ -49,11 +49,11 @@ form {
 .text-field,
 .textarea-field {
   border: none;
-  padding: msRem(7) msRem(-1) msRem(-1);
+  padding: msrem(7) msrem(-1) msrem(-1);
   width: 100%;
   background: $clr-grey-4;
   border-radius: 5px;
-  font: 1rem/#{$modular-scale} $ff-body;
+  font: 1rem/#{$ms-scale} $ff-body;
   outline: none;
   border: 1px solid $clr-grey-4;
   transition: all 400ms $easeOutCubic;
@@ -70,12 +70,12 @@ form {
 }
 
 .textarea-field {
-  height: msRem(15);
+  height: msrem(15);
 }
 
 // Grow textareas on focus 
 .textarea-field.grow {
   // Cheating way to say 'n lines tall'
-  height: 16 * (1em * $modular-scale);
+  height: 16 * (1em * $ms-scale);
   
 }

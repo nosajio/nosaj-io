@@ -1,4 +1,3 @@
-@import 'ms';
 @import 'globals';
 @import 'fonts';
 
@@ -10,5 +9,5 @@
 }
 
 .error-404__heading {
-  font: 700 #{msRem(7)}/1.4 #{$ff-headings};
+  font: 700 #{msrem(7)}/1.4 #{$ff-headings};
 }

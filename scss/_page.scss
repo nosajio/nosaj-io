@@ -1,5 +1,4 @@
 @import 'fonts';
-@import 'ms';
 @import 'mq';
 
 .page-header {
@@ -8,14 +7,14 @@
   max-width: 1000px;
   
   h1 {
-    font-size: msRem(3);
+    font-size: msrem(3);
     font-weight: $ff-body-bold;
-    margin-bottom: msRem(3);
+    margin-bottom: msrem(3);
     text-align: center;
     
     @media #{mq(m)} {
-      font-size: msRem(6);
-      margin-bottom: msRem(5);
+      font-size: msrem(6);
+      margin-bottom: msrem(5);
     }
   }
 }

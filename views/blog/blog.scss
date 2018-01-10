@@ -11,7 +11,7 @@ $blog-media-width: $blog-content-width + ($g-margin * 2);
 // Extra narrow - quotes are only 2 columns
 $blog-quotes-width: ($g-column * 2) + ($g-margin * 3);
 // Content widths
-$blog-font-size: msRem(1);
+$blog-font-size: msrem(1);
 $blog-font-size-s: 1rem;
 $blog-line-height: 1.45;
 // Animations
@@ -23,7 +23,7 @@ $clr-blog-text: $clr-black;
 %readable {
   max-width: $blog-content-width;
   width: 100%;
-  padding: 0 msRem(-2);
+  padding: 0 msrem(-2);
   overflow: hidden;
   
   @media screen and (min-width: $blog-media-width) {
@@ -36,7 +36,7 @@ $clr-blog-text: $clr-black;
 %media {
   max-width: $blog-media-width;
   width: 100%;
-  padding: 0 msRem(-2);
+  padding: 0 msrem(-2);
   
   @media screen and (min-width: $blog-media-width) {
     margin: 0 auto;
@@ -61,20 +61,20 @@ $clr-blog-text: $clr-black;
 .main-frame {
   display: flex;
   flex-flow: column nowrap;
-  margin-top: msRem(10);
+  margin-top: msrem(10);
   
-  @media #{mq(m)} { margin-top: msRem(16); }
+  @media #{mq(m)} { margin-top: msrem(16); }
 }
 
 
 // Title block
 .blog-post__title {
   @extend %readable;
-  margin-bottom: msRem(6);
+  margin-bottom: msrem(6);
   
-  @media #{mq(m)} { margin-bottom: msRem(9); }
+  @media #{mq(m)} { margin-bottom: msrem(9); }
   
-  h1 { font-size: msRem(5); font-weight: $ff-body-semibold; }
+  h1 { font-size: msrem(5); font-weight: $ff-body-semibold; }
 }
 
 
@@ -82,23 +82,23 @@ $clr-blog-text: $clr-black;
 .blog-post__suffix {
   @extend %readable;
   font-style: oblique;
-  font-size: msRem(2);
-  margin-top: msRem(9);
+  font-size: msrem(2);
+  margin-top: msrem(9);
 }
 
 
 // Next post block
 .next-post {
   @extend %readable;
-  margin: msRem(15) auto;
+  margin: msrem(15) auto;
   
   &__read-next {
     display: block;
-    margin-bottom: msRem(-6);
+    margin-bottom: msrem(-6);
     color: $clr-grey-1;
   }
   
-  &__title { font-size: msRem(5); font-weight: $ff-body-semibold; }
+  &__title { font-size: msrem(5); font-weight: $ff-body-semibold; }
 }
 
 
@@ -122,24 +122,24 @@ $clr-blog-text: $clr-black;
   h1, h2, h3, h4 {
     @extend %readable;
     display: block;
-    margin-top: msRem(9);
-    margin-bottom: msRem(1);
+    margin-top: msrem(9);
+    margin-bottom: msrem(1);
     font: $ff-body-bold $blog-font-size $ff-body;
   }
   
   // H1. this guy is special
-  h1 { font-size: msRem(4); }
+  h1 { font-size: msrem(4); }
   
   // Secondary & tertiary headings 
   h2 {
-    font-size: msRem(1);
-    @media #{mq(m)} { font-size: msRem(2); }
+    font-size: msrem(1);
+    @media #{mq(m)} { font-size: msrem(2); }
   }
   
   h3, h4 { 
     font-size: $blog-font-size; 
     font-weight: $ff-body-medium;
-    @media #{mq(m)} { font-size: msRem(1); }
+    @media #{mq(m)} { font-size: msrem(1); }
   }
   
   
@@ -149,10 +149,10 @@ $clr-blog-text: $clr-black;
     display: block;
     width: 100%;
     height: 15px;
-    margin: msRem(9) auto;
+    margin: msrem(9) auto;
     border: none;
     text-align: center;
-    font-size: msRem(1);
+    font-size: msrem(1);
     
     &::before {
       content: "* * *";
@@ -167,22 +167,22 @@ $clr-blog-text: $clr-black;
     @extend %readable;
     font: $ff-freight-normal $blog-font-size-s $ff-serif;
     line-height: $blog-line-height;
-    margin-top: msRem(1);
-    margin-bottom: msRem(1);
+    margin-top: msrem(1);
+    margin-bottom: msrem(1);
     @media #{mq(m)} { font-size: $blog-font-size; }
   }
   
   sup {
     background: #f2f2f2;
     vertical-align: super;
-    padding: msRem(-5);
+    padding: msrem(-5);
     font: 700 15px $ff-mono;
   }
   
   code {
-    padding: msRem(-15) msRem(-8);
+    padding: msrem(-15) msrem(-8);
     border-radius: 2px;
-    font: msRem(-1) $ff-mono;
+    font: msrem(-1) $ff-mono;
     background: $clr-black;
     color: $clr-green;
   }
@@ -215,8 +215,8 @@ $clr-blog-text: $clr-black;
   ol, ul {
     @extend %readable;
     display: block;
-    margin: msRem(3) auto;
-    padding: 0 msRem(4);
+    margin: msrem(3) auto;
+    padding: 0 msrem(4);
     
     li {
       display: list-item;
@@ -231,7 +231,7 @@ $clr-blog-text: $clr-black;
       }
     }
     
-    li + li { margin-top: msRem(-6); }
+    li + li { margin-top: msrem(-6); }
   }
   
   ol { list-style-type: upper-roman; }
@@ -254,22 +254,22 @@ $clr-blog-text: $clr-black;
   blockquote {
     width: 100%;
     max-width: $blog-quotes-width;
-    margin: msRem(6) auto;
+    margin: msrem(6) auto;
     font-style: oblique;
     
     p { font-size: 1rem; }
     
     cite {
-      margin-top: msRem(3);
+      margin-top: msrem(3);
       color: $clr-grey-1;
-      font-size: msRem(-1);
+      font-size: msrem(-1);
     }
     
     cite a { color: $clr-grey-1; @include underline($clr-grey-1, $clr-blue); }
     cite a:hover { color: $clr-blue; }
     
     @media #{mq(m)} {
-      margin: msRem(9) auto;
+      margin: msrem(9) auto;
     }
   }
 
@@ -277,26 +277,26 @@ $clr-blog-text: $clr-black;
   .quotes-opener {
     @extend %readable;
     margin-top: 0;
-    margin-bottom: msRem(5);
+    margin-bottom: msrem(5);
     > blockquote { text-align: center }
-    > blockquote + blockquote { margin-top: msRem(4); }
+    > blockquote + blockquote { margin-top: msrem(4); }
   }
   
   
   // Images, embeds, packages, and boxes
   .image, .video, .embed, 
-  .package, .emphasis, .box { @extend %media; margin-bottom: msRem(9);
+  .package, .emphasis, .box { @extend %media; margin-bottom: msrem(9);
   }
   
   p + .image, p + .video, p + .embed, 
-  p + .package, p + .emphasis, p + .box { margin-top: msRem(9); }
+  p + .package, p + .emphasis, p + .box { margin-top: msrem(9); }
   
   // Boxes
   // Boxes are just container elements with a background color different 
   // to the body. They're used for incidental or optional content.
   .box {
     background: $clr-grey-3;
-    padding: msRem(-1);
+    padding: msrem(-1);
     
     & > h1, & > h2, & > h3, & > h4 { margin-top: 0; }
     
@@ -312,10 +312,10 @@ $clr-blog-text: $clr-black;
     background: $clr-black;
     color: white;
     box-shadow: 0 2px 2px rgba(0, 0, 0, .2);
-    padding: msRem(-1);
+    padding: msrem(-1);
     text-align: center;
     
-    p { margin: 0 0 msRem(-2); font-family: $ff-body; }
+    p { margin: 0 0 msrem(-2); font-family: $ff-body; }
     a { color: black; font-size: 1rem; }
     
     .link, .repo {
@@ -335,8 +335,8 @@ $clr-blog-text: $clr-black;
       @extend %readable;
       display: block;
       width: 100%;
-      margin-top: msRem(2);
-      font-size: msRem(-1);
+      margin-top: msrem(2);
+      font-size: msrem(-1);
       color: $clr-grey-1;
     }
     
