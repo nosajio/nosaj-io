@@ -1,4 +1,5 @@
 const debug = require('debug')('nosaj:pageHandler');
+const error = require('debug')('nosaj:error:pageHandler');
 const renderStylesheet = require('../../lib/renderStylesheet');
 const renderError = require('../../lib/renderError');
 const packageJSON = require('../../package.json');
@@ -11,7 +12,9 @@ function pageHandler(req, res, { _page }) {
   // Call the original page factory, this time with args
   const pageWithArgs = _page(args);
   if (isPromise(pageWithArgs)) {
-    pageWithArgs.then(renderPage);
+    pageWithArgs
+      .then(renderPage)
+      .catch(err => renderError(res, err.status, err));
   } else {
     renderPage(pageWithArgs);
   }
@@ -44,7 +47,6 @@ function pageHandler(req, res, { _page }) {
           ogImage: extractOgImage(resolvedContent),
           ogUrl: requestUrl(req),
           ogDescription: description(resolvedContent),
-          iconColor: iconColor(resolvedContent)
         }, 
         footer: { version: packageJSON.version, scripts } 
       };
@@ -124,13 +126,6 @@ function extractOgImage(data) {
   return ogImage;
 }
 
-function iconColor(data) {
-  if (! data.post || ! data.post.coverColor) {
-    return null;
-  }
-  return data.post.coverColor.replace('#', '');
-}
-
 function description(data, paragraphs=1) {
   let description = '';
   if (data.post) {
@@ -143,6 +138,7 @@ function description(data, paragraphs=1) {
   return description;
 }
 
+// Passed from nginx proxy_pass
 function requestUrl(req) {
   const originalHost = req.headers['x-forwarded-host'] || req.hostname || 'nosaj.io';
   const originalProtocol = req.headers['x-forwarded-protocol'] || req.protocol || 'https';
