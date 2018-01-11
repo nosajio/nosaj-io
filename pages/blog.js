@@ -20,7 +20,7 @@ module.exports = (args) => {
   }
   
   // Async
-  return new Promise(resolve => {
+  return new Promise((resolve, reject) => {
     getPost(args.slug)
       .then(post => {
         const updatedData = { 
@@ -29,7 +29,8 @@ module.exports = (args) => {
         };
         const allContent = Object.assign({}, defaultData, updatedData);
         resolve(allContent);
-      });
+      })
+      .catch(err => reject(err));
   });
 }
 
@@ -43,10 +44,24 @@ function getPost(slug) {
   return new Promise((resolve, reject) => {
     allPosts()
       .then(posts => {
+        if (! posts.length) {
+          reject({ error: true, status: '404', message: 'No posts...', });
+          return;
+        }
+        
         let currentPostIndex = postIndex(posts, slug);
+        
+        // Was the post index found? If not, return a '404'
+        if (currentPostIndex === undefined) {
+          reject({ error: true, status: '404', message: 'Post not found', });
+          return;
+        }
+        
+        
         // Find the current post
         const current = posts.find((p, i) => i === currentPostIndex);
-        // Only add next post when there is one available
+        
+        // Add next post data to result, if there is a next post...
         const isLastPost = currentPostIndex + 1 === posts.length;
         if (! isLastPost) {
           const next = posts.find((p, i) => i === currentPostIndex + 1);
