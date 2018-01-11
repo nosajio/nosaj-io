@@ -7,7 +7,14 @@
 @import 'button';
 @import 'keyframes';
 
-$clr-landing-bg: $clr-grey-4;
+$clr-landing-bg: $clr-blue;
+
+.nav-heading {
+  @include media(m) {
+    top: msrem(5);
+    left: msrem(5);
+  }
+}
 
 a {
   display: inline;
@@ -28,6 +35,10 @@ a {
 .front-view {
   background: $clr-landing-bg;
   color: $clr-black;
+  
+  @include media(m) {
+    padding: msrem(5);
+  }
 }
 
 .front-section {
@@ -53,9 +64,11 @@ a {
 }
 
 .main-frame {
+  position: relative;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+  background: #fafafa;
 }
 
 // Intro section

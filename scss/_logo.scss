@@ -1,12 +1,19 @@
+@import 'mq';
 @import 'easing';
 @import 'colors';
 
-$logo-wh-ratio: .810734463;
-$logo-width: 65px;
+$logo-wh-ratio: .798361063;
+$logo-width-m: 80px;
+$logo-width-s: 70px;
 
 .logo {
-  width: $logo-width;
-  height: $logo-width * $logo-wh-ratio;
+  width: $logo-width-s;
+  height: $logo-width-s * $logo-wh-ratio;
+  
+  @include media(m) {
+    width: $logo-width-m;
+    height: $logo-width-m * $logo-wh-ratio;
+  }
 }
 
 .logo svg {
@@ -16,7 +23,6 @@ $logo-width: 65px;
   
   path { 
     fill: $clr-black; 
-    opacity: .9;
     transition: all 300ms $easeOutCubic;
   }
 }

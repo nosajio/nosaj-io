@@ -1,1 +1,1 @@
-import 'js/ga';
+import 'js/globals.js';

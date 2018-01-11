@@ -1,24 +1,100 @@
+@import 'mq';
 @import 'easing';
 @import 'fonts';
 
-$nav-spacing: msrem(2);
-
-.main-navigation {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
-  margin-top: msrem(3);
+.nav-heading {
+  padding: msrem(2) msrem(2) 0;
   width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
   
-  @media #{mq(m)} {
-    margin-top: msrem(5);
+  @include media(l) {
+    width: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    flex-flow: column;
+    align-items: center;
+    justify-content: flex-start;
   }
   
   .logo {
+  }
+}
+
+.nav-toggle {
+  margin-left: msrem(4);
+  cursor: pointer;
+  
+  @include media(l) {
+    margin-left: 0;
+    margin-top: msrem(7);
+  }
+}
+
+.toggle-lines {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  width: msrem(4);
+}
+
+.toggle-line {
+  width: 100%;
+  height: 2px;
+  margin-top: 8px;
+  background: $clr-black;
+  transition: all $easeOutCubic 200ms;
+  
+  @include media(m) {
+    height: 3px;
+  }
+  
+  &:first-child {
+    width: 40%;
+    margin-top: 0;
+  }
+  
+  &:nth-child(even) {
+    width: 70%;
+  }
+}
+
+.nav-toggle:hover {
+  .toggle-line:first-child {
+    width: 100%;
+  }
+  
+  .toggle-line:nth-child(even) {
+    width: 60%;
+  }
+  
+  .toggle-line:last-child {
+    width: 20%;
+  }
+  
+  .toggle-text {
+    opacity: 1;
+  }
+}
+
+.toggle-text {
+  text-align: center;
+  font-size: msrem(-4);
+  font-weight: $ff-body-medium;
+  text-transform: uppercase;
+  margin-top: msrem(-4); 
+  opacity: .7;
+  transition: all 300ms;
+}
+
+
+.nav-menu {
+  display: none;
+  position: fixed;
+  
+  &--active {
     
-    @media #{mq(m)} {
-      min-width: 0;
-    }
   }
 }

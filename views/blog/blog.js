@@ -1,4 +1,4 @@
-import 'js/ga.js';
+import 'js/globals.js';
 import $ from 'js/$.js';
 import debounce from 'js/debounce.js';
 
