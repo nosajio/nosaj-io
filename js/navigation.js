@@ -4,6 +4,7 @@ import { store } from './store';
 // Navigation interactive elements
 const toggle = $('.nav-toggle')[0];
 const menu = $('.nav-menu')[0];
+const heading = $('.nav-heading')[0];
 
 // Set up a store instance for the nav
 let navStore = store('nav', {
@@ -20,8 +21,10 @@ document.addEventListener('stateChange', ({detail: { key, store }}) => {
   const { navActive } = store;
   if (navActive) {
     menu.className = 'nav-menu nav-menu--active';
+    heading.className = 'nav-heading nav-heading--active';
   } else {
     menu.className= 'nav-menu';
+    heading.className= 'nav-heading';
   }
 })
 

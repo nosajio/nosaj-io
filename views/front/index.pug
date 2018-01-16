@@ -5,30 +5,32 @@ html
   body.front-view
     main.main-frame
       include /includes/navigation
-      section.front-section.front-intro.g4
-        h1.front-intro-title !{introText}
-        div.front-intro-actions
-          +button('Hire me', '/work-together')
-          //- +button('Contact me', '/contact')
+      section.front-section.front-intro
+        .front-intro-opener.g6
+          h1.front-intro-title.g4 !{introText}
+          .front-intro-secondary
+            .intro-secondary.available.g2
+              span.available-highlight= availableText
+              span.available-links 
+                a(href='work-together') #[a(href='work-together') More information] or #[a(href='mailto:hi@nosaj.io?subject=Work enquiry') Email me]
+            .intro-secondary.writing.g2
+              span.secondary-heading Writing
+              span.secondary-text Latest post: #[a(href=`/r/${posts[0].slug}`)= posts[0].title]
+            .intro-secondary.writing.g2
+              span.secondary-heading Work
+              span.secondary-text Latest project: #[a(href=`#work`)= projects[0].title]
       section.front-section.front-writing.g6
         a#writing
-        h2.front-heading.g4.center Writing
-        ul.writing-posts-list
+        h2.front-heading.g6.center Writing
+        ul.writing-list
           each post in posts
             li.writing-post
-              span.writing-post-date=post.dateString
-              span.writing-post-title
+              h3.writing-post-title
                 a(href=`/r/${post.slug}`)= post.title
-      section.front-section.front-work.g4
+                span.writing-post-date= post.dateString
+      section.front-section.front-work.g6
         a#work
-        h2.front-heading Work
+        h2.front-heading Selected Works
         each project in projects
-          article.project
-            div.project-images
-              each img in project.images
-                div.project-image(class=`project-image--${img.device}` style={'background-image': `url(${img.src})`})
-            div.project-info
-              h3.project-title= project.title
-              a.project-url(href=project.url target='_blank')= project.url
-              p.project-description= project.description
+          div.front-project= project.title
   include /includes/footer

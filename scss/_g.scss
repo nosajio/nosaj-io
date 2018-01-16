@@ -6,11 +6,16 @@ $g-margin: 40px;
 $g-columns: 6;
 $g-max-width: $g-column * $g-columns + $g-margin * ($g-columns - 1);
 
+// This will make it possible to use g() anywhere in the css for grid values
+@function g($index) {
+  @return ($g-column * $index) + $g-margin * ($index - 1);
+}
+
 // Create the grid class names
 @for $g-i from 1 through $g-columns {
   .g#{$g-i} {
     width: 100%;
-    max-width: ($g-column * $g-i) + $g-margin * ($g-i - 1);
+    max-width: g($g-i);
   }
 }
 

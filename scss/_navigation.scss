@@ -3,20 +3,16 @@
 @import 'fonts';
 
 .nav-heading {
-  padding: msrem(2) msrem(2) 0;
+  position: relative;
   width: 100%;
+  z-index: 1000;
+  padding: msrem(2) msrem(2) 0;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   
   @include media(l) {
-    width: auto;
-    position: fixed;
-    top: 0;
-    left: 0;
-    flex-flow: column;
-    align-items: center;
-    justify-content: flex-start;
+    position: sticky;
   }
   
   .logo {
@@ -24,12 +20,11 @@
 }
 
 .nav-toggle {
-  margin-left: msrem(4);
+  transition: all 300ms;
   cursor: pointer;
   
   @include media(l) {
-    margin-left: 0;
-    margin-top: msrem(7);
+    
   }
 }
 
@@ -41,7 +36,7 @@
 }
 
 .toggle-line {
-  width: 100%;
+  width: 70%;
   height: 2px;
   margin-top: 8px;
   background: $clr-black;
@@ -52,26 +47,36 @@
   }
   
   &:first-child {
-    width: 40%;
+    // width: 40%;
     margin-top: 0;
   }
   
   &:nth-child(even) {
-    width: 70%;
+    // width: 70%;
   }
 }
 
 .nav-toggle:hover {
   .toggle-line:first-child {
-    width: 100%;
+    width: 70%;
   }
   
   .toggle-line:nth-child(even) {
-    width: 60%;
+    width: 70%;
   }
   
   .toggle-line:last-child {
-    width: 20%;
+    width: 70%;
+  }
+  
+  .toggle-text {
+    opacity: 1;
+  }
+}
+
+.nav-heading--active {
+  .toggle-line {
+    width: 10%;
   }
   
   .toggle-text {
@@ -93,8 +98,14 @@
 .nav-menu {
   display: none;
   position: fixed;
+  top: 0; left: 0;
+  z-index: 900;
+  width: 100vw;
+  height: 100vh;
+  background: white;
   
   &--active {
+    display: block;
     
   }
 }

@@ -7,12 +7,13 @@
 @import 'button';
 @import 'keyframes';
 
-$clr-landing-bg: $clr-blue;
+$clr-landing-border: #F3F3F3;
+$front-border-l: msrem(2);
 
 .nav-heading {
   @include media(m) {
-    top: msrem(5);
-    left: msrem(5);
+    top: $front-border-l;
+    left: $front-border-l;
   }
 }
 
@@ -33,11 +34,11 @@ a {
 }
 
 .front-view {
-  background: $clr-landing-bg;
+  background: $clr-landing-border;
   color: $clr-black;
   
   @include media(m) {
-    padding: msrem(5);
+    padding: $front-border-l;
   }
 }
 
@@ -46,7 +47,7 @@ a {
   padding-right: msrem(-1);
   
   & + & {
-    margin-top: msrem(23);
+    margin-top: msrem(13);
   }
   
   @include media(m) {
@@ -55,12 +56,12 @@ a {
 }
 
 .front-heading {
-  margin-bottom: msrem(10);
-  font-size: msrem(9);
+  margin-bottom: msrem(3);
+  font-size: 1rem;
+  font-style: oblique;
   font-weight: $ff-body-bold;
-  color: $clr-grey-2;
-  // Add periods after each heading
-  // &::after { content: "."; }
+  text-transform: uppercase;
+  color: $clr-black;
 }
 
 .main-frame {
@@ -68,140 +69,125 @@ a {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  background: #fafafa;
+  background: white;
 }
+
 
 // Intro section
 .front-intro {
   display: flex;
-  flex-flow: column;
-  justify-content: center;
-  min-height: 80vh;
-  
-  &-title {
-    font-size: msrem(4);
-    font-weight: $ff-body-semibold;
-  }
-  
-  &-actions {
-    margin-top: msrem(6);
-  }
-}
-
-// Writing section
-.front-writing {
-}
-
-.writing-posts-list {
-}
-
-.writing-post {
-  display: flex;
   flex-flow: column nowrap;
-  align-items: flex-start;
+  justify-content: center;
+  margin-top: msrem(10);
   width: 100%;
   
   @include media(m) {
-    flex-flow: row nowrap;
-    align-items: center;
+    flex-flow: row;
+    margin-top: msrem(19);
   }
   
-  & + & {
-    margin-top: msrem(1);
-  }
-  
-  a {
+  &-opener {
+    position: relative;
+    padding-bottom: msrem(13);
+    
+    // The black divider as pseudo element
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background: repeat-y url('/img/front-noise-divider.png') left / 131px 4px;
+      width: 100%;
+      max-width: g(1);
+      height: 4px;
+    }
   }
   
   &-title {
+    font-size: msrem(4);
+    font-weight: $ff-body-normal;
+  }
+  
+  &-secondary {
+    display: flex;
+    flex-direction: column;
+    margin-top: msrem(6);
+    
+    @include media(m) {
+      flex-flow: row nowrap;
+    }
+  }
+  
+  .intro-secondary {
+    width: 100%;
+    
+    @include media(m) {
+      
+    }
+    
+    & + .intro-secondary {
+      margin-top: $g-margin;
+      
+      @include media(m) {
+        margin-top: 0;
+        margin-left: $g-margin;
+      }
+    }
+    
+    &.available {
+      font: msrem(-2) $ff-mono;
+      margin-top: 2rem; // Compensate for titles
+      color: $clr-grey-1;
+    }
+    
+    .available-highlight {
+      display: inline;
+      background: #DAFFE4;
+    }
+    
+    .available-links {
+      display: block;
+      margin-top: msrem(-3);
+    }
+  }
+  
+  .secondary-heading {
     display: block;
-    font-size: msrem(2);
+    margin-bottom: msrem(-3);
+    font-size: 1rem;
     font-weight: $ff-body-medium;
   }
   
-  &-date {
-    display: block;
-    width: 100%;
-    text-align: left;
-    color: $clr-grey-2;
-    font-size: msrem(-3);
-    text-transform: uppercase;
+  .secondary-text {
+    font: msrem(-2) $ff-mono;
+    color: $clr-grey-1;
+  }
+  
+}
+
+
+// Writing section
+.writing-list {
+  .writing-post {
     
-    @include media(m) {
-      text-align: right;
-      width: $g-column;
-      margin-right: $g-margin;
-    }
+  }
+  
+  .writing-post + .writing-post {
+    margin-top: 1rem;
+  }
+  
+  .writing-post-title {
+    
+  }
+  
+  .writing-post-date {
+    display: inline-block;
+    margin-left: msrem(1);
+    font: msrem(-3) $ff-mono;
+    text-transform: uppercase;
+    color: $clr-grey-1;
   }
 }
 
 // Work section
-.project {
-  & + & {
-    margin-top: msrem(13);
-  }
-  
-  &-images {
-    width: 100%;
-    margin-bottom: msrem(9);
-    display: flex;
-    flex-flow: row wrap;
-    align-items: flex-start;
-    justify-content: space-around;
-    
-    @include media(m) {
-      flex-flow: row nowrap;
-      justify-content: space-between;
-    }
-  }
-  
-  &-image {
-    @include box-shadow(3);
-    display: block;
-    background-size: 100% auto;
-    background-repeat: no-repeat;
-    background-position: top center;
-    border-radius: 3px;
-    margin-bottom: msrem(-1);
-    
-    @include media(m) {
-      margin: 0;
-    }
-    
-    // This will be used to fix height:width ratios of different device types
-    &::after {
-      content: "";
-      display: block;
-      width: 100%;
-    }
-    
-    &--mobile { 
-      // Compensate for the margin on all image elements
-      max-width: calc(50% - #{ms(-1) * 2}rem); 
-      width: 100%; 
-      &::after { padding-top: 177%; }
-    }
-    &--desktop { 
-      width: calc(100% - #{ms(-1) * 2}rem); ;
-      &::after { padding-top: 88.5%; }
-    }
-    
-    @include media(m) {
-      &--mobile { width: 33.33%; max-width: 200px;  }
-      &--desktop { max-width: 400px; width: 66.66%; }
-    }    
-  }
-  
-  &-title {
-    margin-bottom: msrem(-10);
-    font-size: msrem(1);
-    font-weight: $ff-body-medium;
-  }
-  
-  &-url {
-    font-size: msrem(-1);
-    color: $clr-grey-2;
-  }
-  
-  &-description { font-size: 1rem;}
-}

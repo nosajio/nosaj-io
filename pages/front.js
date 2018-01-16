@@ -2,15 +2,18 @@ const debug = require('debug')('nosaj:pages:front');
 const { dateBefore } = require('../lib/helpers/date');
 const { allPosts } = require('../lib/helpers/blog');
 const injectScripts = require('../lib/injectScripts');
+const { monthName } = require('../lib/helpers/date');
 
 module.exports = (args) => ({
   view: 'front',
   path: '/',
   stylesheet: 'views/front/front.scss',
   scripts: injectScripts(['views/front/front.js']),
-  title: 'Nosaj',
-  introText: 'Hi I\'m Jason. I design and make software for the web. At the moment I’m working with startups to build ambitious products.<br/>I also <a href="#writing">write</a>, <a href="http://codeatuni.com" target="_blank">teach</a>, <a href="https://twitter.com/__nosaj" target="_blank">tweet</a> and <a href="http://liveworksearch.com" target="_blank">make</a> <a href="http://ripcast.in" target="_blank">stuff</a>.',
-  available: true,
+  title: '👋 Hello',
+  introText: 'Hello, I\'m Jason. I help founders and startups build great web products.',
+  // Month number for when I'm available from
+  available: 2, 
+  availableText: ({ available }) => `I'm available from ${monthName(available-1)} ${new Date().getFullYear()}`,
   // Load in the posts and parse with the blog helpers
   posts: (() => new Promise((resolve) => {
     const SUDO = args && args.hasOwnProperty('sudo'); // Add querystring 'sudo' for special access
@@ -26,41 +29,18 @@ module.exports = (args) => ({
   projects: [
     {
       title: 'Live/Work Search',
-      description: 'I made liveworksearch.com to help a growing neiche of entrepreneurs to find live/work style properties in London. The tool consists of a simple web crawler that collects data from around the internet before showing it on a map, ready to be explored. The whole system and website is fully autonomous.',
       url: 'http://liveworksearch.com',
       date: 'OCT 2016',
-      tags: ['design', 'dev'],
-      images: [
-        { device: 'desktop', src: 'http://a.nosaj.io/front/lws-desktop-main.png' },
-        { device: 'mobile', src: 'http://a.nosaj.io/front/lws-mobile-main.png' },
-        // { device: 'mobile', src: 'http://a.nosaj.io/front/lws-mobile-property.png' }
-      ]
     },
     {
       title: 'Just A-level',
-      description: 'Just A-level is an education platform funded by the UK government as an initiative to teach computer science to more students. I was involved with the project throughout the entire process, from planning and design to development. We were able to design and build the first version of the product in under two months, and successfully launched the site on time.',
       url: 'https://justalevel.com',
       date: 'JUL 2017',
-      tags: ['design', 'dev'],
-      images: [
-        { device: 'mobile', src: 'http://a.nosaj.io/front/jal-mobile-dashboard.png' },
-        { device: 'mobile', src: 'http://a.nosaj.io/front/jal-mobile-course.png' },
-        { device: 'mobile', src: 'http://a.nosaj.io/front/jal-mobile-video.png' },
-        // { device: 'mobile', src: 'http://a.nosaj.io/front/jal-mobile-.png' }
-      ]
     },
     {
       title: 'Beachfix',
-      description: 'BeachFix is a beach holiday website that came about after the CEO spent a year travelling the world\'s beaches collecting data. I was hired to help the team design and build the first non-beta version of the app, condensing all of the lessons they had learned into a new version. We spent around a month on the design which was tested against user feedback, and another month on development.',
       url: 'http://beachfix.co',
       date: 'OCT 2016',
-      tags: ['design', 'dev'],
-      images: [
-        { device: 'desktop', src: 'http://a.nosaj.io/work/beachfix-beach-browser.jpg' },
-        { device: 'mobile', src: 'http://a.nosaj.io/front/beachfix-mobile-beach.png' },
-        // { device: 'mobile', src: 'http://a.nosaj.io/front/jal-mobile-video.png' },
-        // { device: 'mobile', src: 'http://a.nosaj.io/front/jal-mobile-.png' }
-      ]
     },
   ]
 });

@@ -1,14 +1,6 @@
 const debug = require('debug')('nosaj:pages:hire-me');
 const injectScripts = require('../lib/injectScripts');
-
-
-const monthName = monthsAhead => {
-  const currentMonth = new Date().getMonth();
-  const nMonthsTimestamp = new Date().setMonth(currentMonth + monthsAhead);
-  const monthNumber = new Date(nMonthsTimestamp).getMonth();
-  const months = ['January', 'Feburary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-  return months[ monthNumber ];
-}
+const { monthName } = require('../lib/helpers/date');
 
 module.exports = (args) => ({
   view: 'hire-me',
