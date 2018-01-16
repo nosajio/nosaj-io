@@ -11,6 +11,10 @@ $g-max-width: $g-column * $g-columns + $g-margin * ($g-columns - 1);
   @return ($g-column * $index) + $g-margin * ($index - 1);
 }
 
+@function m($index) {
+  @return $g-margin * $index;
+}
+
 // Create the grid class names
 @for $g-i from 1 through $g-columns {
   .g#{$g-i} {

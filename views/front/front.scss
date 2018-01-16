@@ -191,3 +191,31 @@ a {
 }
 
 // Work section
+.front-work {
+  
+}
+
+.front-work-grid {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+a.front-project {
+  background: none;
+}
+
+.front-project {
+  margin-bottom: m(1);
+  
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  
+  &:nth-child(2n+2) {
+    @include media(m) {
+      margin-left: m(1);
+    }
+  }
+}

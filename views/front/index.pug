@@ -31,6 +31,16 @@ html
       section.front-section.front-work.g6
         a#work
         h2.front-heading Selected Works
-        each project in projects
-          div.front-project= project.title
+        .front-work-grid
+          each project in projects
+            unless project.url
+              div.front-project(class=project.className href=project.url target='_blank')
+                if project.cover
+                  img(src=project.cover alt=project.title)
+            else
+              a.front-project(class=project.className href=project.url target='_blank')
+                if project.cover
+                  img(src=project.cover alt=project.title)
+            
+            
   include /includes/footer

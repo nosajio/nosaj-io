@@ -44,6 +44,7 @@ const updateIndex = (key, fragment) => {
  *         {string} store.key - the key for this instance.
  *         {string} store.initialState - the original initialState object for this instance.
  *         {func}   store.update<object> - pass a fragment of state to update.
+ *         {func}   store.get - get state
  */
 export const store = (key, initialState) => {
   addIndex(key, initialState);

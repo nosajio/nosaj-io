@@ -15,7 +15,7 @@ module.exports = (args) => ({
   available: 2, 
   availableText: ({ available }) => `I'm available from ${monthName(available-1)} ${new Date().getFullYear()}`,
   // Load in the posts and parse with the blog helpers
-  posts: (() => new Promise((resolve) => {
+  posts: new Promise((resolve) => {
     const SUDO = args && args.hasOwnProperty('sudo'); // Add querystring 'sudo' for special access
     allPosts()
       .then(posts => {
@@ -25,21 +25,34 @@ module.exports = (args) => ({
       }).catch(err => {
         throw new Error(err)
       });
-  }))(),
+  }),
   projects: [
     {
       title: 'Live/Work Search',
       url: 'http://liveworksearch.com',
+      cover: '/img/projects/lws-front.jpg',
+      className: 'g4',
       date: 'OCT 2016',
+    },
+    {
+      title: 'Ripcast',
+      url: 'http://ripcast.in',
+      cover: '/img/projects/ripcast-front.jpg',
+      className: 'g2',
+      date: 'AUG 2017',
     },
     {
       title: 'Just A-level',
       url: 'https://justalevel.com',
+      cover: '/img/projects/jal-front.jpg',
+      className: 'g3',
       date: 'JUL 2017',
     },
     {
       title: 'Beachfix',
       url: 'http://beachfix.co',
+      cover: '/img/projects/beachfix-front.jpg',
+      className: 'g3',
       date: 'OCT 2016',
     },
   ]
