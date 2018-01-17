@@ -1,6 +1,7 @@
 import 'js/globals.js';
 import $ from 'js/$.js';
 import debounce from 'js/debounce.js';
+import { addClassName } from 'js/classNames.js';
 
 var postParagraphs = $('.blog-post__body > p');
 
@@ -8,9 +9,9 @@ var postParagraphs = $('.blog-post__body > p');
 // (text must be two or more lines long)
 var markFirstParagraph = function () {
   var firstP = postParagraphs[0];
-  firstP.className = 'first-child';
+  addClassName(firstP, 'first-child');
   if (firstP.innerText.length > 80) {
-    firstP.className += ' drop-cap';
+    addClassName(firstP, 'drop-cap');
   }
 }
 
