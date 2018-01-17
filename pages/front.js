@@ -1,6 +1,6 @@
 const debug = require('debug')('nosaj:pages:front');
 const { dateBefore } = require('../lib/helpers/date');
-const { allPosts } = require('../lib/helpers/blog');
+const { allPosts } = require('nosaj-md-parser');
 const injectScripts = require('../lib/injectScripts');
 const { monthName } = require('../lib/helpers/date');
 

@@ -23,13 +23,13 @@
     "modularscale-helpers": "^1.0.2",
     "node-sass": "^4.5.3",
     "nodemailer": "^4.4.1",
-    "nosaj-md-parser": "^1.0.0",
+    "nosaj-md-parser": "^1.1.1",
     "pug": "^2.0.0-rc.1",
-    "uglify-js": "^3.0.15",
+    "uglify-js": "^3.3.7",
     "uglifyjs-webpack-plugin": "^1.1.6",
     "webpack": "^3.10.0"
   },
   "devDependencies": {
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.14.11"
   }
 }

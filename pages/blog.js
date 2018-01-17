@@ -1,5 +1,5 @@
 const debug = require('debug')('nosaj:content:blog');
-const { allPosts } = require('../lib/helpers/blog');
+const { allPosts } = require('nosaj-md-parser');
 const injectScripts = require('../lib/injectScripts');
 
 module.exports = (args) => {
