@@ -2,6 +2,8 @@
 @import 'easing';
 @import 'fonts';
 
+$clr-nav-bg: #fff8e7;
+
 // Lock scroll of body when nav is active
 body.nav-active {
   overflow: hidden;
@@ -19,18 +21,11 @@ body.nav-active {
   @include media(l) {
     position: sticky;
   }
-  
-  .logo {
-  }
 }
 
 .nav-toggle {
   transition: all 300ms;
   cursor: pointer;
-  
-  @include media(l) {
-    
-  }
 }
 
 .toggle-lines {
@@ -51,42 +46,17 @@ body.nav-active {
     height: 3px;
   }
   
-  &:first-child {
-    // width: 40%;
-    margin-top: 0;
-  }
-  
-  &:nth-child(even) {
-    // width: 70%;
-  }
+  &:first-child { margin-top: 0; }
 }
 
 .nav-toggle:hover {
-  .toggle-line:first-child {
-    width: 70%;
-  }
-  
-  .toggle-line:nth-child(even) {
-    width: 70%;
-  }
-  
-  .toggle-line:last-child {
-    width: 70%;
-  }
-  
-  .toggle-text {
-    opacity: 1;
-  }
+  .toggle-line { width: 80%; }
+  .toggle-text { opacity: 1; } 
 }
 
 .nav-heading--active {
-  .toggle-line {
-    width: 10%;
-  }
-  
-  .toggle-text {
-    opacity: 1;
-  }
+  .toggle-line { width: 10%; }   
+  .toggle-text { opacity: 1; }
 }
 
 .toggle-text {
@@ -107,18 +77,63 @@ body.nav-active {
   z-index: 900;
   width: 100vw;
   height: 100vh;
-  justify-content: center;
-  background: white;
+  flex-flow: column nowrap;
+  background: $clr-nav-bg;
+  
+  @include media(m) {
+    justify-content: center;
+    align-items: center;
+  }
   
   &--active {
     display: flex;
-    
+  }
+}
+
+.nav-menu-links,
+.nav-menu-secondary {
+  width: 100%;
+  
+  @include media(m) {
+    padding: 0;
+    max-width: g(3);
   }
 }
 
 .nav-menu-links {
-  width: 100%;
-  max-width: g(6);
-  margin: msrem(18) auto 0;
-  padding: 0 msrem(8);
 }
+
+.nav-menu-link {
+  display: block;
+  font-size: msrem(3);
+  
+  @include media(m) {
+    font-size: msrem(5);
+  }
+  
+  & + .nav-menu-link { margin-top: #{ms(2)}em; }
+  a, a:hover { background: none; }
+}
+
+.nav-menu-secondary {
+  margin-top: msrem(8);
+  font: msrem(-2) $ff-mono;
+}
+
+.nav-secondary-item {
+  display: block;
+  width: 100%;
+  
+  & + .nav-secondary-item {
+    margin-top: msrem(3);
+  }
+  
+  a { color: rgba($clr-black, .8); }
+}
+
+.social-link:not(:first-child)::before {
+    content: '/';
+    display: inline-block;
+    margin: 0 #{ms(2)/2}rem;
+    color: darken($clr-nav-bg, 40%);
+  }

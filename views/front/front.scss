@@ -207,10 +207,6 @@ a {
   @include media(l) {
     justify-content: space-between;
   }
-  
-  // @include media(m) {
-  //   justify-content: space-between;
-  // }
 }
 
 a.front-project {
@@ -224,6 +220,10 @@ a.front-project {
   // Responsive behaviour
   @media screen and (max-width: $bp-medium) {
     width: 80%;
+  }
+  &.mq-shrink-on-small {
+    max-height: 170px;
+    @include media(m) { max-height: 100%; }
   }
   
   img {

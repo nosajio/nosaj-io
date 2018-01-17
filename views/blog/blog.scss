@@ -52,7 +52,7 @@ $clr-blog-text: $clr-black;
   
   // Global links
   a {
-    @include underline($clr-blog-text, $hover: $clr-blue, $spacing: 1.2em);
+    // @include underline($clr-blog-text, $hover: $clr-blue, $spacing: 1.2em);
     color: $clr-blog-text;
     &:hover { color: $clr-blue; }
   }

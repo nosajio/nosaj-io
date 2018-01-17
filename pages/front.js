@@ -38,7 +38,7 @@ module.exports = (args) => ({
       title: 'Ripcast',
       url: 'http://ripcast.in',
       cover: '/img/projects/ripcast-front.jpg',
-      className: 'g2',
+      className: 'g2 mq-shrink-on-small',
       date: 'AUG 2017',
     },
     {
