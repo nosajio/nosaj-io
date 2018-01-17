@@ -41,6 +41,14 @@
 
 
 // : Colors
+// Color: Black
+.button--black {
+  background: $clr-black;
+  color: white;
+  &:hover {
+    background: lighten($clr-black, 20%);
+  }
+}
 
 // Color: Blue
 .button--blue {
