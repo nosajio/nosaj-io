@@ -98,12 +98,14 @@ body.nav-active {
   z-index: 900;
   width: 100vw;
   height: 100vh;
+  padding: msrem(1);
   flex-flow: column nowrap;
+  justify-content: center;
   background: $clr-nav-bg;
   animation: $easeOutCubic nav-bg-enter 400ms;
   
   @include media(m) {
-    justify-content: center;
+    padding: 0;
     align-items: center;
   }
   
