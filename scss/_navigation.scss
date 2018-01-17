@@ -2,6 +2,11 @@
 @import 'easing';
 @import 'fonts';
 
+// Lock scroll of body when nav is active
+body.nav-active {
+  overflow: hidden;
+}
+
 .nav-heading {
   position: relative;
   width: 100%;
@@ -102,10 +107,18 @@
   z-index: 900;
   width: 100vw;
   height: 100vh;
+  justify-content: center;
   background: white;
   
   &--active {
-    display: block;
+    display: flex;
     
   }
+}
+
+.nav-menu-links {
+  width: 100%;
+  max-width: g(6);
+  margin: msrem(18) auto 0;
+  padding: 0 msrem(8);
 }

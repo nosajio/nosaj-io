@@ -1,8 +1,10 @@
 import $ from './$';
-import { store } from './store';
+import { store, alias } from './store';
+import { addClassName, removeClassName } from './classNames';
 
 // Navigation interactive elements
 const toggle = $('.nav-toggle')[0];
+const body = document.body;
 const menu = $('.nav-menu')[0];
 const heading = $('.nav-heading')[0];
 
@@ -20,11 +22,13 @@ document.addEventListener('stateChange', ({detail: { key, store }}) => {
   if (key !== 'nav') return;
   const { navActive } = store;
   if (navActive) {
-    menu.className = 'nav-menu nav-menu--active';
-    heading.className = 'nav-heading nav-heading--active';
+    addClassName(body, 'nav-active')
+    addClassName(menu, 'nav-menu--active');
+    addClassName(heading, 'nav-heading--active');
   } else {
-    menu.className= 'nav-menu';
-    heading.className= 'nav-heading';
+    removeClassName(body, 'nav-active')
+    removeClassName(menu, 'nav-menu--active');
+    removeClassName(heading, 'nav-heading--active');
   }
 })
 
@@ -33,5 +37,7 @@ function registerEventListeners() {
 }
 
 function handleToggle(event) {
-  navStore.update({ navActive: ! navStore.get().navActive });
+  navStore.update({ navActive: ! navStore.get('navActive') });
 }
+
+console.log(alias('nav'));

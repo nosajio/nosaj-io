@@ -222,14 +222,9 @@ a.front-project {
   overflow: hidden;
   
   // Responsive behaviour
-  &.g2, &.g3, &.g4, &.g5, &.g6 {
-    
-    @media screen and (max-width: $bp-medium) {
-      width: 80%;
-    }
+  @media screen and (max-width: $bp-medium) {
+    width: 80%;
   }
-  
-  
   
   img {
     display: block;
@@ -246,10 +241,4 @@ a.front-project {
       }
     }
   }
-  
-  // &:nth-child(2n+2) {
-  //   @include media(m) {
-  //     margin-left: m(1);
-  //   }
-  // }
 }

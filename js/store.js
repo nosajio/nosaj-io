@@ -17,12 +17,19 @@ const addIndex = (key, initialState) => {
  * Return current state object for key
  * @param {string} key
  */
-const stateForKey = key => {
+const stateForKey = (key, prop) => {
   if (! (key in storeIndex)) {
     console.warn('Tried to get key that isn\'t in index (%s)', key);
     return null;
   }
-  return storeIndex[key];
+  const s = storeIndex[key];
+  if (! prop) {
+    return s;
+  }
+  if (! (prop in s)) {
+    return null;
+  }
+  return s[prop];
 }
 
 /**
@@ -36,6 +43,12 @@ const updateIndex = (key, fragment) => {
   document.dispatchEvent(changeEvent);
 }
 
+const storePrototype = key => ({
+  key,
+  get: prop => stateForKey(key, prop),
+  update: data => updateIndex(key, data),
+});
+
 /**
  * Create a new store instance
  * @param {string} key
@@ -48,10 +61,10 @@ const updateIndex = (key, fragment) => {
  */
 export const store = (key, initialState) => {
   addIndex(key, initialState);
-  return { 
-    key,
-    initialState, 
-    get: () => stateForKey(key),
-    update: data => updateIndex(key, data),
-  }
+  return Object.assign({}, storePrototype(key, initialState), { initialState });
 }
+
+/**
+ * Don't create new index, just return instance of existing store
+ */
+export const alias = key => stateForKey(key) === null ? null : storePrototype(key);
