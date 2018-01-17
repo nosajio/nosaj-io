@@ -17,9 +17,16 @@ $g-max-width: $g-column * $g-columns + $g-margin * ($g-columns - 1);
 
 // Create the grid class names
 @for $g-i from 1 through $g-columns {
+  $s: g($g-i);
+  
   .g#{$g-i} {
     width: 100%;
-    max-width: g($g-i);
+    max-width: $s;
+  }
+  
+  // Fixed (no max-width)
+  .g#{$g-i}f {
+    width: g($g-i);
   }
 }
 

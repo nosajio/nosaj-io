@@ -198,6 +198,19 @@ a {
 .front-work-grid {
   display: flex;
   flex-flow: row wrap;
+  justify-content: center;
+  
+  @include media(m) {
+    justify-content: space-around;
+  }
+  
+  @include media(l) {
+    justify-content: space-between;
+  }
+  
+  // @include media(m) {
+  //   justify-content: space-between;
+  // }
 }
 
 a.front-project {
@@ -206,6 +219,17 @@ a.front-project {
 
 .front-project {
   margin-bottom: m(1);
+  overflow: hidden;
+  
+  // Responsive behaviour
+  &.g2, &.g3, &.g4, &.g5, &.g6 {
+    
+    @media screen and (max-width: $bp-medium) {
+      width: 80%;
+    }
+  }
+  
+  
   
   img {
     display: block;
@@ -213,9 +237,19 @@ a.front-project {
     height: auto;
   }
   
-  &:nth-child(2n+2) {
-    @include media(m) {
-      margin-left: m(1);
+  //  Fix the size of an image, so parent resizing has no effect (make sure all 
+  //  important detail is on the left to avoid clipping)
+  &.imgfixed img {
+    @for $i from 1 through $g-columns {
+      .g#{$i} & {
+        min-width: g($i);
+      }
     }
   }
+  
+  // &:nth-child(2n+2) {
+  //   @include media(m) {
+  //     margin-left: m(1);
+  //   }
+  // }
 }

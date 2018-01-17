@@ -50,10 +50,17 @@ module.exports = (args) => ({
     },
     {
       title: 'Beachfix',
-      url: 'http://beachfix.co',
+      url: 'http://www.beachfix.co/beaches?userquery=ab48e34e-b14d-413c-a7c9-eae2b4465991',
       cover: '/img/projects/beachfix-front.jpg',
       className: 'g3',
       date: 'OCT 2016',
+    },
+    {
+      title: 'MetaBroadcast',
+      url: 'https://metabroadcast.com',
+      cover: '/img/projects/mbst-front.jpg',
+      className: 'g6 imgfixed',
+      date: 'AUG 2014 — DEC 2015',
     },
   ]
 });
