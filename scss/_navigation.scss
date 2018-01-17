@@ -4,6 +4,27 @@
 
 $clr-nav-bg: #fff8e7;
 
+@keyframes nav-bg-enter {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes nav-primary-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-10vh);
+  }
+}
+
+@keyframes nav-secondary-enter {
+  from {
+    transform: translateY(-5vh);
+    opacity: 0;
+  }
+}
+
+
 // Lock scroll of body when nav is active
 body.nav-active {
   overflow: hidden;
@@ -79,6 +100,7 @@ body.nav-active {
   height: 100vh;
   flex-flow: column nowrap;
   background: $clr-nav-bg;
+  animation: $easeOutCubic nav-bg-enter 400ms;
   
   @include media(m) {
     justify-content: center;
@@ -101,6 +123,7 @@ body.nav-active {
 }
 
 .nav-menu-links {
+  
 }
 
 .nav-menu-link {
@@ -111,6 +134,13 @@ body.nav-active {
     font-size: msrem(5);
   }
   
+  // Make the enter animation work
+  @for $i from 0 through 5 {
+    &:nth-child(1n+#{$i}) {
+      animation: $easeOutCubic nav-primary-enter 200ms #{100 + ($i * 30)}ms both;
+    }
+  }
+  
   & + .nav-menu-link { margin-top: #{ms(2)}em; }
   a, a:hover { background: none; }
 }
@@ -118,6 +148,7 @@ body.nav-active {
 .nav-menu-secondary {
   margin-top: msrem(8);
   font: msrem(-2) $ff-mono;
+  animation: $easeOutCubic nav-secondary-enter 500ms;
 }
 
 .nav-secondary-item {
