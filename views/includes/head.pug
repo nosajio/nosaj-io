@@ -1,9 +1,13 @@
 head
   //
+    -
+    <3
     
-    💙
-    Nice to see you're looking under the hood. To see how things work go to 
-    github.com/nosajio/nosaj-io. If you have any questions, tweet me @__nosaj
+    Well aren't you curious ;). The code for this website is on github: github.com/nosajio/nosaj-io.
+    
+    tweet me: @__nosaj
+    email me: hi@nosaj.io
+  
   
   if head.title
     title !{head.title} // Jason makes the internet
@@ -12,15 +16,16 @@ head
   //- For Google
   meta(name="google-site-verification" content="PF-4AUGrHItlJCD2L3SDJKv7sKEZsdX7ixLHeorRimE")
   //- Twitter crap
-  meta(name="twitter:card" content="summary_large_image")
-  meta(name="twitter:creator" content="@__nosaj")
-  //- Original Graphter
-  meta(name="viewport" content="width=device-width, initial-scale=1")
-  meta(name="og:url" property="og:url" content=head.ogUrl || "https://nosaj.io/")
-  meta(name="og:type" property="og:type" content="website")
-  meta(name="og:title" property="og:title" content=head.title || "Jason makes the internet")
-  meta(name="og:description" property="og:description" content=head.ogDescription || "I design & make measurable products with modern web technologies.")
-  meta(name="og:image" property="og:image" content=head.ogImage || "http://a.nosaj.io/og-nosaj.png")
+  meta(name="twitter:card"        content="summary_large_image")
+  meta(name="twitter:creator"     content="@__nosaj")
+  //- OG tags 
+  meta(property="og:url"          content=head.ogUrl || "https://nosaj.io/")
+  meta(property="og:type"         content="website")
+  meta(property="og:title"        content=head.title || "Jason makes the internet")
+  meta(property="og:description"  content=head.ogDescription || "I design & make measurable products with modern web technologies.")
+  meta(property="og:image"        content=head.ogImage || "http://a.nosaj.io/og-nosaj.png")
+  //- All other meta tags
+  meta(name="viewport"            content="width=device-width, initial-scale=1")
   
   //- Configure Typekit
   style.
