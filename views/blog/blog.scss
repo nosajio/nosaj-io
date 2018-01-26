@@ -50,9 +50,11 @@ $clr-blog-text: $clr-black;
   // Make the logo use the text color
   .logo svg path { fill: $clr-blog-text; }
   
+}
+
+.blog-post {
   // Global links
   a {
-    // @include underline($clr-blog-text, $hover: $clr-blue, $spacing: 1.2em);
     color: $clr-blog-text;
     &:hover { color: $clr-blue; }
   }

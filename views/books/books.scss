@@ -1,0 +1,47 @@
+@import 'globals';
+@import 'colors';
+
+.books-view {
+  background: $clr-black;
+  color: white;
+  
+  &-head {
+    padding: msrem(5);
+  }
+  
+  &-title {
+    font-size: msrem(15);
+    font-weight: $ff-body-semibold;
+    font-style: oblique;
+  }
+  
+}
+
+.books-list {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  padding: msrem(5);
+  margin: 0 auto;
+}
+
+.book {
+  
+  @include media(m) {
+    width: 50%;
+  }
+  
+  @include media(l) {
+    width: 33%;
+  }
+  
+  &-cover {
+    width: 100%;
+  }
+  
+  &-cover img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
