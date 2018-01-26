@@ -3,7 +3,9 @@
 @import 'fonts';
 @import 'colors';
 
-$clr-nav-bg: #fff8e7;
+$clr-nav-bg: $clr-black;
+$clr-nav-text: white;
+$clr-nav-links: white;
 
 @keyframes nav-bg-enter {
   from {
@@ -81,9 +83,11 @@ body.nav-active {
   .toggle-text { opacity: 1; } 
 }
 
+// Hanburger toggle active state
 .nav-heading--active {
-  .toggle-line { width: 10%; }   
-  .toggle-text { opacity: 1; }
+  .toggle-line { width: 10%; background: $clr-nav-text; }   
+  .toggle-text { opacity: 1; color: $clr-nav-text; }
+  .nav-logo svg path { fill: $clr-nav-text; }
 }
 
 .toggle-text {
@@ -101,6 +105,9 @@ body.nav-active {
   }
 }
 
+// 
+// Menu that shows when nav toggle is pressed
+// 
 
 .nav-menu {
   display: none;
@@ -113,6 +120,7 @@ body.nav-active {
   flex-flow: column nowrap;
   justify-content: center;
   background: $clr-nav-bg;
+  color: $clr-nav-text;
   animation: $easeOutCubic nav-bg-enter 400ms;
   
   @include media(m) {
@@ -155,6 +163,10 @@ body.nav-active {
   }
   
   & + .nav-menu-link { margin-top: #{ms(2)}em; }
+  
+  a {
+    color: $clr-nav-links;
+  }
   a, a:hover { background: none; }
 }
 
@@ -172,12 +184,16 @@ body.nav-active {
     margin-top: msrem(3);
   }
   
-  a { color: rgba($clr-black, .8); }
+  a {  
+    @include underline($base: lighten($clr-nav-bg, 40%), $spacing: 1);
+    color: lighten($clr-nav-bg, 40%); 
+    &:hover { color: white; }
+  }
 }
 
 .social-link:not(:first-child)::before {
     content: '/';
     display: inline-block;
     margin: 0 #{ms(2)/2}rem;
-    color: darken($clr-nav-bg, 40%);
+    color: lighten($clr-nav-bg, 40%);
   }

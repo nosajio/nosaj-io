@@ -1,0 +1,14 @@
+doctype html
+html
+  include /includes/head
+  body.books-view.lod
+    include /includes/navigation
+    main.main-frame
+      header.books-view-head
+        h1.books-view-title= title
+        span.books-view-subtitle= subtitle
+      section.books-list
+        each book in books
+          .book
+            .book-cover #[img(src=book.img alt=`${book.title} cover`)]
+    include /includes/footer
