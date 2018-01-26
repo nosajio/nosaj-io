@@ -25,6 +25,13 @@ $logo-width-s: 70px;
     fill: $clr-black; 
     transition: all 300ms $easeOutCubic;
   }
+  
+  // Light on dark variation
+  .lod & path {
+    fill: white;
+    
+    &.logo-circle { display: none; }
+  }
 }
 
 .logo:hover {

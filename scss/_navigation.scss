@@ -1,6 +1,7 @@
 @import 'mq';
 @import 'easing';
 @import 'fonts';
+@import 'colors';
 
 $clr-nav-bg: #fff8e7;
 
@@ -63,6 +64,11 @@ body.nav-active {
   background: $clr-black;
   transition: all $easeOutCubic 200ms;
   
+  // Light color scheme for dark backgrounds
+  .lod & {
+    background: white;
+  }
+  
   @include media(m) {
     height: 3px;
   }
@@ -88,6 +94,11 @@ body.nav-active {
   margin-top: msrem(-4); 
   opacity: .7;
   transition: all 300ms;
+  
+  // Light on dark variation
+  .lod & {
+    color: white;
+  }
 }
 
 

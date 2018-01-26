@@ -2,8 +2,14 @@
 
 .the-footer {
   padding: msrem(9) msrem(2) msrem(10);
+  
   > * + * {
     margin-top: msrem(1);
+  }
+  
+  // Light on dark
+  .lod & {
+    color: white;
   }
 }
 
@@ -21,4 +27,9 @@
 .footer-version {
   font-size: msrem(-2);
   color: $clr-grey-2;
+  
+  .lod & {
+    color: white; 
+    opacity: .5;
+  }
 }
