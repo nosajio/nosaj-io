@@ -163,7 +163,7 @@ $clr-blog-text: $clr-black;
     }
   }
   
-  p {
+  p, li {
     @extend %readable;
     font: $ff-freight-normal $blog-font-size-s $ff-serif;
     line-height: $blog-line-height;
