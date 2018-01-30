@@ -11,10 +11,11 @@ $clr-landing-border: $clr-black;
 $front-border-l: msrem(-9);
 
 .nav-heading {
-  @include media(m) {
-    top: $front-border-l;
-    left: $front-border-l;
-  }
+  padding: 0;
+  // @include media(m) {
+  //   top: $front-border-l;
+  //   left: $front-border-l;
+  // }
 }
 
 a {
@@ -70,6 +71,7 @@ a {
   flex-flow: column nowrap;
   align-items: center;
   background: white;
+  padding: msrem(3);
 }
 
 
