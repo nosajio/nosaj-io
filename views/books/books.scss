@@ -1,21 +1,22 @@
 @import 'globals';
 @import 'colors';
 
+.main-frame {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
 .books-view {
   background: $clr-black;
   color: white;
-  
+
   &-head {
-    padding: msrem(5);
+    width: 100%;
+    margin: msrem(10) 0;
   }
-  
-  &-title {
-    font-size: msrem(15);
-    font-weight: $ff-body-semibold;
-    font-style: oblique;
-  }
-  
 }
+
 
 .books-list {
   display: flex;

@@ -4,11 +4,16 @@ html
   body.books-view.lod
     include /includes/navigation
     main.main-frame
-      header.books-view-head
+      header.books-view-head.g6
         h1.books-view-title= title
         span.books-view-subtitle= subtitle
-      section.books-list
-        each book in books
-          .book
-            .book-cover #[img(src=book.img alt=`${book.title} cover`)]
+      section.books-list.g6
+        each section in books
+          article.books-section
+            header.books-section-info
+              h1.books-section-title= section.title
+            .books-section-listing
+              each book in section.list
+                .book
+                  .book-cover #[img(src=book.img alt=`${book.title} cover`)]
     include /includes/footer
