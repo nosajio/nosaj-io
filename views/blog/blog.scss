@@ -197,8 +197,13 @@ $clr-blog-text: $clr-black;
     padding: 0 10px 0 0;
     float: left;
     font-weight: $ff-body-bold;
-    font-size: 55px;
-    line-height: 55px;
+    font-size: msrem(8);
+    line-height: msrem(8);
+
+    @include media(m) {
+      font-size: msrem(10);
+      line-height: msrem(10);
+    }
   }
   
   // Centered text
