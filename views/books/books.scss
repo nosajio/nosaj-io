@@ -12,8 +12,31 @@
   color: white;
 
   &-head {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
     width: 100%;
     margin: msrem(10) 0;
+  }
+  
+  &-title {
+    font: $ff-freight-semibold msrem(17) $ff-serif;    
+    
+    &::after {
+      content: '';
+      display: block;
+      width: auto;
+      height: 22px;
+      margin-bottom: msrem(3);
+      background: url('/img/books/waves-pattern-white.svg') repeat-x top left / 22px auto;
+    }
+  }
+
+  &-subtitle {
+    display: block;
+    width: 100%;
+    max-width: g(4);
+    font: msrem(2) $ff-serif;
   }
 }
 
@@ -22,8 +45,6 @@
   display: flex;
   flex-flow: row wrap;
   width: 100%;
-  padding: msrem(5);
-  margin: 0 auto;
 }
 
 .book {

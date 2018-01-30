@@ -10,7 +10,7 @@ module.exports = (args) => ({
   scripts: injectScripts(['views/books/books.js']),
   title: 'Books',
   
-  subtitle: 'A hand picked selection of books that I recommend',
+  subtitle: 'We should all do more reading, but it can be hard to find what to read next. Here’s a selection of books that I recommend to people all the time.',
   
   // Books information
   coversUrl: 'http://a.nosaj.io/books',
