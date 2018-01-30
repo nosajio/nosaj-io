@@ -72,7 +72,7 @@ $clr-blog-text: $clr-black;
   @extend %readable;
   margin-bottom: msrem(6);
   
-  @media #{mq(m)} { margin-bottom: msrem(9); }
+  @media #{mq(m)} { margin-bottom: msrem(9); } 
   
   h1 { font-size: msrem(5); font-weight: $ff-body-semibold; }
 }
@@ -193,7 +193,7 @@ $clr-blog-text: $clr-black;
   // Drop caps
   p.first-child.drop-cap { font-weight: $ff-body-medium; }
   p.first-child.drop-cap::first-letter {
-    display: inline-block;
+    display: block;
     padding: 0 10px 0 0;
     float: left;
     font-weight: $ff-body-bold;
@@ -254,7 +254,8 @@ $clr-blog-text: $clr-black;
   blockquote {
     width: 100%;
     max-width: $blog-quotes-width;
-    margin: msrem(6) auto;
+    margin: msrem(8) auto;
+    padding: 0 msrem(5);
     font-style: oblique;
     
     p { font-size: 1rem; }
@@ -269,7 +270,8 @@ $clr-blog-text: $clr-black;
     cite a:hover { color: $clr-blue; }
     
     @media #{mq(m)} {
-      margin: msrem(9) auto;
+      margin: msrem(11) auto;
+      padding: 0;
     }
   }
 
@@ -285,7 +287,10 @@ $clr-blog-text: $clr-black;
   
   // Images, embeds, packages, and boxes
   .image, .video, .embed, 
-  .package, .emphasis, .box { @extend %media; margin-bottom: msrem(9);
+  .package, .emphasis, .box { 
+    @extend %media;
+    margin-bottom: msrem(9);
+    margin-top: msrem(9);
   }
   
   p + .image, p + .video, p + .embed, 
