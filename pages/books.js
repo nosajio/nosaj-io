@@ -15,7 +15,9 @@ module.exports = (args) => ({
   // Books information
   coversUrl: 'http://a.nosaj.io/books',
   bookCategories: {
-    startups: ['hackers-and-painters', '8020']
+    "Making": ['hackers-and-painters'],
+    "Design": [],
+    "Startups": ['8020']
   },
 
   // Use the categories list to construct the full books object. Its done this way so that books aren't tied in to

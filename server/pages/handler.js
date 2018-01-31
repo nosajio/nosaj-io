@@ -67,7 +67,6 @@ function pageHandler(req, res, { _page }) {
     const props = Object.keys(page);
     const resolvedContent = {};
     let resolvedCount = 0;
-    const promisesCount = props.filter(k => isPromise(page[k])).length;
     return new Promise(resolve => {
       // First deal with ordinary content, then deal with promises to avoid race conditions
       props.forEach(k => {
@@ -80,15 +79,21 @@ function pageHandler(req, res, { _page }) {
           }
         }
       });
+
+      // Create a new temporary page object so that promises returned by pure functions are resolved
+      const pageSecondPass = Object.assign({}, page, resolvedContent);
+      
       // If there are no unresolved promises, resolve here
+      const promisesCount = props.filter(k => isPromise(pageSecondPass[k])).length;      
       if (! promisesCount) {
         return resolve(resolvedContent);
       }
+
       // Finally handle dynamic content, and don't resolve until everything has been handled
       props.forEach(k => {
-        if (isPromise(page[k])) {
+        if (isPromise(pageSecondPass[k])) {
           // Pass route params to the page on instantiation
-          page[k].then(content => {
+          pageSecondPass[k].then(content => {
             resolvedContent[k] = content;
             resolvedCount ++;
             // Only resolve once all dynamic content has been resolved
