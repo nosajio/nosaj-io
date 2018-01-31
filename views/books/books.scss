@@ -1,6 +1,7 @@
 @import 'globals';
 @import 'colors';
 
+//  Overrides
 .main-frame {
   display: flex;
   flex-flow: column nowrap;
@@ -41,20 +42,44 @@
 }
 
 
+//  List of books
 .books-list {
   display: flex;
   flex-flow: row wrap;
-  width: 100%;
 }
 
+
+//  Books sections
+.books-section {
+  width: 100%;
+
+  &-info {
+    width: 100%;
+    
+    @include media(m) {
+      max-width: g(4);
+    }
+  }
+
+  &-library {
+    width: 100%;
+    
+    @include media(m) {
+      max-width: g(2);
+    }
+  }
+}
+
+
+//  Individual book
 .book {
   
   @include media(m) {
-    width: 50%;
+    width: g(3);
   }
   
   @include media(l) {
-    width: 33%;
+    width: g(2);
   }
   
   &-cover {
