@@ -1,6 +1,8 @@
 @import 'globals';
 @import 'colors';
 
+$clr-books-bg: #676770;
+
 //  Overrides
 .main-frame {
   display: flex;
@@ -9,7 +11,7 @@
 }
 
 .books-view {
-  background: $clr-black;
+  background: $clr-books-bg;
   color: white;
 
   &-head {
@@ -17,20 +19,21 @@
     flex-flow: column nowrap;
     align-items: flex-start;
     width: 100%;
-    margin: msrem(10) 0;
+    margin: msrem(10) 0 msrem(18);
+
+    // &::after {
+    //   content: '';
+    //   display: block;
+    //   width: 100%;
+    //   height: 22px;
+    //   margin-top: msrem(3);
+    //   background: url('/img/books/waves-pattern-white.svg') repeat-x top left / 22px auto;
+    // }
   }
   
   &-title {
-    font: $ff-freight-semibold msrem(17) $ff-serif;    
-    
-    &::after {
-      content: '';
-      display: block;
-      width: auto;
-      height: 22px;
-      margin-bottom: msrem(3);
-      background: url('/img/books/waves-pattern-white.svg') repeat-x top left / 22px auto;
-    }
+    font: msrem(16) $ff-serif;    
+    font-weight: $ff-freight-semibold;
   }
 
   &-subtitle {
@@ -44,46 +47,35 @@
 
 //  List of books
 .books-list {
-  display: flex;
-  flex-flow: row wrap;
-}
-
-
-//  Books sections
-.books-section {
-  width: 100%;
-
-  &-info {
-    width: 100%;
-    
-    @include media(m) {
-      max-width: g(4);
-    }
+  display: block;
+  
+  @include media(m) {  
+    column-count: 2;
   }
 
-  &-library {
-    width: 100%;
-    
-    @include media(m) {
-      max-width: g(2);
-    }
+  @include media(l) {  
+    column-count: 3;
   }
+  
 }
 
 
 //  Individual book
 .book {
+  width: g(2);
+  margin-bottom: msrem(8);
   
   @include media(m) {
-    width: g(3);
   }
   
   @include media(l) {
-    width: g(2);
+    // width: g(2);
   }
+  
   
   &-cover {
     width: 100%;
+    box-shadow: 0 5px 12px 0 rgba(66,66,73,0.38);
   }
   
   &-cover img {
