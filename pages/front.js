@@ -12,7 +12,7 @@ module.exports = (args) => ({
   title: '👋 Hello',
   introText: 'Hello, I\'m Jason. I help founders and startups build great web products.',
   // Month number for when I'm available from
-  available: 2, 
+  available: 1, 
   availableText: ({ available }) => `I'm available from ${monthName(available-1)} ${new Date().getFullYear()}`,
   // Load in the posts and parse with the blog helpers
   posts: new Promise((resolve) => {
