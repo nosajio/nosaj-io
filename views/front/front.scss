@@ -7,9 +7,6 @@
 @import 'button';
 @import 'keyframes';
 
-$clr-landing-border: $clr-black;
-$front-border-l: msrem(-9);
-
 .nav-heading {
   padding: 0;
   // @include media(m) {
@@ -35,12 +32,7 @@ a {
 }
 
 .front-view {
-  background: $clr-landing-border;
   color: $clr-black;
-  
-  @include media(m) {
-    padding: $front-border-l;
-  }
 }
 
 .front-section {
@@ -91,24 +83,11 @@ a {
   &-opener {
     position: relative;
     padding-bottom: msrem(13);
-    
-    // The black divider as pseudo element
-    &::after {
-      content: '';
-      display: block;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      background: repeat-y url('/img/front-noise-divider.png') left / 131px 4px;
-      width: 100%;
-      max-width: g(1);
-      height: 4px;
-    }
   }
   
   &-title {
     font-size: msrem(4);
-    font-weight: $ff-body-normal;
+    font-weight: $ff-body-semibold;
   }
   
   &-secondary {
