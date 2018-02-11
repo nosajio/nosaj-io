@@ -12,14 +12,14 @@ module.exports = function dynamicRoutes(app) {
 
 
 function handleDynamicRoutes(pages, app) {
-  pages.forEach(p => {
-    if (! p.method || p.method === 'GET') {
-      app.get(p.path, (req, res) => pageHandler(req, res, p));
+  pages.forEach(page => {
+    if (! page.meta.method || page.meta.method === 'GET') {
+      app.get(page.meta.path, (req, res) => pageHandler(req, res, page));
     } else 
-    if (p.method === 'POST') {
-      app.post(p.path, (req, res) => p.handler(req, res, p));
+    if (page.method === 'POST') {
+      app.post(page.meta.path, (req, res) => page.handler(req, res, page));
     }
-    debug('register [%s] %s', p.method || 'GET', p.path)
+    debug('register [%s] %s', page.meta.method || 'GET', page.meta.path)
   });
   return pages;
 }

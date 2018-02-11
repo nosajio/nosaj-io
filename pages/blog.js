@@ -2,36 +2,36 @@ const debug = require('debug')('nosaj:content:blog');
 const { allPosts } = require('nosaj-md-parser');
 const injectScripts = require('../lib/injectScripts');
 
-module.exports = (args) => {
-  const defaultData = {
-    view: 'blog',
-    path: '/r/:slug',
-    stylesheet: 'views/blog/blog.scss',
-    scripts: injectScripts(['views/blog/blog.js']),
-    image: null,
-    title: '',
-    // The message to show after the post
-    message: 'To find out about more posts like this one, <a href="https://twitter.com/__nosaj" target="_blank">follow me on Twitter.</a>',
-  };
-  
-  // Return a stripped out version of the template before args are available
-  if (! args) {
-    return defaultData;
+module.exports = {
+    assets: {
+      scripts: injectScripts(['views/blog/blog.js']),      
+    },
+    meta: {
+      view: 'blog',
+      path: '/r/:slug',
+      stylesheet: 'views/blog/blog.scss',
+    },
+    render: (args) => {
+      const basicData = {
+        title: '',
+        image: null,
+        // The message to show after the post
+        message: 'To find out about more posts like this one, <a href="https://twitter.com/__nosaj" target="_blank">follow me on Twitter.</a>',
+      };
+
+      return new Promise((resolve, reject) => {
+        getPost(args.slug)
+          .then(post => {
+            const updatedData = {
+              post,
+              title: post.title,
+            };
+            const allContent = Object.assign({}, basicData, updatedData);
+            resolve(allContent);
+          })
+          .catch(err => reject(err));
+      });
   }
-  
-  // Async
-  return new Promise((resolve, reject) => {
-    getPost(args.slug)
-      .then(post => {
-        const updatedData = { 
-          post,
-          title: post.title,
-        };
-        const allContent = Object.assign({}, defaultData, updatedData);
-        resolve(allContent);
-      })
-      .catch(err => reject(err));
-  });
 }
 
 /**

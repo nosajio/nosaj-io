@@ -6,24 +6,23 @@ const packageJSON = require('../../package.json');
 
 module.exports = pageHandler;
 
-function pageHandler(req, res, { _page }) {
-  // 0. Store request params and querystring in args variable
+function pageHandler(req, res, { assets, meta, render }) {
   const args = Object.assign({}, req.params, req.query);
-  // Call the original page factory, this time with args
-  const pageWithArgs = _page(args);
-  if (isPromise(pageWithArgs)) {
-    pageWithArgs
-      .then(renderPage)
+  const rendered = render(args);
+  
+  if (isPromise(rendered)) {
+    rendered
+      .then(rp => renderPage(rp, meta, assets))
       .catch(err => renderError(res, err.status, err));
   } else {
-    renderPage(pageWithArgs);
+    renderPage(rendered, meta, assets);
   }
   
-  function renderPage(page) {
+  function renderPage(rendered, meta, assets) {
     // 1. Resolve any dynamic content in the page object
-    resolveDynamicContent(page)
+    resolveDynamicContent(rendered)
       // 2. Once resolved, finish processing request
-      .then(handleResolveContent)
+      .then(renderedFinal => handleResolveContent(renderedFinal, meta, assets))
       // 3. Handle errors
       .catch(err => renderError(res, '500', err));
   }
@@ -31,11 +30,13 @@ function pageHandler(req, res, { _page }) {
   /**
    * Handle Resolve Content
    * Promise handler that runs after all unresolved content has been resolved
-   * @param {Object} resolvedContent 
+   * @param {Object} renderedFinal 
    */
-  function handleResolveContent(resolvedContent) {
-    const { stylesheet, scripts, view, title, scssVariables } = resolvedContent;
-    renderStylesheet(stylesheet, scssVariables, view)
+  function handleResolveContent(renderedFinal, meta, assets) {
+    const { scripts } = assets;
+    const { stylesheet, view } = meta;
+    const { title } = renderedFinal;
+    renderStylesheet(stylesheet, view)
       .then(s => resolvePage(s))
       .catch(err => renderError(res, '500', err));
     
@@ -44,13 +45,13 @@ function pageHandler(req, res, { _page }) {
         head: { 
           stylesheet: styles, 
           title,
-          ogImage: extractOgImage(resolvedContent),
+          ogImage: extractOgImage(renderedFinal),
           ogUrl: requestUrl(req),
-          ogDescription: description(resolvedContent),
+          ogDescription: description(renderedFinal),
         }, 
         footer: { version: packageJSON.version, scripts } 
       };
-      const template = Object.assign({}, resolvedContent, headerFooter);
+      const template = Object.assign({}, renderedFinal, headerFooter);
       res.render(view, template);
     }
   }
@@ -60,51 +61,38 @@ function pageHandler(req, res, { _page }) {
   * Resolve Dynamic Content
   * This enables the use of properties that return promises in the page config files
   * 
-  * @param {Object} page - the page object loaded from pages dir
-  * @returns {Object} page - same object with resolved content
+  * @param {Object} render - the render object loaded from renders dir
+  * @returns {Object} render - same object with resolved content
   */
-  function resolveDynamicContent(page) {
-    const props = Object.keys(page);
+  function resolveDynamicContent(render) {
+    const props = Object.keys(render);
     const resolvedContent = {};
-    let resolvedCount = 0;
+    const asyncProps = [];
     return new Promise(resolve => {
       // First deal with ordinary content, then deal with promises to avoid race conditions
       props.forEach(k => {
-        if (! isPromise(page[k])) {
+        if (! isPromise(render[k])) {
           // Pure function need to be ran at runtime
-          if (isPureFunction(page[k])) {
-            resolvedContent[k] = page[k](page);
+          if (isPureFunction(render[k])) {
+            resolvedContent[k] = render[k](render);
           } else {
-            resolvedContent[k] = page[k];
+            resolvedContent[k] = render[k];
           }
+        } else
+        if (isPromise(render[k])) {
+          asyncProps.push(new Promise(r => {
+            render[k].then(ap => r({ [k]: ap }));
+          }));
         }
       });
-
-      // Create a new temporary page object so that promises returned by pure functions are resolved
-      const pageSecondPass = Object.assign({}, page, resolvedContent);
-      
-      // If there are no unresolved promises, resolve here
-      const promisesCount = props.filter(k => isPromise(pageSecondPass[k])).length;      
-      if (! promisesCount) {
+      if (! asyncProps.length) {
         return resolve(resolvedContent);
       }
-
-      // Finally handle dynamic content, and don't resolve until everything has been handled
-      props.forEach(k => {
-        if (isPromise(pageSecondPass[k])) {
-          // Pass route params to the page on instantiation
-          pageSecondPass[k].then(content => {
-            resolvedContent[k] = content;
-            resolvedCount ++;
-            // Only resolve once all dynamic content has been resolved
-            if (resolvedCount === promisesCount) {
-              resolve(resolvedContent);
-            }
-          })
-          // Catch errors & return 500
-          .catch(err => renderError(res, '500', err));
-        }
-      });
+      Promise
+        .all(asyncProps)
+        .catch(err => renderError(res, '500', err))
+        .then(aps => resolve( Object.assign(resolvedContent, ...aps)) )
+        .catch (err => renderError(res, '500', err));
     });
   }
 }
