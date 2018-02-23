@@ -1,7 +1,7 @@
 {
   "name": "nosaj.io",
   "description": "Website of Nosaj",
-  "version": "5.1.0",
+  "version": "5.1.1",
   "main": "index.js",
   "repository": "https://github.com/nosajio/nosaj.io",
   "author": "Jason Howmans <jason@nosaj.io>",
