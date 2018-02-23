@@ -10,11 +10,17 @@
   align-items: stretch;
   width: 100%;
   max-width: $g-max-width;
-  margin: msrem(4) auto 0;
+  padding: 0 msrem(1);
+  margin-top: msrem(2);
+  
+  @include media(m) {
+    padding: 0;
+    margin: msrem(4) auto 0;
+  }
 }
 
 .nav-logo {
-  
+  margin-right: msrem(3);
 }
 
 .nav-links {
@@ -39,7 +45,11 @@
     background: none;
     font-weight: $ff-body-semibold;
     text-transform: uppercase;
-    font-size: msrem(-1);
+    font-size: msrem(-2);
+
+    @include media(m) {
+      font-size: msrem(-1);
+    }
   }
 
   a:hover {
