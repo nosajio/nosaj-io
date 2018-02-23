@@ -7,13 +7,6 @@
 @import 'button';
 @import 'keyframes';
 
-.nav-heading {
-  padding: 0;
-  // @include media(m) {
-  //   top: $front-border-l;
-  //   left: $front-border-l;
-  // }
-}
 
 a {
   display: inline;
@@ -63,7 +56,6 @@ a {
   flex-flow: column nowrap;
   align-items: center;
   background: white;
-  padding: msrem(3);
 }
 
 

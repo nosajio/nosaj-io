@@ -3,197 +3,46 @@
 @import 'fonts';
 @import 'colors';
 
-$clr-nav-bg: $clr-black;
-$clr-nav-text: white;
-$clr-nav-links: white;
-
-@keyframes nav-bg-enter {
-  from {
-    opacity: 0;
-  }
-}
-
-@keyframes nav-primary-enter {
-  from {
-    opacity: 0;
-    transform: translateY(-10vh);
-  }
-}
-
-@keyframes nav-secondary-enter {
-  from {
-    transform: translateY(-5vh);
-    opacity: 0;
-  }
-}
-
-
-// Lock scroll of body when nav is active
-body.nav-active {
-  overflow: hidden;
-}
-
 .nav-heading {
-  position: relative;
-  width: 100%;
-  z-index: 1000;
-  padding: msrem(2) msrem(2) 0;
   display: flex;
-  align-items: center;
+  flex-flow: row nowrap;
   justify-content: space-between;
-  
-  @include media(l) {
-    position: sticky;
-  }
-}
-
-.nav-toggle {
-  transition: all 300ms;
-  cursor: pointer;
-}
-
-.toggle-lines {
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  width: msrem(4);
-}
-
-.toggle-line {
-  width: 70%;
-  height: 2px;
-  margin-top: 8px;
-  background: $clr-black;
-  transition: all $easeOutCubic 200ms;
-  
-  // Light color scheme for dark backgrounds
-  .lod & {
-    background: white;
-  }
-  
-  @include media(m) {
-    height: 3px;
-  }
-  
-  &:first-child { margin-top: 0; }
-}
-
-.nav-toggle:hover {
-  .toggle-line { width: 80%; }
-  .toggle-text { opacity: 1; } 
-}
-
-// Hanburger toggle active state
-.nav-heading--active {
-  .toggle-line { width: 10%; background: $clr-nav-text; }   
-  .toggle-text { opacity: 1; color: $clr-nav-text; }
-  .nav-logo svg path { fill: $clr-nav-text; }
-}
-
-.toggle-text {
-  text-align: center;
-  font-size: msrem(-4);
-  font-weight: $ff-body-medium;
-  text-transform: uppercase;
-  margin-top: msrem(-4); 
-  opacity: .7;
-  transition: all 300ms;
-  
-  // Light on dark variation
-  .lod & {
-    color: white;
-  }
-}
-
-// 
-// Menu that shows when nav toggle is pressed
-// 
-
-.nav-menu {
-  display: none;
-  position: fixed;
-  top: 0; left: 0;
-  z-index: 900;
-  width: 100vw;
-  height: 100vh;
-  padding: msrem(1);
-  flex-flow: column nowrap;
-  justify-content: center;
-  background: $clr-nav-bg;
-  color: $clr-nav-text;
-  animation: $easeOutCubic nav-bg-enter 400ms;
-  
-  @include media(m) {
-    padding: 0;
-    align-items: center;
-  }
-  
-  &--active {
-    display: flex;
-  }
-}
-
-.nav-menu-links,
-.nav-menu-secondary {
+  align-items: stretch;
   width: 100%;
+  max-width: $g-max-width;
+  margin: msrem(4) auto 0;
+}
+
+.nav-logo {
   
-  @include media(m) {
-    padding: 0;
-    max-width: g(3);
-  }
+}
+
+.nav-links {
+  // align-self: stretch;
 }
 
 .nav-menu-links {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  width: 100%;
+  max-width: g(2);
   
+  * { display: flex; }
 }
 
 .nav-menu-link {
-  display: block;
-  font-size: msrem(3);
-  
-  @include media(m) {
-    font-size: msrem(5);
-  }
-  
-  // Make the enter animation work
-  @for $i from 0 through 5 {
-    &:nth-child(1n+#{$i}) {
-      animation: $easeOutCubic nav-primary-enter 200ms #{100 + ($i * 30)}ms both;
-    }
-  }
-  
-  & + .nav-menu-link { margin-top: #{ms(2)}em; }
-  
+  align-items: stretch;
+
   a {
-    color: $clr-nav-links;
+    align-items: center;
+    background: none;
+    font-weight: $ff-body-semibold;
+    text-transform: uppercase;
+    font-size: msrem(-1);
   }
-  a, a:hover { background: none; }
-}
 
-.nav-menu-secondary {
-  margin-top: msrem(8);
-  font: msrem(-2) $ff-mono;
-  animation: $easeOutCubic nav-secondary-enter 500ms;
-}
-
-.nav-secondary-item {
-  display: block;
-  width: 100%;
-  
-  & + .nav-secondary-item {
-    margin-top: msrem(3);
-  }
-  
-  a {  
-    @include underline($base: lighten($clr-nav-bg, 40%), $spacing: 1);
-    color: lighten($clr-nav-bg, 40%); 
-    &:hover { color: white; }
+  a:hover {
+    background: none;
   }
 }
-
-.social-link:not(:first-child)::before {
-    content: '/';
-    display: inline-block;
-    margin: 0 #{ms(2)/2}rem;
-    color: lighten($clr-nav-bg, 40%);
-  }

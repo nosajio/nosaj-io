@@ -45,6 +45,9 @@ $clr-blog-text: $clr-black;
 }
 
 .blog-view {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
   background: $clr-blog-bg;
   
   // Make the logo use the text color
